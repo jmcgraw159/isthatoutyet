@@ -1,12 +1,12 @@
 body  {
-  background: url(../img/grey-bg.jpg);
+  background: url(../imgages/grey-bg.jpg);
   color: #f0f0f0;
   font-family: 'HelveticaNeue', 'Arial', sans-serif;
   font-size: 18px;
 }
 
 #landing, #detail, #subscribe, #unsubscribe  {
-  background: url(../img/orange-bg.jpg);
+  background: url(../imgages/orange-bg.jpg);
 }
 
 #landing  {
@@ -85,7 +85,7 @@ body  {
 }
 
 #upcoming  {
-  background: url(../img/grey-bg.jpg);
+  background: url(../imgages/grey-bg.jpg);
   text-align: center;
   width: 920px;
   margin: 150px auto 0;
@@ -248,7 +248,7 @@ body  {
 .email-signup select  {
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: url(../img/arrow-down.png) no-repeat 95% center #e17f49;
+  background: url(../imgages/arrow-down.png) no-repeat 95% center #e17f49;
   border: none;
   width: 120px;
   margin-top: 10px;
