@@ -1,79 +1,333 @@
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+body  {
+  background: url(../img/grey-bg.jpg);
+  color: #f0f0f0;
+  font-family: 'HelveticaNeue', 'Arial', sans-serif;
+  font-size: 18px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+#landing, #detail, #subscribe, #unsubscribe  {
+  background: url(../img/orange-bg.jpg);
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+#landing  {
+  height: 500px;
+  position: relative;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
+#landing h1, #detail h1, #subscribe h1, #unsubscribe h1  {
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+  text-transform: lowercase;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+#landing h1  {
+  margin: 100px auto 0;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
+#landing span, #detail span, #subscribe h1, #unsubscribe h1  {
+  text-shadow: 0 4px 0 #bd4a25;
+  font-size: 72px;
+}
+
+#landing #arrow-up  {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 185px;
+  left: 19%;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #303030;
+}
+
+#landing #tooltip  {
+  background-color: #303030;
+  font-size: 18px;
+  text-shadow: none;
+  width: 400px;
+  overflow: hidden;
+  padding-left: 10px;
+  line-height: 40px;
+  border-radius: 5px;
+  position: absolute;
+  top: 192px;
+  left: 18%;
+}
+
+#landing input, #detail input {
+  margin: auto 20px;
+  line-height: 60px;
+  width: 50%;
+  border-radius: 10px;
+  border: 4px solid #bd4a25;
+  color: #303030;
+  padding-left: 10px;
+}
+
+#landing input:active,
+#landing input:focus,
+#detail input:active,
+#detail input:focus,
+.email-signup select:active,
+.email-signup select:focus,
+.email-signup button:active,
+.email-signup button:focus  {
+  box-shadow: 0;
+  outline: 0;
+}
+
+#upcoming h2,
+#features h3,
+#detail h3,
+#detail h4,
+#subscribe h3,
+#unsubscribe h3  {
+  color: #e17f49;
+}
+
+#upcoming  {
+  background: url(../img/grey-bg.jpg);
+  text-align: center;
+  width: 920px;
+  margin: 150px auto 0;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+  position: relative;
+}
+
+#upcoming h2  {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+#arrow-left, #arrow-right  {
+  position: absolute;
+  top: 80px;
+  cursor: pointer;
+}
+
+#arrow-left  {
+  left: 15px;
+}
+
+#arrow-right  {
+  right: 15px;
+}
+
+#upcoming img  {
+  margin: auto 10px 30px;
+}
+
+#features  {
+  margin: 30px auto;
+}
+
+.feature-detail  {
+  margin-top: 35px;
+}
+
+#features h3, .email-signup h4, #subscribe h3  {
+  margin-bottom: 5px;
+  font-family: 'HelveticaNeue-Medium', 'Arial Bold', sans-serif;
+}
+
+#features p  {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+#detail, #subscribe, #unsubscribe  {
+  height: 130px;
+}
+
+.game-detail, .email-signup  {
+  background-color: #282828;
+  border: 1px solid #232323;
+  font-size: 18px;
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1);
+  margin: 0 auto;
+}
+
+.game-detail  {
+  margin-top: 25px;
+}
+
+.game-detail img  {
+  margin: 20px auto 0;
+  display: block;
+}
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?62162923');
+  src: url('../font/fontello.eot?62162923#iefix') format('embedded-opentype'),
+       url('../font/fontello.svg?62162923#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'fontello';
+  src: url('data:application/octet-stream;base64,d09GRgABAAAAAAVEAAoAAAAAB6QAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABPUy8yAAAA9AAAAEQAAABWPjhJSmNtYXAAAAE4AAAAOgAAAUrQExm3Z2x5ZgAAAXQAAAGNAAABpH0TcnZoZWFkAAADBAAAADMAAAA2AaOyr2hoZWEAAAM4AAAAIAAAACQHhQNBaG10eAAAA1gAAAAQAAAAEA7EAABsb2NhAAADaAAAAAoAAAAKASIAmm1heHAAAAN0AAAAHgAAACABEgA7bmFtZQAAA5QAAAF3AAACzcydGhxwb3N0AAAFDAAAADUAAABGc3gkT3icY2Bk3sg4gYGVgYOpimkPAwNDD4RmfMBgyMjEwMDEwMrMgBUEpLmmMDi8YHjBxBz0P4shijmKYRlQmBEkBwD7/wwAeJxjYGBgZoBgGQZGBhBwAfIYwXwWBg0gzQakGRmYGBheMP3/D1LwggFESzBC1QMBIxvDiAcAZgEGsAAAeJwlkDFr20AUx9/TmbMRhyufY1koh3I+GckVRghZPgclNCGYkA/QIWTq0KGUDp0yZSr5AJlKKSF4DB1Chg6llI6dS+jn6NAhZIhPvdIfPHj8ecPv/8BpTHNCfpETEJADoE/bQ/8J0jbSlCR6gXoHyy3UabLQRKdtGqs02cOk3cVhhOR2fPyce27BAlNk/h2jHH+G4iri4lq7Qt5NqOy0uMtEUEwF2+AH5Nnrr/uBCK8iz3yJFBY8Y3jEw8m7S8E6xpOF1+KR21WKH4iQAWkemwvykUyhA314ag01cGiBA0NFB9SflXpekVIvUmu2hzpWtoCelbYC/viOHjX35tz8psj+ZLmjZJJ/jt5UvAi6bhYW0em2V/mMjUOSOebh/6WLZ8jfF6GQU1mvb6oqGCerF3UeKvXhFVhaAM0lOScShrAJWxBbq9If9DZoPFLJvFfZnw1m85Gdfm/U6w9iu8dzIrO6ztbLye7uJF+hWk3Xy9Wh0zl0vtn4+l/sHGf1S8t6iRfmLZGfLPAXhQxaNQAAAHicY2BkYGAA4lt5r8/F89t8ZeBmfgEUYTgfZd4No///+R/FfIU5CsjlYGACiQIAjpIOAQB4nGNgZGBgDvqfxRDF/IKB4f8r5msMQBEUwAIAjjwFzAPoAAADwAAAA5gAAAOEAAAAAAAAAFAAmgDSAAB4nGNgZGBgYGHQB2IQYAJiLiBkYPgP5jMAAA2pAU4AAHicdZDLasJAFIb/8dKLQlta6LazKkppvGA3giBYdNNupLgtMcYkEjMyGQVfo+/Qh+lL9Fn6m4ylKE2YzHe+OXPmZABc4xsC+fPEkbPAGaOcCzhFz3KR/tlyifxiuYwq3iyf0L9bruABgeUqbvDBCqJ0zmiBT8sCV+LScgEX4s5ykf7Rconcs1zGrXi1fELvWa5gIlLLVdyLr4FabXUUhEbWBnXZbrY6crqViipK3Fi6axMqncq+nKvE+HGsHE8t9zz2g3Xs6n24nye+TiOVyJbT3KuRn/jaNf5sVz3dBG1j5nKu1VIObYZcabXwPeOExqy6jcbf8zCAwgpbaES8qhAGEjXaOuc2mmihQ5oyQzIzz4qQwEVM42LNHWG2kjLuc8wZJbQ+M2KyA4/f5ZEfkwLuj1lFH60exhPS7owo85J9OezuMGtESrJMN7Oz395TbHham9Zw165LnXUlMTyoIXkfu7UFjUfvZLdiaLto8P3n/34A3V+ESwB4nGNgYoAALgbsgIWBgZGJkZmRhbkkMZ0nMy8tXzc5syg5JzWFIzkxJzUvJbGIgQEAjc8JWQAAAA==') format('woff'),
+       url('data:application/octet-stream;base64,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') format('truetype');
+}
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  color: #e17f49;
+  float: left;
+  padding-right: 20px;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  font-size: 16px;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  margin-top: 5px;
+}
+
+.icon-info-circled:before {
+  content: '\e801';
+}
+
+.icon-tag:before {
+  content: '\e800';
+}
+
+.icon-calendar:before {
+  content: '\e802';
+}
+
+.icon-mail:before {
+  content: '\e803';
+  color: #f0f0f0;
+  font-size: 20px;
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  bottom: 0;
+}
+
+.platforms  {
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  padding-left: 0;
+  font-size: 14px;
+}
+
+.platforms li  {
+  float: left;
+  line-height: 30px;
+  width: 100px;
+  margin-right: 10px;
+  background-color: #232323;
+}
+
+.email-signup {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.email-signup h4  {
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.email-signup p  {
+  margin: 0 auto 10px;
+}
+
+.email-signup select  {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(../img/arrow-down.png) no-repeat 95% center #e17f49;
+  border: none;
+  width: 120px;
+  margin-top: 10px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.email-signup button  {
+  background-color: #e17f49;
+  border: none;
+  border-radius: 5px;
+  text-shadow:  0 2px 0 #c3532c;
+  box-shadow: 0 4px 0 #9c573b;
+  width: 150px;
+  line-height: 40px;
+  margin-bottom: 30px;
+  margin-right: 275px;
+  position: relative;
+  padding-left: 25px;
+  font-size: 20px;
+  float: right;
+}
+
+#subscribe, #unsubscribe  {
+  text-align: center;
+}
+
+#subscribe img, #unsubscribe img  {
+  display: block;
+  margin: 50px auto 0;
+}
+
+#subscribe p, #unsubscribe p  {
+  width: 80%;
+  margin: 0 auto;
+}
+
+footer  {
+  text-align: center;
+  margin: 40px auto 20px;
+}
+
+footer a  {
+  color: #e17f49;
+}
+
+footer small  {
+  display: block;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?62162923#fontello') format('svg');
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  #landing #arrow-up  {
+    top: 85px;
+    left: 108px;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+
+  #landing #tooltip  {
+    top: 92px;
+    left: 90px;
+  }
+
+  #upcoming  {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #landing  {
+    height: 300px;
+  }
+
+  #landing span, #detail span  {
+  font-size: 64px;
   }
 }
