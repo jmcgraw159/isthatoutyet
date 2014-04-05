@@ -330,7 +330,7 @@ footer small  {
 
   #landing #tooltip  {
     top: 190px;
-    left: 15%;
+    left: 13%;
   }
 
   #upcoming  {
@@ -345,22 +345,45 @@ footer small  {
 
   #landing #arrow-up  {
     top: 77px;
-    left: 18%;
   }
 
   #landing #tooltip  {
     top: 85px;
-    left: 15%;
   }
 
+  #features img  {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: 767px) {
   #landing  {
-    height: 300px;
+    height: 260px;
+  }
+
+  #landing h1  {
+    margin: 60px auto 20px;
   }
 
   #landing span, #detail span  {
-  font-size: 64px;
+  font-size: 48px;
+  }
+
+  #landing input  {
+    width: 100%;
+    margin: 0;
+  }
+
+  #features  {
+    margin-top: 100px;
+  }
+
+  #features h3  {
+    text-align: center;
+  }
+
+  footer  {
+    font-size: 14px;
   }
 }
