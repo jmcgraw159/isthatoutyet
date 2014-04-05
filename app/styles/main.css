@@ -324,18 +324,35 @@ footer small  {
 
 @media screen and (max-width: 992px) {
   #landing #arrow-up  {
-    top: 85px;
-    left: 108px;
+    top: 184px;
+    left: 18%;
   }
 
   #landing #tooltip  {
-    top: 92px;
-    left: 90px;
+    top: 190px;
+    left: 15%;
   }
 
   #upcoming  {
     width: 100%;
   }
+}
+
+@media screen and (max-width: 991px) {
+  #landing span  {
+    font-size: 64px;
+  }
+
+  #landing #arrow-up  {
+    top: 77px;
+    left: 18%;
+  }
+
+  #landing #tooltip  {
+    top: 85px;
+    left: 15%;
+  }
+
 }
 
 @media screen and (max-width: 767px) {
