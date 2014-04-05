@@ -106,11 +106,11 @@ body  {
 }
 
 #arrow-left  {
-  left: 15px;
+  left: 30px;
 }
 
 #arrow-right  {
-  right: 15px;
+  right: 30px;
 }
 
 #upcoming img  {
@@ -336,6 +336,15 @@ footer small  {
   #upcoming  {
     width: 100%;
   }
+
+  #arrow-left  {
+  left: 15px;
+  }
+
+  #arrow-right  {
+    right: 15px;
+  }
+
 }
 
 @media screen and (max-width: 991px) {
@@ -362,8 +371,16 @@ footer small  {
     height: 260px;
   }
 
-  #landing h1  {
-    margin: 60px auto 20px;
+  .hideItem  {
+    visibility: hidden;
+  }
+
+  #landing h1:nth-child(1) {
+    margin-top: 60px;
+  }
+
+  #landing h1:nth-child(2)  {
+    margin-top: -20px;
   }
 
   #landing span, #detail span  {
@@ -376,7 +393,7 @@ footer small  {
   }
 
   #features  {
-    margin-top: 100px;
+    margin-top: 20px;
   }
 
   #features h3  {
@@ -384,6 +401,27 @@ footer small  {
   }
 
   footer  {
+    width: 95%;
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 374px)  {
+   #landing h1:nth-child(1) {
+    margin-top: 60px;
+  }
+
+  #landing span, #detail span  {
+    font-size: 42px;
+  }
+
+  #features  {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 332px)  {
+  #landing h1:nth-child(1) {
+    margin-top: 30px;
   }
 }
