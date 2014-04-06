@@ -344,11 +344,10 @@ footer small  {
   #arrow-right  {
     right: 15px;
   }
-
 }
 
 @media screen and (max-width: 991px) {
-  #landing span  {
+  #landing span, #detail span  {
     font-size: 64px;
   }
 
@@ -383,11 +382,11 @@ footer small  {
     margin-top: -20px;
   }
 
-  #landing span, #detail span  {
+  #landing span, #detail span, #subscribe h1, #unsubscribe h1  {
   font-size: 48px;
   }
 
-  #landing input  {
+  #landing input, #detail input  {
     width: 100%;
     margin: 0;
   }
@@ -400,6 +399,14 @@ footer small  {
     text-align: center;
   }
 
+  #detail  {
+  	height: 200px;
+  }
+
+  #detail h1:nth-child(2) {
+  	margin-top: -30px;
+  }
+
   footer  {
     width: 95%;
     font-size: 14px;
@@ -407,7 +414,7 @@ footer small  {
 }
 
 @media screen and (max-width: 374px)  {
-   #landing h1:nth-child(1) {
+   #landing h1:nth-child(1), #detail h1:nth-child(1) {
     margin-top: 60px;
   }
 
@@ -421,7 +428,7 @@ footer small  {
 }
 
 @media screen and (max-width: 332px)  {
-  #landing h1:nth-child(1) {
+  #landing h1:nth-child(1), #detail h1:nth-child(1) {
     margin-top: 30px;
   }
 }
