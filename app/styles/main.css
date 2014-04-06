@@ -228,6 +228,7 @@ body  {
   line-height: 30px;
   width: 100px;
   margin-right: 10px;
+  margin-bottom: 5px;
   background-color: #232323;
 }
 
@@ -322,6 +323,13 @@ footer small  {
   }
 }
 
+@media screen and (max-width: 1199px) {
+	.email-signup button  {
+	  margin-right: 230px;
+	}
+}
+
+
 @media screen and (max-width: 992px) {
   #landing #arrow-up  {
     top: 184px;
@@ -363,6 +371,11 @@ footer small  {
     display: block;
     margin: 0 auto;
   }
+
+  .email-signup button  {
+  	margin-top: 10px;
+	  margin-right: 180px;
+	}
 }
 
 @media screen and (max-width: 767px) {
@@ -404,8 +417,22 @@ footer small  {
   }
 
   #detail h1:nth-child(2) {
-  	margin-top: -30px;
+  	margin: -30px auto 0;
   }
+
+  .game-detail  {
+  	margin-top: 0px;
+  }
+
+  .game-detail h3  {
+  	text-align: center;
+  }
+
+  .email-signup button  {
+	  width: 150px;
+	  margin: 10px auto 20px;
+	  float: none;
+	}
 
   footer  {
     width: 95%;
@@ -413,8 +440,16 @@ footer small  {
   }
 }
 
+@media screen and (max-width: 404px) {
+	.email-signup select  {
+	  width: 90%;
+	  margin: 5px auto;
+	  display: block;
+	}
+}
+
 @media screen and (max-width: 374px)  {
-   #landing h1:nth-child(1), #detail h1:nth-child(1) {
+   #landing h1:nth-child(1) {
     margin-top: 60px;
   }
 
@@ -425,10 +460,26 @@ footer small  {
   #features  {
     margin-top: 30px;
   }
+
+  .email-signup button  {
+  	width: 100%;
+  }
+
+  .icon-mail:before {
+	  left: 80px;
+	}
 }
 
 @media screen and (max-width: 332px)  {
-  #landing h1:nth-child(1), #detail h1:nth-child(1) {
+  #landing h1:nth-child(1) {
     margin-top: 30px;
   }
+
+  #detail  {
+  	height: 240px;
+  }
+
+  .icon-mail:before {
+	  left: 65px;
+	}
 }
