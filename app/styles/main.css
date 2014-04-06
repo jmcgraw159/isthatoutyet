@@ -279,6 +279,15 @@ body  {
   text-align: center;
 }
 
+#subscribe a, #unsubscribe a  {
+  color: #f0f0f0;
+}
+
+#subscribe a:hover, #unsubscribe a:hover {
+  text-decoration: none;
+  color: #f0f0f0;
+}
+
 #subscribe img, #unsubscribe img  {
   display: block;
   margin: 50px auto 0;
