@@ -38,15 +38,16 @@ var App = angular.module('isThatOutYetApp');
   $scope.selected = undefined;
   // Any function returning a promise object can be used to load values asynchronously
   $scope.getGame = function(val) {
-    return $http.jsonp('http://www.giantbomb.com/api/search/?api_key=cdb456f4a15c4052a419f97b568218a2b50634c9&format=json&callback=json_callback&resources=game', {
+    return $http.jsonp('http://www.giantbomb.com/api/search/?api_key=cdb456f4a15c4052a419f97b568218a2b50634c9&format=jsonp&json_callback=TypeaheadCtrl&resources=game', {
       params: {
-        query: val,
+        query: val
       }
     }).then(function(res){
       var game = [];
       angular.forEach(res.data.results, function(item){
         game.push(item);
       });
+      console.log(res);
       return game;
     });
   };
