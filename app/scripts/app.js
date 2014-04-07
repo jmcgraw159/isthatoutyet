@@ -19,7 +19,7 @@ angular.module('isThatOutYetApp', [
       })
       .when('/unsubscribe', {
         templateUrl: 'views/unsubscribe.html',
-        controller: 'UnsunscribeCtrl'
+        controller: 'UnsubscribeCtrl'
       })
       .otherwise({
         redirectTo: '/'
