@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('isThatOutYetApp')
+var App = angular.module('isThatOutYetApp');
   App.controller('MainCtrl', function ($scope, $http) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -32,3 +32,22 @@ var App = angular.module('isThatOutYetApp')
     // };
 
   });
+
+  function TypeaheadCtrl($scope, $http) {
+
+  $scope.selected = undefined;
+  // Any function returning a promise object can be used to load values asynchronously
+  $scope.getGame = function(val) {
+    return $http.jsonp('http://www.giantbomb.com/api/search/?api_key=cdb456f4a15c4052a419f97b568218a2b50634c9&format=json&callback=json_callback&resources=game', {
+      params: {
+        query: val,
+      }
+    }).then(function(res){
+      var game = [];
+      angular.forEach(res.data.results, function(item){
+        game.push(item);
+      });
+      return game;
+    });
+  };
+}
