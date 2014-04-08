@@ -113,6 +113,12 @@ body  {
   right: 30px;
 }
 
+.game-cover  {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+
 #upcoming img  {
   margin: auto 10px 30px;
 }
