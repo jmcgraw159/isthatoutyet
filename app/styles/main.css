@@ -113,10 +113,22 @@ body  {
   right: 30px;
 }
 
+#upcoming ul  {
+  list-style: none;
+}
+
+#upcoming ul li  {
+  float: left;
+  margin-left: 10px;
+}
+
+#upcoming ul li:nth-child(1)  {
+  margin-left: 40px;
+}
+
 .game-cover  {
   width: 100px;
   height: 100px;
-  float: left;
 }
 
 #upcoming img  {
