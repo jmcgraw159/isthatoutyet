@@ -20,15 +20,19 @@ App.controller('MainCtrl', function ($scope, $http) {
 
 });
 
+
 // Function used to create a drop-down list of related items to what is typed in by the user
-function TypeaheadCtrl($scope, $http) {
+function TypeaheadCtrl($scope, $http, $window) {
   $scope.selected = undefined;
 
-  // Trying to update callback so it don't change the number
-  var callback = 'angular.callbacks._1';
+  // Trying to update callback so it doesn't change the number
+  // var callback = 'angular.callbacks._1';
+
+  // Angular Callback Counter
+  var c = $window.angular.callbacks.counter.toString(36);
 
   $scope.getGame = function(val) {
-    return $http.jsonp('http://www.giantbomb.com/api/search/?api_key=cdb456f4a15c4052a419f97b568218a2b50634c9&format=jsonp&callback=' + callback + '&json_callback=angular.callbacks._1&resources=game&limit=10', {
+    return $http.jsonp('http://www.giantbomb.com/api/search/?api_key=cdb456f4a15c4052a419f97b568218a2b50634c9&format=jsonp&callback=1&json_callback=angular.callbacks._&resources=game&limit=10', {
       params: {
         query: val
       }
