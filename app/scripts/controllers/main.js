@@ -55,8 +55,6 @@ function TypeaheadCtrl($scope, $http, $window, $routeParams, $location) {
 
   $scope.onSelect = function ($item, $routeParams) {
     $routeParams = $item.id;
-    console.log($routeParams);
-
     $location.path('/detail:' + $routeParams);
   };
 }

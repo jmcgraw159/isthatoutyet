@@ -12,7 +12,16 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
 	    }
     })
     .success(function(data){
-      console.log(data);
+    	console.log(data.results[0]);
+      $scope.details = data.results[0];
+
+      if(data.results[0].original_release_date == null) {
+      	$scope.date = results[0].expected_release_day + ' ' + results[0].expected_release_month + ' ' + results[0].expected_release_year
+      }else {
+      	$scope.date = data.results[0].original_release_date;
+      }
+
+
     })
     .error(function(data) {
       console.log(data);

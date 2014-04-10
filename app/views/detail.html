@@ -11,24 +11,22 @@
         <img src="http://placehold.it/150x150">
       </div>
       <div class="col-sm-8 col-md-10">
-         <h3 class="game-title">Dying Light</h3>
+         <h3 class="game-title">{{details.name}}</h3>
          <div class="icon-calendar"></div>
-        <div class="game-date">2014</div>
+        <div class="game-date">{{date}}</div>
         <div class="icon-info-circled"></div>
-        <p class="game-descr">Dying Light is a first-person, open world game set in a zombie apocalypse. The player character is able to free-run to get around the environment quickly.</p>
+        <p class="game-descr">{{details.deck}}</p>
         <div class="icon-tag"></div>
         <ul class="platforms">
-          <li>Xbox One</li>
-          <li>Playstation 4</li>
-          <li>Xbox 360</li>
-          <li>Playstation 3</li>
-          <li>PC</li>
+          <div ng-repeat="item in details.platforms">
+            <li>{{item.name}}</li>
+          </div>
         </ul>
       </div>
     </div>
     <div class="row email-signup">
       <div class="col-md-12">
-        <h4>Bad news, Dying Light is not out yet!</h4>
+        <h4>Bad news, {{details.name}} is not out yet!</h4>
         <p>Good news though! Enter you email address, choose a day, and we will notfiy you via email before the game comes out.</p>
         <form>
           <input type="email" name="email" placeholder="Enter email address" required>
