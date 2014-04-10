@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12" ng-controller="TypeaheadCtrl">
         <h1 class="visible-xs"><span>Is That Out Yet?</span></h1>
-        <h1><span class="hideItem">Is</span><input type="text" name="search" ng-model="asyncSelected" typeahead="game for game in getGame($viewValue) | filter:$viewValue" typeahead-loading="loadingLocations" typeahead-wait-ms="500"><span class="hideItem">Out Yet?</span></h1>
+        <h1><span class="hideItem">Is</span><input type="text" name="search" ng-model="asyncSelected" typeahead="game.name for game in getGame($viewValue) | filter:$viewValue" typeahead-loading="loadingLocations" typeahead-wait-ms="500" typeahead-on-select="onSelect($item)"><span class="hideItem">Out Yet?</span></h1>
         <div id="arrow-up" class="hidden-xs"></div>
         <div id="tooltip" class="hidden-xs">Curious to see if a game is out? Search here!</div>
       </div>

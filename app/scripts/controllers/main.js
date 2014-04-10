@@ -46,9 +46,15 @@ function TypeaheadCtrl($scope, $http, $window) {
       console.log($window.angular.callbacks.counter);
 
       angular.forEach(res.data.results, function(item){
-        game.push(item.name);
+        game.push({name: item.name, id: item.id});
       });
+
       return game;
     });
+  };
+
+  $scope.onSelect = function ($item) {
+    $scope.$item = $item;
+    console.log($scope.$item);
   };
 }
