@@ -32,21 +32,20 @@ App.controller('MainCtrl', function ($scope, $http) {
 function TypeaheadCtrl($scope, $http, $window) {
   $scope.selected = undefined;
 
-  // Angular Callback Counter
-  console.log($window.angular.callbacks.counter);
-
   $scope.getGame = function(val) {
     return $http.jsonp('http://www.giantbomb.com/api/search/?api_key=cdb456f4a15c4052a419f97b568218a2b50634c9&format=jsonp&resources=game&limit=10', {
       params: {
         callback: 'JSON_CALLBACK',
-        json_callback: 'angular.callbacks._' + $window.angular.callbacks.counter,
+        json_callback: 'angular.callbacks._' + $window.angular.callbacks.counter.toString(36),
         query: val
       }
     }).then(function(res){
       var game = [];
+
+      // Angular Callback Counter
       console.log($window.angular.callbacks.counter);
+
       angular.forEach(res.data.results, function(item){
-        console.log(item.name);
         game.push(item.name);
       });
       return game;
