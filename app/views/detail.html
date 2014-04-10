@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-md-12">
         <h1 class="visible-xs"><span>Is That Out Yet?</span></h1>
-        <h1><span class="hideItem">Is</span><input type="text" name="search"><span class="hideItem">Out Yet?</span></h1>
+        <h1><span class="hideItem">Is</span><input type="text" name="search" value="{{details.name}}"><span class="hideItem">Out Yet?</span></h1>
       </div>
     </div>
     <div class="row game-detail">
       <div class="col-sm-4 col-md-2">
-        <img src="http://placehold.it/150x150">
+        <img class="game-detail-cover" ng-src="{{details.image.small_url}}">
       </div>
       <div class="col-sm-8 col-md-10">
          <h3 class="game-title">{{details.name}}</h3>
