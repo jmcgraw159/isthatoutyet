@@ -10,15 +10,15 @@ angular.module('isThatOutYetApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/detail', {
+      .when('/detail:id', {
         templateUrl: 'views/detail.html',
         controller: 'DetailCtrl'
       })
-      .when('/subscribe', {
+      .when('/subscribe:id', {
         templateUrl: 'views/subscribe.html',
         controller: 'SubscribeCtrl'
       })
-      .when('/unsubscribe', {
+      .when('/unsubscribe:id', {
         templateUrl: 'views/unsubscribe.html',
         controller: 'UnsubscribeCtrl'
       })

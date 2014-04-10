@@ -29,7 +29,7 @@ App.controller('MainCtrl', function ($scope, $http) {
 });
 
 // Function used to create a drop-down list of related items to what is typed in by the user
-function TypeaheadCtrl($scope, $http, $window) {
+function TypeaheadCtrl($scope, $http, $window, $routeParams, $location) {
   $scope.selected = undefined;
 
   $scope.getGame = function(val) {
@@ -53,8 +53,10 @@ function TypeaheadCtrl($scope, $http, $window) {
     });
   };
 
-  $scope.onSelect = function ($item) {
-    $scope.$item = $item;
-    console.log($scope.$item);
+  $scope.onSelect = function ($item, $routeParams) {
+    $routeParams = $item.id;
+    console.log($routeParams);
+
+    $location.path('/detail:' + $routeParams);
   };
 }
