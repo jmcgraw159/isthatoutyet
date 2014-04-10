@@ -14,8 +14,10 @@
           <h2>Recent Releases</h2>
           <img id="arrow-left" src="images/arrow-left.png">
           <div id="upcoming-titles">
-            <ul ng-repeat="item in upcoming.results">
-              <li><img class="game-cover" src="{{item.image.small_url}}"></li>
+            <ul>
+              <div ng-repeat="item in upcoming.results">
+                <li><img class="game-cover" ng-src="{{item.image.small_url}}"></li>
+              </div>
             </ul>
           </div>
           <img id="arrow-right" src="images/arrow-right.png">
