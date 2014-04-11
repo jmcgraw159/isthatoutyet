@@ -15,8 +15,13 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
     	console.log(data.results[0]);
       $scope.details = data.results[0];
 
-      if(data.results[0].original_release_date == null) {
-      	$scope.date = results[0].expected_release_day + ' ' + results[0].expected_release_month + ' ' + results[0].expected_release_year
+      // Condition to check what date format should be shown
+      if(data.results[0].expected_release_day == null && data.results[0].expected_release_month != null && data.results[0].expected_release_year != null){
+      	$scope.date = data.results[0].expected_release_month + '/' + data.results[0].expected_release_year;
+      }else if(data.results[0].expected_release_day == null && data.results[0].expected_release_month == null && data.results[0].expected_release_year != null) {
+        $scope.date = data.results[0].expected_release_year;
+      }else if(data.results[0].expected_release_day != null && data.results[0].expected_release_month != null && data.results[0].expected_release_year != null) {
+      	$scope.date = data.results[0].expected_release_month + '/' + data.results[0].expected_release_day + '/' + data.results[0].expected_release_year
       }else {
       	$scope.date = data.results[0].original_release_date;
       }
