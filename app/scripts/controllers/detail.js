@@ -12,7 +12,6 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
 	    }
     })
     .success(function(data){
-    	console.log(data.results[0]);
       $scope.details = data.results[0];
 
       // Condition to check what date format should be shown
@@ -24,6 +23,14 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
       	$scope.date = data.results[0].expected_release_month + '/' + data.results[0].expected_release_day + '/' + data.results[0].expected_release_year
       }else {
       	$scope.date = data.results[0].original_release_date;
+      }
+
+      if(data.results[0].original_release_date === null) {
+        console.log('Game is not out!');
+        $scope.hideClass = 'show';
+      }else {
+        console.log('Game is out!');
+        $scope.hideClass = 'hide';
       }
 
 

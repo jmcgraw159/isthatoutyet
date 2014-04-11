@@ -43,7 +43,7 @@ function TypeaheadCtrl($scope, $http, $window, $routeParams, $location) {
       var game = [];
 
       // Angular Callback Counter
-      console.log($window.angular.callbacks.counter);
+      // console.log($window.angular.callbacks.counter);
 
       angular.forEach(res.data.results, function(item){
         game.push({name: item.name, id: item.id});
