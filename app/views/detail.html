@@ -13,7 +13,7 @@
       <div class="col-sm-8 col-md-9">
          <h3 class="game-title">{{details.name}}</h3>
          <div class="icon-calendar"></div>
-        <div class="game-date">{{date}}</div>
+        <div class="game-date">{{date | date:'shortDate'}}</div>
         <div class="icon-info-circled"></div>
         <p class="game-descr">{{details.deck}}</p>
         <div class="icon-tag"></div>

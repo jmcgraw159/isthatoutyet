@@ -22,7 +22,11 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
       }else if(data.results[0].expected_release_day != null && data.results[0].expected_release_month != null && data.results[0].expected_release_year != null) {
       	$scope.date = data.results[0].expected_release_month + '/' + data.results[0].expected_release_day + '/' + data.results[0].expected_release_year
       }else {
-      	$scope.date = data.results[0].original_release_date;
+
+        // parsedDate used to turn the date into a Timestamp, which will be formated into the desired format
+        $scope.parsedDate = Date.parse(data.results[0].original_release_date);
+
+      	$scope.date = $scope.parsedDate;
       }
 
       // Condition to check if email signup should be shown
