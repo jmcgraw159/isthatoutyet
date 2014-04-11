@@ -25,11 +25,10 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
       	$scope.date = data.results[0].original_release_date;
       }
 
+      // Condition to check if email signup should be shown
       if(data.results[0].original_release_date === null) {
-        console.log('Game is not out!');
         $scope.hideClass = 'show';
       }else {
-        console.log('Game is out!');
         $scope.hideClass = 'hide';
       }
 
