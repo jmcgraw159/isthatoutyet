@@ -32,7 +32,6 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
         $scope.hideClass = 'hide';
       }
 
-
     })
     .error(function(data) {
       console.log(data);
