@@ -75,6 +75,18 @@ body  {
   outline: 0;
 }
 
+.dropdown-menu  {
+  width: 48.5%;
+}
+
+.dropdown-menu li:nth-child(even) {
+  background-color: #e5e4e2;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus  {
+  background-color: #e17f49;
+}
+
 #upcoming h2,
 #features h3,
 #detail h3,
