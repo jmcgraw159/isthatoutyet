@@ -49,7 +49,7 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
 
 });
 
-function TypeaheadCtrl($scope, $http, $window, $routeParams, $location) {
+function TypeaheadCtrl2($scope, $http, $window, $routeParams, $location) {
   $scope.selected = undefined;
 
   $scope.getGame = function(val) {
@@ -63,7 +63,7 @@ function TypeaheadCtrl($scope, $http, $window, $routeParams, $location) {
       var game = [];
 
       angular.forEach(res.data.results, function(item){
-        game.push({name: item.name, id: item.id});
+        game.push({name: item.name, image: item.image, id: item.id});
       });
 
       return game;
