@@ -13,7 +13,7 @@
       <div class="col-sm-8 col-md-9">
          <h3 class="game-title">{{details.name}}</h3>
          <div class="icon-calendar"></div>
-        <div class="game-date">{{date | date:'shortDate'}}</div>
+        <div class="game-date">{{date}}</div>
         <div class="icon-info-circled"></div>
         <p class="game-descr">{{details.deck}}</p>
         <div class="icon-tag"></div>
@@ -27,7 +27,7 @@
     <div class="row email-signup {{hideClass}}">
       <div class="col-md-12">
         <h4>Bad news, {{details.name}} is not out yet!</h4>
-        <p>Good news though! Enter you email address, choose a day, and we will notfiy you via email before the game comes out.</p>
+        <p>Good news though! Enter you email address, choose a day, and we will notify you via email before the game comes out.</p>
         <form>
           <input type="email" name="email" placeholder="Enter email address" required>
           <p>I would like to be notified

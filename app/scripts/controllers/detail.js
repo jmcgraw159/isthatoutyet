@@ -30,10 +30,11 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
 
       }else {
 
-        // parsedDate used to turn the date into a Timestamp, which will be formated into the desired format
-        $scope.parsedDate = Date.parse(data.results[0].original_release_date);
+        // Formating released date to the correct format
+        var releasedDate = data.results[0].original_release_date;
+        var parsedDate = releasedDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
 
-      	$scope.date = $scope.parsedDate;
+      	$scope.date = parsedDate;
       }
 
       // Condition to check if email signup should be shown
