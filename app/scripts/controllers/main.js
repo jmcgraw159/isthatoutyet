@@ -36,3 +36,15 @@ App.controller('MainCtrl', function ($scope, $http, $window, $filter) {
       console.log(data);
     });
 });
+
+// If image fails to load, use fallback image
+App.directive('fallbackSrc', function () {
+  var fallbackSrc = {
+    link: function postLink(scope, iElement, iAttrs) {
+      iElement.bind('error', function() {
+        angular.element(this).attr("src", iAttrs.fallbackSrc);
+      });
+    }
+   }
+   return fallbackSrc;
+ });
