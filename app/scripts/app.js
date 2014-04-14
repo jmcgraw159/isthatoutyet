@@ -1,8 +1,10 @@
 'use strict';
 
+/*global Firebase */
 var App = angular.module('isThatOutYetApp', [
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'firebase'
 ]);
 
 App.config(function ($routeProvider) {
