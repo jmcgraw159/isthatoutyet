@@ -61,14 +61,25 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
 
 App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($scope, $firebase, $rootScope) {
 
-  // console.log($firebase);
+  // Function used to replace '.' with a ',' in email address since it is not allowed in a Firebase url
+  function escapeEmailAddress(email) {
+  if (!email) return false
+    email = email.toLowerCase();
+    email = email.replace(/\./g, ',');
+    return email;
+  }
 
+  // Set new location in Firebase
   $scope.email = $firebase(new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/'));
 
   $scope.addData = function()  {
-    console.log('Run');
+    console.log('Added to database');
 
-    $scope.email.$add({email: $scope.email.inputEmail, title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+    // Add the newly formated email address to the end of the Firebase url
+    var newEmail = $scope.email.$child(escapeEmailAddress($scope.email.inputEmail));
+
+    // Add information to database
+    newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
   }
 
 }])
