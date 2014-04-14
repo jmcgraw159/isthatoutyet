@@ -53,10 +53,14 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
 
 App.controller('EmailCtrl', ['$scope', '$firebase', function ($scope, $firebase) {
 
-  console.log($firebase);
+  // console.log($firebase);
 
-  // $scope.email = $firebase(new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/' + inputEmail));
+  $scope.email = $firebase(new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/'));
 
-  // $scope.email.$add({});
+  $scope.addData = function()  {
+    console.log('Run');
+
+    $scope.email.$add({email: $scope.email.inputEmail, selectedDate: $scope.email.selectedDate});
+  }
 
 }])
