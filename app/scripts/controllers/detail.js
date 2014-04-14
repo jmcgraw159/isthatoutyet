@@ -50,3 +50,9 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams) {
     });
 
 });
+
+App.controller('EmailCtrl', ['$scope', '$firebase', function ($scope, $firebase) {
+
+  $scope.email = $firebase(new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/'));
+
+}])
