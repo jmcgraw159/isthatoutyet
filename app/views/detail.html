@@ -29,9 +29,9 @@
         <h4>Bad news, {{details.name}} is not out yet!</h4>
         <p>Good news though! Enter you email address, choose a day, and we will notify you via email before the game comes out.</p>
         <form ng-controller="EmailCtrl">
-          <input type="email" name="email" ng-model="email.inputEmail" placeholder="Enter email address" required>
+          <input type="email" name="email" ng-model="email.inputEmail" placeholder="Enter email address">
           <p>I would like to be notified
-          <select name="date" ng-model="email.selectedDate" id="select-date" required>
+          <select name="date" ng-model="email.selectedDate" id="select-date">
             <option value="" disabled selected>select</option>
             <option value="0">on the day</option>
             <option value="1">1 day before</option>

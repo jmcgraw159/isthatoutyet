@@ -80,17 +80,45 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($sco
   // Set new location in Firebase
   $scope.email = $firebase(new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/'));
 
-  $scope.addData = function()  {
-    console.log('Added to database');
+    $scope.addData = function()  {
 
-    // Push alert to array to display
-    $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
+      // Condition to check to see if a field is empty
+      if($scope.email.inputEmail === undefined || $scope.email.inputEmail === null || $scope.email.inputEmail === '') {
 
-    // Add the newly formated email address to the end of the Firebase url
-    var newEmail = $scope.email.$child(escapeEmailAddress($scope.email.inputEmail));
+        $scope.alerts.pop();
 
-    // Add information to database
-    newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
-  }
+        // Push alert to array to display
+        $scope.alerts.push({type: 'danger', msg: "Error! Please enter your email address."});
 
+      }else if($scope.email.selectedDate === undefined) {
+
+        $scope.alerts.pop();
+
+        // Push alert to array to display
+        $scope.alerts.push({type: 'danger', msg: "Error! Please select a date."});
+
+      }else if($scope.email.inputEmail === undefined && $scope.email.selectedDate === undefined) {
+
+        $scope.alerts.pop();
+
+        // Push alert to array to display
+        $scope.alerts.push({type: 'danger', msg: "Error! Please fill out the form above."});
+
+      }else {
+
+        console.log('Added to database');
+
+        $scope.alerts.pop();
+
+        // Push alert to array to display
+        $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
+
+        // Add the newly formated email address to the end of the Firebase url
+        var newEmail = $scope.email.$child(escapeEmailAddress($scope.email.inputEmail));
+
+        // Add information to database
+        newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+
+      }
+    }
 }]);
