@@ -69,8 +69,10 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($sco
     return email;
   }
 
+    // Alert Array
     $scope.alerts = [];
 
+    // When clicked, closed alert message
     $scope.closeAlert = function(index) {
       $scope.alerts.splice(index, 1);
     };
@@ -81,6 +83,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($sco
   $scope.addData = function()  {
     console.log('Added to database');
 
+    // Push alert to array to display
     $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
 
     // Add the newly formated email address to the end of the Firebase url

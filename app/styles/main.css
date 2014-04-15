@@ -344,8 +344,7 @@ body  {
   color: #6d7669;
   text-shadow: none;
   width: auto;
-  margin-right: 20px;
-  margin-bottom: 0;
+  margin: -3px 20px 0 auto;
   padding-left: 0;
 }
 
@@ -354,7 +353,7 @@ body  {
 }
 
 .email-signup form .alert div {
-  margin-top: 5px;
+  margin-top: 7px;
 }
 
 .email-signup form .alert div span  {
