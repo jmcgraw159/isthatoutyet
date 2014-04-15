@@ -69,11 +69,19 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($sco
     return email;
   }
 
+    $scope.alerts = [];
+
+    $scope.closeAlert = function(index) {
+      $scope.alerts.splice(index, 1);
+    };
+
   // Set new location in Firebase
   $scope.email = $firebase(new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/'));
 
   $scope.addData = function()  {
     console.log('Added to database');
+
+    $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
 
     // Add the newly formated email address to the end of the Firebase url
     var newEmail = $scope.email.$child(escapeEmailAddress($scope.email.inputEmail));
@@ -82,4 +90,4 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($sco
     newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
   }
 
-}])
+}]);

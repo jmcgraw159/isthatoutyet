@@ -39,6 +39,7 @@
             <option value=3>3 days before</option>
           </select> the game comes out!</p>
           <button ng-click="addData()"><div class="icon-mail"></div>Notify Me</button>
+          <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
         </form>
       </div>
     </div>

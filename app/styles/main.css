@@ -23,7 +23,7 @@ body  {
   margin: 100px auto 0;
 }
 
-#landing span, #detail span, #subscribe h1, #unsubscribe h1  {
+#landing h1 span, #detail h1 span, #subscribe h1, #unsubscribe h1  {
   text-shadow: 0 4px 0 #bd4a25;
   font-size: 72px;
 }
@@ -104,7 +104,6 @@ body  {
   border-radius: 50px;
   float: left;
 }
-
 
 #upcoming h2,
 #features h3,
@@ -301,6 +300,10 @@ body  {
   margin: 0 auto 10px;
 }
 
+.email-signup form input  {
+  font-size: 18px;
+}
+
 .email-signup select  {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -328,6 +331,35 @@ body  {
   font-size: 20px;
   float: right;
   color: #f0f0f0;
+}
+
+.alert {
+  height: 70px;
+  clear: both;
+}
+
+.email-signup .alert button  {
+  background-color: #dff0d8;
+  box-shadow: none;
+  color: #6d7669;
+  text-shadow: none;
+  width: auto;
+  margin-right: 20px;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.email-signup .alert .close:hover {
+  background-color: #dff0d8;
+}
+
+.email-signup form .alert div {
+  margin-top: 5px;
+}
+
+.email-signup form .alert div span  {
+  font-size: 18px;
+  text-shadow: none;
 }
 
 #subscribe, #unsubscribe  {
