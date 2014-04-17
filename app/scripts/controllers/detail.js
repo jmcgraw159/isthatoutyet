@@ -59,7 +59,7 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
 
 });
 
-App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($scope, $firebase, $rootScope) {
+App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', 'FireConn', function ($scope, $firebase, $rootScope, FireConn) {
 
   // Function used to replace '.' with a ',' in email address since it is not allowed in a Firebase url
   function escapeEmailAddress(email) {
@@ -69,56 +69,87 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($sco
     return email;
   }
 
-    // Alert Array
-    $scope.alerts = [];
+  // Alert Array
+  $scope.alerts = [];
 
-    // When clicked, closed alert message
-    $scope.closeAlert = function(index) {
-      $scope.alerts.splice(index, 1);
-    };
+  // When clicked, close alert message
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
+
+  $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/');
 
   // Set new location in Firebase
-  $scope.email = $firebase(new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/'));
+  $scope.email = $firebase($scope.url);
 
-    $scope.addData = function()  {
+  $scope.addData = function()  {
 
-      // Condition to check to see if a field is empty
-      if($scope.email.inputEmail === undefined || $scope.email.inputEmail === null || $scope.email.inputEmail === '') {
+    // Condition to check to see if a field is empty
+    if($scope.email.inputEmail === undefined || $scope.email.inputEmail === null || $scope.email.inputEmail === '') {
 
-        $scope.alerts.pop();
+      // Remove alert so it doesnt' stack upon each other
+      $scope.alerts.pop();
 
-        // Push alert to array to display
-        $scope.alerts.push({type: 'danger', msg: "Error! Please enter your email address."});
+      // Push alert to array to display
+      $scope.alerts.push({type: 'danger', msg: "Error! Please enter your email address."});
 
-      }else if($scope.email.selectedDate === undefined) {
+    }else if($scope.email.selectedDate === undefined) {
 
-        $scope.alerts.pop();
+      // Remove alert so it doesnt' stack upon each other
+      $scope.alerts.pop();
 
-        // Push alert to array to display
-        $scope.alerts.push({type: 'danger', msg: "Error! Please select a date."});
+      // Push alert to array to display
+      $scope.alerts.push({type: 'danger', msg: "Error! Please select a date."});
 
-      }else if($scope.email.inputEmail === undefined && $scope.email.selectedDate === undefined) {
+    }else if($scope.email.inputEmail === undefined && $scope.email.selectedDate === undefined || $scope.email.inputEmail === null && $scope.email.selectedDate === undefined || $scope.email.inputEmail === '' && $scope.email.selectedDate === undefined) {
 
-        $scope.alerts.pop();
+      // Remove alert so it doesnt' stack upon each other
+      $scope.alerts.pop();
 
-        // Push alert to array to display
-        $scope.alerts.push({type: 'danger', msg: "Error! Please fill out the form above."});
+      // Push alert to array to display
+      $scope.alerts.push({type: 'danger', msg: "Error! Please fill out the form above."});
 
-      }else {
+    }else {
 
-        console.log('Added to database');
+      // Remove alert so it doesnt' stack upon each other
+      $scope.alerts.pop();
 
-        $scope.alerts.pop();
+      // Push alert to array to display
+      $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
 
-        // Push alert to array to display
-        $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
+      // Format the email address
+      var formatedEmail = escapeEmailAddress($scope.email.inputEmail);
 
-        // Add the newly formated email address to the end of the Firebase url
-        var newEmail = $scope.email.$child(escapeEmailAddress($scope.email.inputEmail));
+      // New email format
+      var newEmail;
 
-        // Add information to database
-        newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+      // Check to see if the email already exists in the database
+      $scope.url.child(formatedEmail).once('value', function(ss) {
 
-      }
+        if( ss.val() === null ) {
+
+          console.log('Email not in database');
+
+          // Add the newly formated email address to the end of the Firebase url
+          newEmail = $scope.email.$child(formatedEmail);
+
+          // Send confirmation email
+
+        }else {
+
+          console.log('Email is in database');
+
+          // Add the newly formated email address to the end of the Firebase url
+          newEmail = $scope.email.$child(formatedEmail);
+        }
+
+      });
+
+      console.log(newEmail.$id);
+
+      // Add information to database
+      newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
     }
+  }
+
 }]);
