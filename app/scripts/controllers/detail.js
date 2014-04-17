@@ -59,7 +59,7 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
 
 });
 
-App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', 'FireConn', function ($scope, $firebase, $rootScope, FireConn) {
+App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($scope, $firebase, $rootScope) {
 
   // Function used to replace '.' with a ',' in email address since it is not allowed in a Firebase url
   function escapeEmailAddress(email) {
