@@ -69,6 +69,17 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
     return email;
   }
 
+  // Generate random number
+  function guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+                 .toString(16)
+                 .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+           s4() + '-' + s4() + s4() + s4();
+  }
+
   // Alert Array
   $scope.alerts = [];
 
@@ -133,11 +144,16 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
           // Add the newly formated email address to the end of the Firebase url
           newEmail = $scope.email.$child(formatedEmail);
 
+          $scope.num = guid();
+
+          console.log($scope.num);
+
           // Send confirmation email
+          // Test key (doesn't actually send the email, but logs it): 8Xt3wMbH1HzqFQJQFdjGBg
           $http.post('https://mandrillapp.com/api/1.0/messages/send.json',  {
                 key: '8Xt3wMbH1HzqFQJQFdjGBg',
                 message:  {
-                  html: '<h1>Confirm Email</h1>',
+                  html: '<h1>Confirm Email</h1> <span>ID: ' + $scope.num + '</span>',
                   text: 'Confirm Email',
                   subject: 'Confirm Email',
                   from_email: 'confirm@isthatoutyet.com',
@@ -147,6 +163,19 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
                     }
                   ]
                 }
+          }).success(function(data) {
+            console.log('Email sent');
+            console.log(data);
+
+            // Add information to database
+            newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+
+            newEmail = $scope.email.$child(formatedEmail + '/' + $scope.num);
+
+            newEmail.$add({confirmed: false});
+
+          }).error(function(data) {
+            console.log('Email not sent');
           });
 
         }else {
@@ -155,14 +184,14 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
 
           // Add the newly formated email address to the end of the Firebase url
           newEmail = $scope.email.$child(formatedEmail);
+
+          // Add information to database
+          newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
         }
 
       });
 
       console.log(newEmail.$id);
-
-      // Add information to database
-      newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
     }
   }
 
