@@ -59,7 +59,7 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
 
 });
 
-App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($scope, $firebase, $rootScope) {
+App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', function ($scope, $firebase, $rootScope, $http) {
 
   // Function used to replace '.' with a ',' in email address since it is not allowed in a Firebase url
   function escapeEmailAddress(email) {
@@ -126,7 +126,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($sco
       // Check to see if the email already exists in the database
       $scope.url.child(formatedEmail).once('value', function(ss) {
 
-        if( ss.val() === null ) {
+        if(ss.val() === null) {
 
           console.log('Email not in database');
 
@@ -134,6 +134,20 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', function ($sco
           newEmail = $scope.email.$child(formatedEmail);
 
           // Send confirmation email
+          $http.post('https://mandrillapp.com/api/1.0/messages/send.json',  {
+                key: '8Xt3wMbH1HzqFQJQFdjGBg',
+                message:  {
+                  html: '<h1>Confirm Email</h1>',
+                  text: 'Confirm Email',
+                  subject: 'Confirm Email',
+                  from_email: 'confirm@isthatoutyet.com',
+                  from_name: 'Is That Out Yet?',
+                  to: [ {
+                      email: $scope.email.inputEmail
+                    }
+                  ]
+                }
+          });
 
         }else {
 
