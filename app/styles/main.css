@@ -450,7 +450,7 @@ footer small  {
 }
 
 @media screen and (max-width: 991px) {
-  #landing span, #detail span  {
+  #landing h1 span, #detail h1 span  {
     font-size: 64px;
   }
 
@@ -498,7 +498,7 @@ footer small  {
     margin-top: -20px;
   }
 
-  #landing span, #detail span  {
+  #landing h1 span, #detail h1 span  {
   font-size: 48px;
   }
 
