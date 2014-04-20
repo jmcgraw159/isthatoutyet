@@ -557,12 +557,22 @@ footer small  {
   }
 }
 
+@media screen and (max-width: 670px) {
+  .alert-success {
+    padding: 5px 0 0 0;
+  }
+
+  .alert-success button  {
+    display: none;
+  }
+
+}
+
 @media screen and (max-width: 658px) {
   #subscribe footer, #unsubscribe footer  {
     margin-top: 150px;
   }
 }
-
 
 @media screen and (max-width: 536px) {
   #subscribe h1, #unsubscribe h1 {
@@ -588,6 +598,10 @@ footer small  {
 @media screen and (max-width: 416px) {
   .alert  {
     padding: 15px 0 0 0;
+  }
+
+  .alert-success {
+    padding: 5px 0 0 0;
   }
 }
 
@@ -652,5 +666,11 @@ footer small  {
 
   #subscribe footer, #unsubscribe footer  {
     margin-top: 80px;
+  }
+}
+
+@media screen and (max-width: 326px) {
+  .alert-success {
+    height: auto;
   }
 }

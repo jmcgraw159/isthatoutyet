@@ -146,7 +146,6 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
                 }
           }).success(function(data) {
             console.log('Email sent');
-            console.log(data);
 
             // Add information to database
             newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
@@ -161,7 +160,9 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
             $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
 
           }).error(function(data) {
+
             console.log('Email not sent');
+
           });
 
         }else {
@@ -181,8 +182,6 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
         }
 
       });
-
-      console.log(newEmail.$id);
     }
   }
 
