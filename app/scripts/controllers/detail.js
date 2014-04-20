@@ -104,29 +104,10 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
       // Push alert to array to display
       $scope.alerts.push({type: 'danger', msg: "Error! Please enter your email address."});
 
-    }else if($scope.email.selectedDate === undefined) {
-
-      // Remove alert so it doesnt' stack upon each other
-      $scope.alerts.pop();
-
-      // Push alert to array to display
-      $scope.alerts.push({type: 'danger', msg: "Error! Please select a date."});
-
-    }else if($scope.email.inputEmail === undefined && $scope.email.selectedDate === undefined || $scope.email.inputEmail === null && $scope.email.selectedDate === undefined || $scope.email.inputEmail === '' && $scope.email.selectedDate === undefined) {
-
-      // Remove alert so it doesnt' stack upon each other
-      $scope.alerts.pop();
-
-      // Push alert to array to display
-      $scope.alerts.push({type: 'danger', msg: "Error! Please fill out the form above."});
-
     }else {
 
       // Remove alert so it doesnt' stack upon each other
       $scope.alerts.pop();
-
-      // Push alert to array to display
-      $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
 
       // Format the email address
       var formatedEmail = escapeEmailAddress($scope.email.inputEmail);
@@ -174,6 +155,11 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
 
             newEmail.$add({confirmed: false});
 
+            $scope.successClass = 'hide';
+
+            // Push alert to array to display
+            $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
+
           }).error(function(data) {
             console.log('Email not sent');
           });
@@ -187,6 +173,11 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
 
           // Add information to database
           newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+
+          $scope.successClass = 'hide';
+
+          // Push alert to array to display
+          $scope.alerts.push({type: 'success', msg: "Sucess! We will notify you on the date you've selected."});
         }
 
       });

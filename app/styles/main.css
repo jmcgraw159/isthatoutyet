@@ -336,6 +336,11 @@ body  {
 .alert {
   height: 70px;
   clear: both;
+  margin: 10px auto 0;
+}
+
+.alert-success  {
+  margin-bottom: 10px;
 }
 
 .email-signup .alert button  {
