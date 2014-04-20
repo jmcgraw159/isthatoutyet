@@ -542,6 +542,15 @@ footer small  {
 	  float: none;
 	}
 
+  .email-signup form .alert button  {
+    margin: -3px 20px 0 auto;
+    float: right;
+  }
+
+  .email-signup form .alert div span  {
+    margin-top: 0;
+  }
+
   footer  {
     width: 95%;
     font-size: 14px;
@@ -566,8 +575,24 @@ footer small  {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .email-signup form .alert div span  {
+    font-size: 16px;
+  }
+
+  .email-signup form .alert button  {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 416px) {
+  .alert  {
+    padding: 15px 0 0 0;
+  }
+}
+
 @media screen and (max-width: 404px) {
-	.email-signup select  {
+  .email-signup select  {
 	  width: 90%;
 	  margin: 5px auto;
 	  display: block;
@@ -583,7 +608,7 @@ footer small  {
     margin-top: 60px;
   }
 
-  #landing span, #detail span, #subscribe h1, #unsubscribe h1  {
+  #landing h1 span, #detail h1 span, #subscribe h1, #unsubscribe h1  {
     font-size: 42px;
   }
 
@@ -599,6 +624,13 @@ footer small  {
 	  left: 80px;
 	}
 }
+
+@media screen and (max-width: 354px) {
+  .alert  {
+    padding: 5px 0 0 0;
+  }
+}
+
 
 @media screen and (max-width: 332px)  {
   #landing h1:nth-child(1) {
