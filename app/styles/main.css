@@ -370,11 +370,11 @@ body  {
   text-align: center;
 }
 
-#subscribe a, #unsubscribe a  {
+#subscribe h1 a, #unsubscribe h1 a  {
   color: #f0f0f0;
 }
 
-#subscribe a:hover, #unsubscribe a:hover {
+#subscribe h1 a:hover, #unsubscribe h1 a:hover {
   text-decoration: none;
   color: #f0f0f0;
 }

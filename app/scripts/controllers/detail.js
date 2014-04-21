@@ -134,7 +134,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
           $http.post('https://mandrillapp.com/api/1.0/messages/send.json',  {
                 key: '8Xt3wMbH1HzqFQJQFdjGBg',
                 message:  {
-                  html: '<h1>Confirm Email</h1> <span>ID: ' + $scope.num + '</span>',
+                  html: '<h1>Almost there...</h1><p>We need to verfiy your email address before we can start sending you notifications. Don\'t worry, you only need to verify your email once!</p><a href="http://localhost:9000/#/subscribe:' + $scope.num + '">Verify Email Address</a>',
                   text: 'Confirm Email',
                   subject: 'Confirm Email',
                   from_email: 'confirm@isthatoutyet.com',
