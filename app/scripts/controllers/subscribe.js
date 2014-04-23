@@ -3,9 +3,9 @@
 var App = angular.module('isThatOutYetApp');
 App.controller('SubscribeCtrl', function ($scope, $routeParams) {
 
-	$scope.url = new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/');
+	$scope.url = new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/' + $routeParams.emailId + '/' + $routeParams.uniqueId);
 
-	$scope.url.child($routeParams.emailId + '/' + $routeParams.uniqueId).on('value', function(ss) {
+	$scope.url.on('value', function(ss) {
 
         if(ss.val() === null) {
 
@@ -18,6 +18,8 @@ App.controller('SubscribeCtrl', function ($scope, $routeParams) {
 	    		var checker = data.val();
 
 	    		console.log(checker.confirmed);
+
+	    		$scope.url.child(data.name()).set({confirmed: 'true'});
 
 	    	});
         }
