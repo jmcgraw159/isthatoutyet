@@ -9,7 +9,7 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
 	  params: {
         callback: 'JSON_CALLBACK',
         json_callback: 'angular.callbacks._' + $window.angular.callbacks.counter.toString(36),
-        filter: 'id' + $routeParams.id
+        filter: 'id:' + $routeParams.id
       }
     })
   .success(function(data){

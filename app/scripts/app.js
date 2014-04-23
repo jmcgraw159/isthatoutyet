@@ -13,15 +13,15 @@ App.config(function ($routeProvider) {
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
-    .when('/detail:id', {
+    .when('/detail/:id', {
       templateUrl: 'views/detail.html',
       controller: 'DetailCtrl'
     })
-    .when('/subscribe:id', {
+    .when('/subscribe/:id', {
       templateUrl: 'views/subscribe.html',
       controller: 'SubscribeCtrl'
     })
-    .when('/unsubscribe:id', {
+    .when('/unsubscribe/:id', {
       templateUrl: 'views/unsubscribe.html',
       controller: 'UnsubscribeCtrl'
     })
@@ -59,7 +59,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$window', '$routeParams', '
   // When item is selected, redirect to detail page with game id
   $scope.onSelect = function ($item) {
     $routeParams = $item.id;
-    $location.path('/detail:' + $routeParams);
+    $location.path('/detail/' + $routeParams);
   };
 
 }]);
