@@ -5,6 +5,10 @@ App.controller('SubscribeCtrl', function ($scope, $routeParams) {
 
 	$scope.url = new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/' + $routeParams.emailId + '/' + $routeParams.uniqueId);
 
+	$scope.unconfirmed = new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/' + $routeParams.emailId);
+
+	$scope.confirmed = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/' + $routeParams.emailId);
+
 	$scope.url.on('value', function(ss) {
 
         if(ss.val() === null) {
@@ -17,9 +21,26 @@ App.controller('SubscribeCtrl', function ($scope, $routeParams) {
 
 	    		var checker = data.val();
 
-	    		console.log(checker.confirmed);
+	    		if(checker.confirmed === 'false') {
 
-	    		$scope.url.child(data.name()).set({confirmed: 'true'});
+	    			$scope.url.child(data.name()).set({confirmed: 'true'}, function() {
+
+		    			$scope.unconfirmed.on('value', function(screenshot) {
+
+		    				var data = screenshot.val();
+
+		    				console.log(data);
+
+		    				$scope.confirmed.push(data);
+
+		    				$scope.unconfirmed.remove();
+		    			})
+
+		    		});
+
+	    		}else {
+	    			console.log(checker.confirmed)
+	    		}
 
 	    	});
         }
