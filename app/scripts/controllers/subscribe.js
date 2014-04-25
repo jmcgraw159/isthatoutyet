@@ -21,15 +21,13 @@ App.controller('SubscribeCtrl', function ($scope, $routeParams) {
 
 	    		var checker = data.val();
 
-	    		if(checker.confirmed === 'false') {
+	    		if(checker.confirmed === false) {
 
 	    			$scope.url.child(data.name()).set({confirmed: 'true'}, function() {
 
 		    			$scope.unconfirmed.on('value', function(screenshot) {
 
 		    				var data = screenshot.val();
-
-		    				console.log(data);
 
 		    				$scope.confirmed.push(data);
 

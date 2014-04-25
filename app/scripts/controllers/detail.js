@@ -90,8 +90,11 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
 
   $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/');
 
+  $scope.confirmation = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/');
+
   // Set new location in Firebase
-  $scope.email = $firebase($scope.url);
+  $scope.unconfirmedUrl = $firebase($scope.url);
+  $scope.confirmedUrl = $firebase($scope.confirmation);
 
   $scope.addData = function()  {
 
@@ -116,59 +119,81 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
       var newEmail;
 
       // Check to see if the email already exists in the database
-      $scope.url.child(formatedEmail).once('value', function(ss) {
+      $scope.confirmation.child(formatedEmail).once('value', function(ss) {
 
         if(ss.val() === null) {
 
-          console.log('Email not in database');
+          console.log('Email not in confirmed');
 
-          // Add the newly formated email address to the end of the Firebase url
-          newEmail = $scope.email.$child(formatedEmail);
+          $scope.url.child(formatedEmail).once('value', function(screenshot) {
 
-          $scope.num = guid();
+              if(screenshot.val() === null) {
 
-          // Send confirmation email
-          // Test key (doesn't actually send the email, but logs it): 8Xt3wMbH1HzqFQJQFdjGBg
-          $http.post('https://mandrillapp.com/api/1.0/messages/send.json',  {
-                key: '8Xt3wMbH1HzqFQJQFdjGBg',
-                message:  {
-                  html: '<h1>Almost there...</h1><p>We need to verfiy your email address before we can start sending you notifications. Don\'t worry, you only need to verify your email once!</p><a href="http://localhost:9000/#/subscribe/' + formatedEmail + '/' + $scope.num + '">Verify Email Address</a>',
-                  text: 'Confirm Email',
-                  subject: 'Confirm Email',
-                  from_email: 'confirm@isthatoutyet.com',
-                  from_name: 'Is That Out Yet?',
-                  to: [ {
-                      email: $scope.email.inputEmail
-                    }
-                  ]
-                }
-          }).success(function(data) {
-            console.log('Email sent');
+                console.log('Email is in not in database');
 
-            // Add information to database
-            newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+                // Add the newly formated email address to the end of the Firebase url
+                newEmail = $scope.unconfirmedUrl.$child(formatedEmail);
 
-            newEmail = $scope.email.$child(formatedEmail + '/' + $scope.num);
+                $scope.num = guid();
 
-            newEmail.$add({confirmed: false});
+                // Send confirmation email
+                // Test key (doesn't actually send the email, but logs it): 8Xt3wMbH1HzqFQJQFdjGBg
+                $http.post('https://mandrillapp.com/api/1.0/messages/send.json',  {
+                      key: '8Xt3wMbH1HzqFQJQFdjGBg',
+                      message:  {
+                        html: '<h1>Almost there...</h1><p>We need to verfiy your email address before we can start sending you notifications. Don\'t worry, you only need to verify your email once!</p><a href="http://localhost:9000/#/subscribe/' + formatedEmail + '/' + $scope.num + '">Verify Email Address</a>',
+                        text: 'Confirm Email',
+                        subject: 'Confirm Email',
+                        from_email: 'confirm@isthatoutyet.com',
+                        from_name: 'Is That Out Yet?',
+                        to: [ {
+                            email: $scope.email.inputEmail
+                          }
+                        ]
+                      }
+                }).success(function(data) {
+                  console.log('Email sent');
 
-            $scope.successClass = 'hide';
+                  // Add information to database
+                  newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
 
-            // Push alert to array to display
-            $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
+                  newEmail = $scope.unconfirmedUrl.$child(formatedEmail + '/' + $scope.num);
 
-          }).error(function(data) {
+                  newEmail.$add({confirmed: false});
 
-            console.log('Email not sent');
+                  $scope.successClass = 'hide';
 
+                  // Push alert to array to display
+                  $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
+
+                }).error(function(data) {
+
+                  console.log('Email not sent');
+
+                });
+
+              }else {
+                console.log('Email is in database & unconfirmed');
+
+                // Add the newly formated email address to the end of the Firebase url
+                newEmail = $scope.unconfirmedUrl.$child(formatedEmail);
+
+                // Add information to database
+                newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+
+                $scope.successClass = 'hide';
+
+                // Push alert to array to display
+                $scope.alerts.push({type: 'success', msg: "Sucess! You need to confirm your email before you can get any notifications."});
+              }
           });
 
         }else {
 
-          console.log('Email is in database');
+          console.log('Email is confirmed');
 
           // Add the newly formated email address to the end of the Firebase url
-          newEmail = $scope.email.$child(formatedEmail);
+          newEmail = $scope.confirmedUrl.$child(formatedEmail);
 
           // Add information to database
           newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
