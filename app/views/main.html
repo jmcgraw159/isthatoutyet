@@ -16,7 +16,7 @@
           <div id="upcoming-titles">
             <ul>
               <div ng-repeat="item in upcoming.results">
-                <li><a ng-href="#/detail:{{item.id}}">
+                <li><a ng-href="#/detail/{{item.id}}">
                   <img class="game-cover" fallback-src="images/image_error.jpg" ng-src="{{item.image.small_url}}">
                 </a></li>
               </div>
