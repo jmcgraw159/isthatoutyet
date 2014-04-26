@@ -17,7 +17,7 @@ App.config(function ($routeProvider) {
       templateUrl: 'views/detail.html',
       controller: 'DetailCtrl'
     })
-    .when('/subscribe/:emailId/:uniqueId', {
+    .when('/subscribe', {
       templateUrl: 'views/subscribe.html',
       controller: 'SubscribeCtrl'
     })

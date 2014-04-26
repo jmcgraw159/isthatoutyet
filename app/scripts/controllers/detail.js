@@ -69,7 +69,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
     return email;
   }
 
-  // Generate random number
+  // Generate random id
   function guid() {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)
@@ -123,7 +123,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
 
         if(ss.val() === null) {
 
-          console.log('Email not in confirmed');
+          console.log('Email not confirmed');
 
           $scope.url.child(formatedEmail).once('value', function(screenshot) {
 
@@ -141,7 +141,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
                 $http.post('https://mandrillapp.com/api/1.0/messages/send.json',  {
                       key: '8Xt3wMbH1HzqFQJQFdjGBg',
                       message:  {
-                        html: '<h1>Almost there...</h1><p>We need to verfiy your email address before we can start sending you notifications. Don\'t worry, you only need to verify your email once!</p><a href="http://localhost:9000/#/subscribe/' + formatedEmail + '/' + $scope.num + '">Verify Email Address</a>',
+                        html: '<h1>Almost there...</h1><p>We need to verfiy your email address before we can start sending you notifications. Don\'t worry, you only need to verify your email once!</p><a href="http://localhost:9000/#/subscribe?email=' + formatedEmail + '&id=' + $scope.num + '">Verify Email Address</a>',
                         text: 'Confirm Email',
                         subject: 'Confirm Email',
                         from_email: 'confirm@isthatoutyet.com',
