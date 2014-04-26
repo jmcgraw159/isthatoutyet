@@ -22,6 +22,7 @@ App.controller('SubscribeCtrl', function ($scope, $routeParams, $window) {
 
       ss.forEach(function(data) {
 
+        // Confirmation Checker
         var checker = data.val();
 
         // Check to make sure value is false
@@ -32,19 +33,21 @@ App.controller('SubscribeCtrl', function ($scope, $routeParams, $window) {
 
             $scope.unconfirmed.on('value', function(screenshot) {
 
-              var data = screenshot.val();
+              var details = screenshot.val();
 
               // Push data to confirm section
-              $scope.confirmed.push(data);
+              $scope.confirmed.push(details);
 
               // Remove data from unconfirmed section
               $scope.unconfirmed.remove();
+
             })
 
           });
 
         }else {
-          console.log(checker.confirmed)
+          // If true, redirect to homepage
+          $window.location = '/';
         }
 
       });
