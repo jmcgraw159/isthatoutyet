@@ -192,8 +192,10 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
 
           console.log('Email is confirmed');
 
+          ss.forEach(function(data) {
+
           // Add the newly formated email address to the end of the Firebase url
-          newEmail = $scope.confirmedUrl.$child(formatedEmail);
+          newEmail = $scope.confirmedUrl.$child(formatedEmail + '/' + data.name());
 
           // Add information to database
           newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
@@ -202,6 +204,8 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
 
           // Push alert to array to display
           $scope.alerts.push({type: 'success', msg: "Sucess! We will notify you on the date you've selected."});
+
+          });
         }
 
       });
