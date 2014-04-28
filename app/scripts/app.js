@@ -21,7 +21,7 @@ App.config(function ($routeProvider) {
       templateUrl: 'views/subscribe.html',
       controller: 'SubscribeCtrl'
     })
-    .when('/unsubscribe/:id', {
+    .when('/unsubscribe', {
       templateUrl: 'views/unsubscribe.html',
       controller: 'UnsubscribeCtrl'
     })
