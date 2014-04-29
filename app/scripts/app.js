@@ -74,5 +74,38 @@ App.controller('CheckDateCtrl', ['$scope', '$filter', function ($scope, $filter)
 
   $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/');
 
+  var x;
 
+  $scope.url.once('value', function(ss) {
+
+    // Check to see if value exists
+    if(ss.val() === null) {
+
+      console.log('null');
+
+    }else {
+
+      ss.forEach(function(data) {
+
+        data.forEach(function(item) {
+
+          item.forEach(function(detail) {
+
+            x = detail.val();
+
+            if(x.date === currentDate) {
+
+              console.log('Send email');
+
+            }else if(x.date !== undefined) {
+
+              console.log('Not today, email should be sent on ' + x.date);
+
+            }
+
+          })
+        })
+      });
+    }
+  });
 }])
