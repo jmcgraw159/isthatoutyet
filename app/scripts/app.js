@@ -63,3 +63,16 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$window', '$routeParams', '
   };
 
 }]);
+
+// Controller to check to see if chosen date is equal to today
+App.controller('CheckDateCtrl', ['$scope', '$filter', function ($scope, $filter) {
+
+  var currentDate = new Date();
+  currentDate = $filter('date')(currentDate, "MM/dd/yyyy");;
+
+  console.log(currentDate);
+
+  $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/');
+
+
+}])
