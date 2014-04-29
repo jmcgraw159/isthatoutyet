@@ -24,17 +24,29 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
 
         $rootScope.date = $scope.date;
 
+        $rootScope.month = data.results[0].expected_release_month;
+        $rootScope.day = 'null';
+        $rootScope.year = data.results[0].expected_release_year;
+
       }else if(data.results[0].expected_release_day === null && data.results[0].expected_release_month === null && data.results[0].expected_release_year !== null) {
 
         $scope.date = data.results[0].expected_release_year;
 
         $rootScope.date = $scope.date;
 
+        $rootScope.month = 'null';
+        $rootScope.day = 'null';
+        $rootScope.year = data.results[0].expected_release_year;
+
       }else if(data.results[0].expected_release_day !== null && data.results[0].expected_release_month !== null && data.results[0].expected_release_year !== null) {
 
         $scope.date = data.results[0].expected_release_month + '/' + data.results[0].expected_release_day + '/' + data.results[0].expected_release_year;
 
         $rootScope.date = $scope.date;
+
+        $rootScope.month = data.results[0].expected_release_month;
+        $rootScope.day = data.results[0].expected_release_day;
+        $rootScope.year = data.results[0].expected_release_year;
 
       }else {
 
@@ -43,6 +55,11 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
         var parsedDate = releasedDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
 
         $scope.date = parsedDate;
+
+        $rootScope.month = data.results[0].expected_release_month;
+        $rootScope.day = data.results[0].expected_release_day;
+        $rootScope.year = data.results[0].expected_release_year;
+        $rootScope.release = parsedDate;
       }
 
       // Condition to check if email signup should be shown
@@ -155,7 +172,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
                   console.log('Email sent');
 
                   // Add information to database
-                  newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+                  newEmail.$add({title: $rootScope.name, month: $rootScope.month, day: $rootScope.day, year: $rootScope.year, release: $rootScope.release, selectedDate: $scope.email.selectedDate});
 
                   newEmail = $scope.unconfirmedUrl.$child(formatedEmail + '/' + $scope.num);
 
@@ -179,7 +196,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
                 newEmail = $scope.unconfirmedUrl.$child(formatedEmail);
 
                 // Add information to database
-                newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+                newEmail.$add({title: $rootScope.name, month: $rootScope.month, day: $rootScope.day, year: $rootScope.year, release: $rootScope.release, selectedDate: $scope.email.selectedDate});
 
                 $scope.successClass = 'hide';
 
@@ -198,7 +215,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
           newEmail = $scope.confirmedUrl.$child(formatedEmail + '/' + data.name());
 
           // Add information to database
-          newEmail.$add({title: $rootScope.name, date: $rootScope.date, selectedDate: $scope.email.selectedDate});
+          newEmail.$add({title: $rootScope.name, month: $rootScope.month, day: $rootScope.day, year: $rootScope.year, release: $rootScope.release, selectedDate: $scope.email.selectedDate});
 
           $scope.successClass = 'hide';
 

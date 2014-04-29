@@ -70,7 +70,7 @@ App.controller('CheckDateCtrl', ['$scope', '$filter', function ($scope, $filter)
   var currentDate = new Date();
   currentDate = $filter('date')(currentDate, "MM/dd/yyyy");;
 
-  console.log(currentDate);
+  console.log('Today\'s date is ' + currentDate);
 
   $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/');
 
@@ -95,7 +95,7 @@ App.controller('CheckDateCtrl', ['$scope', '$filter', function ($scope, $filter)
 
             if(x.date === currentDate) {
 
-              console.log('Send email');
+              console.log('Send email, today is ' + x.date);
 
             }else if(x.date !== undefined) {
 
