@@ -16,6 +16,7 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
       $scope.details = data.results[0];
 
       $rootScope.name = $scope.details.name;
+      $rootScope.gameID = $scope.details.id;
 
       // Condition to check what date format should be shown
       if(data.results[0].expected_release_day === null && data.results[0].expected_release_month !== null && data.results[0].expected_release_year !== null){
@@ -25,7 +26,7 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
         $rootScope.date = $scope.date;
 
         $rootScope.month = data.results[0].expected_release_month;
-        $rootScope.day = 'null';
+        $rootScope.day = data.results[0].expected_release_day;
         $rootScope.year = data.results[0].expected_release_year;
 
       }else if(data.results[0].expected_release_day === null && data.results[0].expected_release_month === null && data.results[0].expected_release_year !== null) {
@@ -34,8 +35,8 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
 
         $rootScope.date = $scope.date;
 
-        $rootScope.month = 'null';
-        $rootScope.day = 'null';
+        $rootScope.month = data.results[0].expected_release_month;
+        $rootScope.day = data.results[0].expected_release_day;
         $rootScope.year = data.results[0].expected_release_year;
 
       }else if(data.results[0].expected_release_day !== null && data.results[0].expected_release_month !== null && data.results[0].expected_release_year !== null) {
@@ -215,7 +216,7 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
           newEmail = $scope.confirmedUrl.$child(formatedEmail + '/' + data.name());
 
           // Add information to database
-          newEmail.$add({title: $rootScope.name, month: $rootScope.month, day: $rootScope.day, year: $rootScope.year, release: $rootScope.release, selectedDate: $scope.email.selectedDate});
+          newEmail.$add({title: $rootScope.name, month: $rootScope.month, day: $rootScope.day, year: $rootScope.year, release: $rootScope.release, selectedDate: $scope.email.selectedDate, id: $rootScope.gameID});
 
           $scope.successClass = 'hide';
 

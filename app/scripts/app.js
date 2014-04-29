@@ -70,11 +70,7 @@ App.controller('CheckDateCtrl', ['$scope', '$filter', function ($scope, $filter)
   var currentDate = new Date();
   currentDate = $filter('date')(currentDate, "MM/dd/yyyy");;
 
-  console.log('Today\'s date is ' + currentDate);
-
   $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/');
-
-  var x;
 
   $scope.url.once('value', function(ss) {
 
@@ -91,15 +87,36 @@ App.controller('CheckDateCtrl', ['$scope', '$filter', function ($scope, $filter)
 
           item.forEach(function(detail) {
 
-            x = detail.val();
+            var x = detail.val();
 
-            if(x.date === currentDate) {
+            var month = x.month;
+            var day = x.day;
+            var year = x.year;
+            var fullDate = month + '/' + day + '/' + year;
 
-              console.log('Send email, today is ' + x.date);
+            if(fullDate === currentDate) {
 
-            }else if(x.date !== undefined) {
+              console.log('Send email, today is ' + fullDate);
 
-              console.log('Not today, email should be sent on ' + x.date);
+            }else if(month !== undefined && day !== undefined && year !== undefined){
+
+              console.log('Not today, should be sent on ' + fullDate);
+
+            }else if(month !== undefined && day === undefined && year !== undefined) {
+
+              console.log(month + '/' + year);
+
+              // Need to check API to see if data has been updated
+
+            }else if(month === undefined && day === undefined && year !== undefined) {
+
+              console.log(year);
+
+              // Need to check API to see if data has been updated
+
+            }else if(month === undefined && day === undefined && year === undefined) {
+
+              // Do nothing
 
             }
 
