@@ -35,32 +35,9 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$window', '$routeParams', '
 
   $scope.selected = undefined;
 
-  // $scope.getGame = function(val) {
-  //   return $http.jsonp('http://www.giantbomb.com/api/search/?api_key=cdb456f4a15c4052a419f97b568218a2b50634c9&format=jsonp&resources=game&limit=10', {
-  //     params: {
-  //       callback: 'JSON_CALLBACK',
-  //       json_callback: 'angular.callbacks._' + $window.angular.callbacks.counter.toString(36),
-  //       query: val
-  //     }
-  //   }).then(function(res){
-  //     var game = [];
-
-  //     // Angular Callback Counter
-  //     // console.log($window.angular.callbacks.counter);
-
-  //     angular.forEach(res.data.results, function(item){
-  //       game.push({name: item.name, id: item.id, image: item.image});
-  //     });
-
-  //     return game;
-  //   });
-  // };
-
   $scope.getGame = function(val) {
     return $http.get('http://localhost:8888/get-games/' + val)
     .then(function(res) {
-
-      console.log(res);
 
       var game = [];
 
@@ -112,21 +89,21 @@ App.controller('CheckDateCtrl', ['$scope', '$filter', function ($scope, $filter)
 
             if(fullDate === currentDate) {
 
-              console.log('Send email, today is ' + fullDate);
+              // console.log('Send email, today is ' + fullDate);
 
             }else if(month !== undefined && day !== undefined && year !== undefined){
 
-              console.log('Not today, should be sent on ' + fullDate);
+              // console.log('Not today, should be sent on ' + fullDate);
 
             }else if(month !== undefined && day === undefined && year !== undefined) {
 
-              console.log(month + '/' + year);
+              // console.log(month + '/' + year);
 
               // Need to check API to see if data has been updated
 
             }else if(month === undefined && day === undefined && year !== undefined) {
 
-              console.log(year);
+              // console.log(year);
 
               // Need to check API to see if data has been updated
 
