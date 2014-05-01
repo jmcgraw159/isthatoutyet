@@ -19,12 +19,14 @@ class GiantBombController extends BaseController {
 
 		$call = file_get_contents('http://www.giantbomb.com/api/search/?api_key=' . $key . '&format='. $format .'&resources=game&limit=10&query=' . $title);
 
+		$response = json_decode($call);
+
 		// angular.forEach(res.data.results, function(item){
 		// 	game.push({name: item.name, id: item.id, image: item.image});
 		// });
 
 		header('Access-Control-Allow-Origin: *');
-		return Response::json($call);
+		return Response::json($response);
 	}
 
 }
