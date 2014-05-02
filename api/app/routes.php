@@ -16,3 +16,4 @@ Route::get('get-games/{title}', 'GiantBombController@getGame');
 Route::get('get-confirmed/{email}/{title}/{id}/{month}/{day}/{year}', 'MandrillController@getConfirmed');
 Route::get('get-unconfirmed/{email}/{title}/{id}/{month}/{day}/{year}', 'MandrillController@getUnconfirmed');
 Route::get('get-notification/{url}', 'MandrillController@getNotification');
+Route::get('get-users/{email}', 'UserController@getUser');
