@@ -79,23 +79,18 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
 
 App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', function ($scope, $firebase, $rootScope, $http) {
 
-  // Function used to replace '.' with a ',' in email address since it is not allowed in a Firebase url
-  function escapeEmailAddress(email) {
-  if (!email) return false
-    email = email.toLowerCase();
-    email = email.replace(/\./g, ',');
-    return email;
-  }
+  function addUser(email, callback) {
+    $http.get('http://localhost:8888/get-users/' + email + '/' + $rootScope.name + '/' + $rootScope.month + '/' + $rootScope.day + '/' + $rootScope.year + '/' + $rootScope.gameID + '/' + $scope.email.selectedDate)
+    .success(function(data){
 
-  // Generate random id
-  function guid() {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-                 .toString(16)
-                 .substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-           s4() + '-' + s4() + s4() + s4();
+      if(typeof callback === 'function') {
+        callback(data);
+      }
+
+    })
+    .error(function(data) {
+      console.log(data);
+    });
   }
 
   // Alert Array
@@ -105,14 +100,6 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
   $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
   };
-
-  $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/');
-
-  $scope.confirmation = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/');
-
-  // Set new location in Firebase
-  $scope.unconfirmedUrl = $firebase($scope.url);
-  $scope.confirmedUrl = $firebase($scope.confirmation);
 
   $scope.addData = function()  {
 
@@ -130,142 +117,18 @@ App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', funct
       // Remove alert so it doesnt' stack upon each other
       $scope.alerts.pop();
 
-      // Format the email address
-      var formatedEmail = escapeEmailAddress($scope.email.inputEmail);
+      // Call to addUser function
+      addUser($scope.email.inputEmail, function(data) {
 
-      // New email format
-      var newEmail;
+        console.log(data);
 
-      // Check to see if the email already exists in the database
-      $scope.confirmation.child(formatedEmail).once('value', function(ss) {
+        $scope.successClass = 'hide';
 
-        if(ss.val() === null) {
-
-          console.log('Email not confirmed');
-
-          // Call to addUser function
-          addUser($scope.email.inputEmail, function(data) {
-
-                  console.log('Email sent');
-
-                  // Add information to database
-                  newEmail.$add({title: $rootScope.name, month: $rootScope.month, day: $rootScope.day, year: $rootScope.year, release: $rootScope.release, selectedDate: $scope.email.selectedDate});
-
-                  newEmail = $scope.unconfirmedUrl.$child(formatedEmail + '/' + $scope.num);
-
-                  newEmail.$add({confirmed: false});
-
-                  $scope.successClass = 'hide';
-
-                  // Push alert to array to display
-                  $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
-
-          });
-
-
-          $scope.url.child(formatedEmail).once('value', function(screenshot) {
-
-              if(screenshot.val() === null) {
-
-                console.log('Email is in not in database');
-
-                // Add the newly formated email address to the end of the Firebase url
-                newEmail = $scope.unconfirmedUrl.$child(formatedEmail);
-
-                $scope.num = guid();
-
-                // Send confirmation email
-                // Test key (doesn't actually send the email, but logs it): 8Xt3wMbH1HzqFQJQFdjGBg
-                // $http.post('https://mandrillapp.com/api/1.0/messages/send.json',  {
-                //       key: '8Xt3wMbH1HzqFQJQFdjGBg',
-                //       message:  {
-                //         html: '<h1>Almost there...</h1><p>We need to verfiy your email address before we can start sending you notifications. Don\'t worry, you only need to verify your email once!</p><a href="http://localhost:9000/#/subscribe?email=' + formatedEmail + '&id=' + $scope.num + '">Verify Email Address</a>',
-                //         text: 'Confirm Email',
-                //         subject: 'Confirm Email',
-                //         from_email: 'confirm@isthatoutyet.com',
-                //         from_name: 'Is That Out Yet?',
-                //         to: [ {
-                //             email: $scope.email.inputEmail
-                //           }
-                //         ]
-                //       }
-                // }).success(function(data) {
-                //   console.log('Email sent');
-
-                //   // Add information to database
-                //   newEmail.$add({title: $rootScope.name, month: $rootScope.month, day: $rootScope.day, year: $rootScope.year, release: $rootScope.release, selectedDate: $scope.email.selectedDate});
-
-                //   newEmail = $scope.unconfirmedUrl.$child(formatedEmail + '/' + $scope.num);
-
-                //   newEmail.$add({confirmed: false});
-
-                //   $scope.successClass = 'hide';
-
-                //   // Push alert to array to display
-                //   $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
-
-                // }).error(function(data) {
-
-                //   console.log('Email not sent');
-
-                // });
-
-              }else {
-                console.log('Email is in database & unconfirmed');
-
-                // Add the newly formated email address to the end of the Firebase url
-                newEmail = $scope.unconfirmedUrl.$child(formatedEmail);
-
-                // Add information to database
-                newEmail.$add({title: $rootScope.name, month: $rootScope.month, day: $rootScope.day, year: $rootScope.year, release: $rootScope.release, selectedDate: $scope.email.selectedDate});
-
-                $scope.successClass = 'hide';
-
-                // Push alert to array to display
-                $scope.alerts.push({type: 'success', msg: "Sucess! You need to confirm your email before you can get any notifications."});
-              }
-          });
-
-        }else {
-
-          console.log('Email is confirmed');
-
-          ss.forEach(function(data) {
-
-          // Add the newly formated email address to the end of the Firebase url
-          newEmail = $scope.confirmedUrl.$child(formatedEmail + '/' + data.name());
-
-          // Add information to database
-          newEmail.$add({title: $rootScope.name, month: $rootScope.month, day: $rootScope.day, year: $rootScope.year, release: $rootScope.release, selectedDate: $scope.email.selectedDate, id: $rootScope.gameID});
-
-          $scope.successClass = 'hide';
-
-          // Push alert to array to display
-          $scope.alerts.push({type: 'success', msg: "Sucess! We will notify you on the date you've selected."});
-
-          });
-        }
+        // Push alert to array to display
+        $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
 
       });
     }
   }
 
 }]);
-
-function addUser(email, callback) {
-    $http.get('http://localhost:8888/get-users/' + email)
-    .success(function(data){
-
-      console.log(data);
-
-      if(typeof callback === 'function') {
-        callback(data);
-      }
-
-
-
-    })
-    .error(function(data) {
-      console.log(data);
-    });
-}

@@ -4,28 +4,14 @@ header('Access-Control-Allow-Origin: *');
 
 class UserController extends BaseController {
 
-	public function getUser($email)
+	public function getUser($email, $title, $month, $day, $year, $game_id, $selected_date)
 	{
-
-		$getUser = Users::where('email', '=', $email)
-								->get();
 
 		$count = Users::where('email', '=', $email)
 								->count();
 
-		if($count === '0') {
+		if($count === 0) {
 
-			MandrillController::newUser($email);
-
-			UserGames::insert(array(
-				'user_id' => $userId,
-				'title' => $title,
-				'month' => $month,
-				'day' => $day,
-				'year' => $year,
-				'game_id' => $game_id));
-
-		}else {
 			$insertUser = Users::insert(array(
 				'email' => $email));
 
@@ -34,17 +20,33 @@ class UserController extends BaseController {
 
 			$userId = $getUser[0]->id;
 
-			UserGames::insert(array(
+			$insertGames = UsersGames::insert(array(
 				'user_id' => $userId,
 				'title' => $title,
 				'month' => $month,
 				'day' => $day,
 				'year' => $year,
-				'game_id' => $game_id));
+				'game_id' => $game_id,
+				'selected_date' => $selected_date));
+		}else {
+
+			$getUser = Users::where('email', '=', $email)
+								->get();
+
+			$userId = $getUser[0]->id;
+
+			$insertGames = UsersGames::insert(array(
+				'user_id' => $userId,
+				'title' => $title,
+				'month' => $month,
+				'day' => $day,
+				'year' => $year,
+				'game_id' => $game_id,
+				'selected_date' => $selected_date));
 		}
 
 		header('Access-Control-Allow-Origin: *');
-		return Response::json($getUser);
+		return Response::json($insertGames);
 
 	}
 }
