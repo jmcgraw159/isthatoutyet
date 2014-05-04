@@ -29,10 +29,12 @@ class UserController extends BaseController {
 				'game_id' => $game_id,
 				'selected_date' => $selected_date));
 
-			Mail::send('emails.test', array(), function($message)
+			$data = array('email' => $email, 'id' => $userId);
+
+			Mail::send('emails.confirm', $data, function($message) use($data)
 			{
 			    $message
-			    ->to('jmcgraw159@gmail.com')
+			    ->to($data['email'])
 			    ->subject('Confirm Email');
 			});
 
