@@ -1,56 +1,26 @@
 'use strict';
 
 var App = angular.module('isThatOutYetApp');
-App.controller('SubscribeCtrl', function ($scope, $routeParams, $window) {
+App.controller('SubscribeCtrl', function ($scope, $http, $routeParams, $window, $location) {
 
-  // Firebase URLs
-  $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/' + $routeParams.email + '/' + $routeParams.id);
-  $scope.unconfirmed = new Firebase('https://isthatoutyet.firebaseio.com/unconfirmed/' + $routeParams.email);
-  $scope.confirmed = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/' + $routeParams.email);
+  function confirmUser(email, id, callback) {
+    $http.get('http://localhost:8888/confirm-user/' + email + '/' + id)
+    .success(function(data){
 
-  $scope.url.once('value', function(ss) {
+      if(typeof callback === 'function') {
+        callback(data);
+      }
 
-    // Check to see if value exists
-    if(ss.val() === null) {
+    })
+    .error(function(data) {
+      console.log(data);
+    });
+  }
 
-      console.log('null');
+   confirmUser($routeParams.email, $routeParams.id, function(data) {
 
-      // If null, redirect to homepage
-      $window.location = '/';
+    console.log(data[0].confirmed);
 
-    }else {
-
-      ss.forEach(function(data) {
-
-        // Confirmation Checker
-        var checker = data.val();
-
-        // Check to make sure value is false
-        if(checker.confirmed === false) {
-
-          // If false, set to true
-          $scope.url.child(data.name()).set({confirmed: 'true'}, function() {
-
-            $scope.unconfirmed.on('value', function(screenshot) {
-
-              var details = screenshot.val();
-
-              // Push data to confirm section
-              $scope.confirmed.push(details);
-
-              // Remove data from unconfirmed section
-              $scope.unconfirmed.remove();
-
-            })
-
-          });
-
-        }else {
-          // If true, redirect to homepage
-          $window.location = '/';
-        }
-
-      });
-    }
   });
+
 });

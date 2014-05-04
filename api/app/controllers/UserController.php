@@ -61,4 +61,31 @@ class UserController extends BaseController {
 			return Response::json($insertGames);
 		}
 	}
+
+	public function confirmUser($email, $id) {
+
+		$count = Users::where('email', '=', $email)
+								->count();
+
+		if($count === 0) {
+
+			echo $count;
+
+		}else {
+
+			$getUser = Users::where('email', '=', $email, 'and', 'id', '=', $id)
+									->get();
+
+			$updateUser = $getUser->first();
+
+			$updateUser->confirmed = '1';
+			$updateUser->save();
+
+			// header('Access-Control-Allow-Origin: *');
+			return Response::json($getUser);
+
+		}
+
+	}
+
 }
