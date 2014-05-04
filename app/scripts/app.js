@@ -1,10 +1,8 @@
 'use strict';
 
-/*global Firebase */
 var App = angular.module('isThatOutYetApp', [
   'ngRoute',
-  'ui.bootstrap',
-  'firebase'
+  'ui.bootstrap'
 ]);
 
 App.config(function ($routeProvider) {
@@ -56,66 +54,3 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$window', '$routeParams', '
   };
 
 }]);
-
-// Controller to check to see if chosen date is equal to today
-App.controller('CheckDateCtrl', ['$scope', '$filter', function ($scope, $filter) {
-
-  var currentDate = new Date();
-  currentDate = $filter('date')(currentDate, "MM/dd/yyyy");;
-
-  $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/');
-
-  $scope.url.once('value', function(ss) {
-
-    // Check to see if value exists
-    if(ss.val() === null) {
-
-      console.log('null');
-
-    }else {
-
-      ss.forEach(function(data) {
-
-        data.forEach(function(item) {
-
-          item.forEach(function(detail) {
-
-            var x = detail.val();
-
-            var month = x.month;
-            var day = x.day;
-            var year = x.year;
-            var fullDate = month + '/' + day + '/' + year;
-
-            if(fullDate === currentDate) {
-
-              // console.log('Send email, today is ' + fullDate);
-
-            }else if(month !== undefined && day !== undefined && year !== undefined){
-
-              // console.log('Not today, should be sent on ' + fullDate);
-
-            }else if(month !== undefined && day === undefined && year !== undefined) {
-
-              // console.log(month + '/' + year);
-
-              // Need to check API to see if data has been updated
-
-            }else if(month === undefined && day === undefined && year !== undefined) {
-
-              // console.log(year);
-
-              // Need to check API to see if data has been updated
-
-            }else if(month === undefined && day === undefined && year === undefined) {
-
-              // Do nothing
-
-            }
-
-          })
-        })
-      });
-    }
-  });
-}])

@@ -81,7 +81,31 @@ class UserController extends BaseController {
 			$updateUser->confirmed = '1';
 			$updateUser->save();
 
-			// header('Access-Control-Allow-Origin: *');
+			return Response::json($getUser);
+
+		}
+
+	}
+
+	public function unconfirmUser($email, $id) {
+
+		$count = Users::where('email', '=', $email)
+								->count();
+
+		if($count === 0) {
+
+			echo $count;
+
+		}else {
+
+			$getUser = Users::where('email', '=', $email, 'and', 'id', '=', $id)
+									->get();
+
+			$updateUser = $getUser->first();
+
+			$updateUser->confirmed = '0';
+			$updateUser->save();
+
 			return Response::json($getUser);
 
 		}

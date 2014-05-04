@@ -1,36 +1,26 @@
 'use strict';
 
 var App = angular.module('isThatOutYetApp');
-App.controller('UnsubscribeCtrl', function ($scope, $routeParams, $window) {
+App.controller('UnsubscribeCtrl', function ($scope, $http, $routeParams, $window) {
 
-  // Firebase URLs
-  $scope.url = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/' + $routeParams.email);
-  $scope.confirmed = new Firebase('https://isthatoutyet.firebaseio.com/confirmed/' + $routeParams.email);
+    function unconfirmUser(email, id, callback) {
+      $http.get('http://localhost:8888/unconfirm-user/' + email + '/' + id)
+      .success(function(data){
 
-  $scope.url.once('value', function(ss) {
+        if(typeof callback === 'function') {
+          callback(data);
+        }
 
-  	console.log(ss.val());
-
-    // Check to see if value exists
-    if(ss.val() === null) {
-
-      console.log('null');
-
-      // If null, redirect to homepage
-      $window.location = '/';
-
-    }else {
-
-      ss.forEach(function(data) {
-
-        data.forEach(function(id) {
-
-          if(id.name() === $routeParams.id) {
-            $scope.confirmed.remove();
-          }
-
-        })
+      })
+      .error(function(data) {
+        console.log(data);
       });
     }
+
+   unconfirmUser($routeParams.email, $routeParams.id, function(data) {
+
+    console.log(data[0].confirmed);
+
   });
+
 });

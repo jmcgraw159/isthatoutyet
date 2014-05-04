@@ -13,7 +13,7 @@
 
 Route::get('get-recent/{date}', 'GiantBombController@getRecent');
 Route::get('get-games/{title}', 'GiantBombController@getGame');
-Route::get('get-unconfirmed/{email}', 'MandrillController@getUnconfirmed');
 Route::get('get-notification/{date}', 'MandrillController@getNotification');
 Route::get('get-users/{email}/{title}/{month}/{day}/{year}/{game_id}/{selected_date}', 'UserController@getUser');
 Route::get('confirm-user/{email}/{userId}', 'UserController@confirmUser');
+Route::get('unconfirm-user/{email}/{userId}', 'UserController@unconfirmUser');
