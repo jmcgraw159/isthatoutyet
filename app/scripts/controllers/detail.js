@@ -2,81 +2,61 @@
 
 var App = angular.module('isThatOutYetApp');
 
-App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $rootScope) {
+App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, $cookieStore) {
 
-  // API call to get game detail
-  $http.jsonp('http://www.giantbomb.com/api/games/?api_key=cdb456f4a15c4052a419f97b568218a2b50634c9&format=jsonp', {
-	  params: {
-        callback: 'JSON_CALLBACK',
-        json_callback: 'angular.callbacks._' + $window.angular.callbacks.counter.toString(36),
-        filter: 'id:' + $routeParams.id
-      }
-    })
-  .success(function(data){
-      $scope.details = data.results[0];
-
-      $rootScope.name = $scope.details.name;
-      $rootScope.gameID = $scope.details.id;
-
-      // Condition to check what date format should be shown
-      if(data.results[0].expected_release_day === null && data.results[0].expected_release_month !== null && data.results[0].expected_release_year !== null){
-
-        $scope.date = data.results[0].expected_release_month + '/' + data.results[0].expected_release_year;
-
-        $rootScope.date = $scope.date;
-
-        $rootScope.month = data.results[0].expected_release_month;
-        $rootScope.day = data.results[0].expected_release_day;
-        $rootScope.year = data.results[0].expected_release_year;
-
-      }else if(data.results[0].expected_release_day === null && data.results[0].expected_release_month === null && data.results[0].expected_release_year !== null) {
-
-        $scope.date = data.results[0].expected_release_year;
-
-        $rootScope.date = $scope.date;
-
-        $rootScope.month = data.results[0].expected_release_month;
-        $rootScope.day = data.results[0].expected_release_day;
-        $rootScope.year = data.results[0].expected_release_year;
-
-      }else if(data.results[0].expected_release_day !== null && data.results[0].expected_release_month !== null && data.results[0].expected_release_year !== null) {
-
-        $scope.date = data.results[0].expected_release_month + '/' + data.results[0].expected_release_day + '/' + data.results[0].expected_release_year;
-
-        $rootScope.date = $scope.date;
-
-        $rootScope.month = data.results[0].expected_release_month;
-        $rootScope.day = data.results[0].expected_release_day;
-        $rootScope.year = data.results[0].expected_release_year;
-
-      }else {
-
-        // Formating released date to the correct format
-        var releasedDate = data.results[0].original_release_date;
-        var parsedDate = releasedDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
-
-        $scope.date = parsedDate;
-
-        $rootScope.month = data.results[0].expected_release_month;
-        $rootScope.day = data.results[0].expected_release_day;
-        $rootScope.year = data.results[0].expected_release_year;
-      }
+      // Retrive stored cookie info
+      $scope.game = $cookieStore.get('game');
 
       // Condition to check if email signup should be shown
-      if(data.results[0].original_release_date === null) {
+      if($scope.game.release_date === null) {
         $scope.hideClass = 'show';
       }else {
         $scope.hideClass = 'hide';
       }
 
-    })
-    .error(function(data) {
-      console.log(data);
-    });
+      // Set rootScope variables so data can be used in another controller
+      $rootScope.name = $scope.game.name;
+      $rootScope.gameID = $scope.game.id;
 
+      // Condition to check what date format should be shown
+      if($scope.game.release_day === null && $scope.game.release_month !== null && $scope.game.release_year !== null){
+
+        $scope.date = $scope.game.release_month + '/' + $scope.game.release_year;
+
+        $rootScope.date = $scope.date;
+        $rootScope.month = $scope.game.release_month;
+        $rootScope.day = $scope.game.release_day;
+        $rootScope.year = $scope.game.release_year;
+
+      }else if($scope.game.release_day === null && $scope.game.release_month === null && $scope.game.release_year !== null) {
+
+        $scope.date = $scope.game.release_year;
+
+        $rootScope.date = $scope.date;
+        $rootScope.month = $scope.game.release_month;
+        $rootScope.day = $scope.game.release_day;
+        $rootScope.year = $scope.game.release_year;
+
+      }else if($scope.game.release_day !== null && $scope.game.release_month !== null && $scope.game.release_year !== null) {
+
+        $scope.date = $scope.game.release_month + '/' + $scope.game.release_day + '/' + $scope.game.release_year;
+
+        $rootScope.date = $scope.date;
+        $rootScope.month = $scope.game.release_month;
+        $rootScope.day = $scope.game.release_day;
+        $rootScope.year = $scope.game.release_year;
+
+      }else {
+
+        // Formating released date to the correct format
+        var releasedDate = $cookies.release_date;
+        var parsedDate = releasedDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
+
+        $scope.date = parsedDate;
+      }
 });
 
-App.controller('EmailCtrl', ['$scope', '$firebase', '$rootScope', '$http', function ($scope, $firebase, $rootScope, $http) {
+App.controller('EmailCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
 
   function addUser(email, callback) {
     $http.get('http://localhost:8888/get-users/' + email + '/' + $rootScope.name + '/' + $rootScope.month + '/' + $rootScope.day + '/' + $rootScope.year + '/' + $rootScope.gameID + '/' + $scope.email.selectedDate)

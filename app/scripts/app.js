@@ -2,7 +2,8 @@
 
 var App = angular.module('isThatOutYetApp', [
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngCookies'
 ]);
 
 App.config(function ($routeProvider) {
@@ -29,7 +30,7 @@ App.config(function ($routeProvider) {
 });
 
 // Controller used for the Angular-UI Typeahead function
-App.controller('TypeaheadCtrl', ['$scope', '$http', '$window', '$routeParams', '$location', function ($scope, $http, $window, $routeParams, $location) {
+App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope', '$location', '$cookieStore', function ($scope, $http, $routeParams, $rootScope, $location, $cookieStore) {
 
   $scope.selected = undefined;
 
@@ -40,17 +41,21 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$window', '$routeParams', '
       var game = [];
 
         angular.forEach(res.data.results, function(item){
-          game.push({name: item.name, id: item.id, image: item.image});
+          game.push({name: item.name, id: item.id, image: item.image, release_day: item.expected_release_day, release_month: item.expected_release_month, release_year: item.expected_release_year, release_date: item.original_release_date, desc: item.deck, platforms: item.platforms});
         });
 
         return game;
     });
   };
 
-  // When item is selected, redirect to detail page with game id
+  // When item is selected, redirect to detail page with game id and game info
   $scope.onSelect = function ($item) {
-    $routeParams = $item.id;
-    $location.path('/detail/' + $routeParams);
+    $routeParams.id = $item.id;
+
+    // Store game info into a cookie
+    $cookieStore.put('game', $item);
+
+    $location.path('/detail/' + $routeParams.id);
   };
 
 }]);
