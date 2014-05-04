@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'no-reply@isthatoutyet.com', 'name' => 'Is That Out Yet?'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
 	|
 	*/
 
-	'encryption' => 'tls',
+	'encryption' => '',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => '6cTR9wBXlLzqiBlVxoxRaw',
+	'password' => '8Xt3wMbH1HzqFQJQFdjGBg',
 
 	/*
 	|--------------------------------------------------------------------------

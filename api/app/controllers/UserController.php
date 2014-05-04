@@ -29,7 +29,15 @@ class UserController extends BaseController {
 				'game_id' => $game_id,
 				'selected_date' => $selected_date));
 
-			$sendEmail = MandrillController::newUser($email, $userId);
+			Mail::send('emails.test', array(), function($message)
+			{
+			    $message
+			    ->to('jmcgraw159@gmail.com')
+			    ->subject('Confirm Email');
+			});
+
+			header('Access-Control-Allow-Origin: *');
+			return Response::json($insertGames);
 
 		}else {
 
@@ -46,10 +54,9 @@ class UserController extends BaseController {
 				'year' => $year,
 				'game_id' => $game_id,
 				'selected_date' => $selected_date));
+
+			header('Access-Control-Allow-Origin: *');
+			return Response::json($insertGames);
 		}
-
-		header('Access-Control-Allow-Origin: *');
-		return Response::json($insertGames);
-
 	}
 }
