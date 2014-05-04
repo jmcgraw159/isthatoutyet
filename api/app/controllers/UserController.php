@@ -28,6 +28,9 @@ class UserController extends BaseController {
 				'year' => $year,
 				'game_id' => $game_id,
 				'selected_date' => $selected_date));
+
+			$sendEmail = MandrillController::newUser($email, $userId);
+
 		}else {
 
 			$getUser = Users::where('email', '=', $email)

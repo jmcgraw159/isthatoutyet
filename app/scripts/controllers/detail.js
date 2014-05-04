@@ -60,7 +60,6 @@ App.controller('DetailCtrl', function ($scope, $http, $window, $routeParams, $ro
         $rootScope.month = data.results[0].expected_release_month;
         $rootScope.day = data.results[0].expected_release_day;
         $rootScope.year = data.results[0].expected_release_year;
-        $rootScope.release = parsedDate;
       }
 
       // Condition to check if email signup should be shown
