@@ -1,7 +1,7 @@
 'use strict';
 
 var App = angular.module('isThatOutYetApp');
-App.controller('MainCtrl', function ($scope, $http, $window, $filter) {
+App.controller('MainCtrl', function ($scope, $http, $filter) {
   $scope.awesomeThings = [
     'HTML5 Boilerplate',
     'AngularJS',
