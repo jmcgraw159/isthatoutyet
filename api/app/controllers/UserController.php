@@ -39,7 +39,7 @@ class UserController extends BaseController {
 			});
 
 			header('Access-Control-Allow-Origin: *');
-			return Response::json($insertGames);
+			return Response::json($count);
 
 		}else {
 
@@ -58,7 +58,7 @@ class UserController extends BaseController {
 				'selected_date' => $selected_date));
 
 			header('Access-Control-Allow-Origin: *');
-			return Response::json($insertGames);
+			return Response::json($count);
 		}
 	}
 
