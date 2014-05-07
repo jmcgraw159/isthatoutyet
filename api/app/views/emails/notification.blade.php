@@ -777,7 +777,7 @@ body.outlook p {
       background-color: #2d2d2d;
     }
 
-    h1, h2, p  {
+    h1, h2, p, a  {
       font-family: 'HelveticaNeue', 'Arial', sans-serif;
     }
 
@@ -816,7 +816,7 @@ body.outlook p {
 
     p.lead {
       font-size: 14px;
-      padding-left: 10px;
+      padding: 0 5px;
     }
 
     .gn-options {
