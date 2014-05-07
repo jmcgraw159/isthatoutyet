@@ -778,15 +778,18 @@ body.outlook p {
     }
 
     h1, h2, p  {
-      color: #f0f0f0 !important;
       font-family: 'HelveticaNeue', 'Arial', sans-serif;
+    }
+
+    h1, p {
+      color: #f0f0f0 !important;
     }
 
     h1, h2 {
       text-align: center;
     }
 
-    a, a:visited {
+    h2, .gn-options, a, a:visited, a:hover, a:focus, a:active {
       color: #e17f49;
     }
 
@@ -803,6 +806,22 @@ body.outlook p {
       border: 1px solid #232323;
     }
 
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    img {
+      margin-bottom: 10px;
+    }
+
+    p.lead {
+      font-size: 14px;
+      padding-left: 10px;
+    }
+
+    .gn-options {
+      font-weight: bold;
+    }
 
     .footer .wrapper {
       background-color: inherit;
@@ -810,6 +829,7 @@ body.outlook p {
 
     .footer p {
       text-align: center;
+      font-size: 12px;
     }
 
   </style>
@@ -832,7 +852,7 @@ body.outlook p {
                         <table class="twelve columns">
                           <tr>
                             <td>
-                              <h1>Is That Out Yet?</h1>
+                              <a href="http://localhost:9000/#/"><h1>Is That Out Yet?</h1></a>
                             </td>
                             <td class="expander"></td>
 
@@ -860,28 +880,10 @@ body.outlook p {
                       <table class="twelve columns">
                         <tr>
                           <td>
-                            <h1>Game Notification</h1>
+                            <h2>Game Reminder!</h2>
                             <img width="580" height="300" src="http://placehold.it/580x300">
-                            <h2>Game Title</h2>
-                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
-                          </td>
-                          <td class="expander"></td>
-                        </tr>
-                      </table>
-
-                    </td>
-                  </tr>
-                </table>
-
-                <table class="row footer">
-                  <tr>
-
-                    <td class="wrapper last">
-
-                      <table class="twelve columns">
-                        <tr>
-                          <td>
-                            <p>&copy; 2014 Is That Out Yet? All rights reserved.</p>
+                            <p class="lead">You've requested that we notify about the game, <span class="gn-options">[game-title]</span>, <span class="gn-options">[game-date]</span> the game came out!</p>
+                            <p class="lead">Happy gaming!</p>
                           </td>
                           <td class="expander"></td>
                         </tr>
@@ -903,8 +905,26 @@ body.outlook p {
                   <tr>
                     <td align="center">
                       <center>
-                        <p style="text-align:center;"><a href="#">Unsubscribe</a></p>
+                        <p style="text-align:center;"><a href="http://localhost:9000/#/unsubscribe?email={{$email}}&id={{$id}}">Unsubscribe</a></p>
                       </center>
+                    </td>
+                    <td class="expander"></td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+
+          <table class="row footer">
+            <tr>
+
+              <td class="wrapper last">
+
+                <table class="twelve columns">
+                  <tr>
+                    <td>
+                      <p>&copy; 2014 Is That Out Yet? All rights reserved.</p>
                     </td>
                     <td class="expander"></td>
                   </tr>
