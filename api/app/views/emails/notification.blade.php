@@ -363,15 +363,15 @@ a {
 }
 
 a:hover {
-  color: #2795b6 !important;
+  color: #2795b6;
 }
 
 a:active {
-  color: #2795b6 !important;
+  color: #2795b6;
 }
 
 a:visited {
-  color: #2ba6cb !important;
+  color: #2ba6cb;
 }
 
 h1 a,
@@ -771,6 +771,48 @@ body.outlook p {
     }
 
   </style>
+  <style>
+
+    body {
+      background-color: #2d2d2d;
+    }
+
+    h1, h2, p  {
+      color: #f0f0f0 !important;
+      font-family: 'HelveticaNeue', 'Arial', sans-serif;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    a, a:visited {
+      color: #e17f49;
+    }
+
+    .header  {
+      background-color: #e17f49;
+    }
+
+    .header h1 {
+      text-shadow: 0 4px 0 #bd4a25;
+    }
+
+    .container {
+      background-color: #282828;
+      border: 1px solid #232323;
+    }
+
+
+    .footer .wrapper {
+      background-color: inherit;
+    }
+
+    .footer p {
+      text-align: center;
+    }
+
+  </style>
 </head>
 <body>
   <table class="body">
@@ -783,7 +825,7 @@ body.outlook p {
               <td class="center" align="center">
                 <center>
 
-                  <table class="container">
+                  <table>
                     <tr>
                       <td class="wrapper last">
 
@@ -811,7 +853,6 @@ body.outlook p {
             <tr>
               <td>
 
-                <!-- content start -->
                 <table class="row">
                   <tr>
                     <td class="wrapper last">
@@ -819,9 +860,9 @@ body.outlook p {
                       <table class="twelve columns">
                         <tr>
                           <td>
-
                             <h1>Game Notification</h1>
                             <img width="580" height="300" src="http://placehold.it/580x300">
+                            <h2>Game Title</h2>
                             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
                           </td>
                           <td class="expander"></td>
@@ -837,9 +878,9 @@ body.outlook p {
 
                     <td class="wrapper last">
 
-                      <table class="six columns">
+                      <table class="twelve columns">
                         <tr>
-                          <td class="last right-text-pad">
+                          <td>
                             <p>&copy; 2014 Is That Out Yet? All rights reserved.</p>
                           </td>
                           <td class="expander"></td>
@@ -850,26 +891,25 @@ body.outlook p {
                   </tr>
                 </table>
 
-                <table class="row">
+              </td>
+            </tr>
+          </table>
+
+          <table class="row">
+            <tr>
+              <td class="wrapper last">
+
+                <table class="twelve columns">
                   <tr>
-                    <td class="wrapper last">
-
-                      <table class="twelve columns">
-                        <tr>
-                          <td align="center">
-                            <center>
-                              <p style="text-align:center;"><a href="#">Unsubscribe</a></p>
-                            </center>
-                          </td>
-                          <td class="expander"></td>
-                        </tr>
-                      </table>
-
+                    <td align="center">
+                      <center>
+                        <p style="text-align:center;"><a href="#">Unsubscribe</a></p>
+                      </center>
                     </td>
+                    <td class="expander"></td>
                   </tr>
                 </table>
 
-                <!-- container end below -->
               </td>
             </tr>
           </table>
