@@ -3,6 +3,7 @@
 var App = angular.module('isThatOutYetApp');
 App.controller('SubscribeCtrl', function ($scope, $http, $routeParams, $window, $location) {
 
+  // API call to confirm email
   function confirmUser(email, id, callback) {
     $http.get('http://localhost:8888/confirm-user/' + email + '/' + id)
     .success(function(data){
