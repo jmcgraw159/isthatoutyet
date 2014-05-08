@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'isthatoutyet',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => 'bw2vF2',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
