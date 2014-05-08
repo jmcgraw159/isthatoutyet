@@ -59,7 +59,7 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
 App.controller('EmailCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
 
   function addUser(email, callback) {
-    $http.get('http://localhost:8888/get-users/' + email + '/' + $rootScope.name + '/' + $rootScope.month + '/' + $rootScope.day + '/' + $rootScope.year + '/' + $rootScope.gameID + '/' + $scope.email.selectedDate)
+    $http.get('http://isthatoutyet.com/get-users/' + email + '/' + $rootScope.name + '/' + $rootScope.month + '/' + $rootScope.day + '/' + $rootScope.year + '/' + $rootScope.gameID + '/' + $scope.email.selectedDate)
     .success(function(data){
 
       if(typeof callback === 'function') {
