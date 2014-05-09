@@ -8,9 +8,9 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
     'Karma'
   ];
 
-  // // Retrive today's date
-  // var today = $filter('date')(new Date(),'yyyy-MM-dd');
-  // var encodedDate = encodeURIComponent(today);
+  // Retrive today's date
+  var today = $filter('date')(new Date(),'yyyy-MM-dd');
+  var encodedDate = encodeURIComponent(today);
 
   // API call to get the images for the latest releases
   $http.get('http://isthatoutyet.com/get-recent/' + encodedDate)
