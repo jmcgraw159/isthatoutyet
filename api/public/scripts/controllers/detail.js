@@ -108,8 +108,6 @@ App.controller('EmailCtrl', ['$scope', '$rootScope', '$http', function ($scope, 
       // Call to addUser function
       addUser($scope.email.inputEmail, function(data) {
 
-        console.log(data);
-
         $scope.successClass = 'hide';
 
         if(data === '0') {

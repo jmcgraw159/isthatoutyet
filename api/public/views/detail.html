@@ -27,7 +27,7 @@
     <div class="row email-signup {{hideClass}}">
       <div class="col-md-12">
         <h4>Bad news, {{details.name}} is not out yet!</h4>
-        <p>Good news though! Enter you email address, choose a day, and we will notify you via email before the game comes out.</p>
+        <p>Good news though! Enter you email address, choose a day, and we will notify you via email on the selected date.</p>
         <form ng-controller="EmailCtrl">
           <input type="email" name="email" class="{{successClass}}" ng-model="email.inputEmail" placeholder="Enter email address">
           <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
