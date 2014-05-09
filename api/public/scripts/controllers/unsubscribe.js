@@ -5,7 +5,7 @@ App.controller('UnsubscribeCtrl', function ($scope, $http, $routeParams, $window
 
     // API call to unconfirm email
     function unconfirmUser(email, id, callback) {
-      $http.get('http://localhost:8888/unconfirm-user/' + email + '/' + id)
+      $http.get('http://isthatoutyet.com/unconfirm-user/' + email + '/' + id)
       .success(function(data){
 
         if(typeof callback === 'function') {

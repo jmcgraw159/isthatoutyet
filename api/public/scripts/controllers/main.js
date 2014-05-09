@@ -13,7 +13,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
   // var encodedDate = encodeURIComponent(today);
 
   // API call to get the images for the latest releases
-  $http.get('http://localhost:8888/get-recent/' + encodedDate)
+  $http.get('http://isthatoutyet.com/get-recent/' + encodedDate)
     .success(function(data){
       $scope.upcoming = data;
 

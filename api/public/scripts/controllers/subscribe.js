@@ -5,7 +5,7 @@ App.controller('SubscribeCtrl', function ($scope, $http, $routeParams, $window, 
 
   // API call to confirm email
   function confirmUser(email, id, callback) {
-    $http.get('http://localhost:8888/confirm-user/' + email + '/' + id)
+    $http.get('http://isthatoutyet.com/confirm-user/' + email + '/' + id)
     .success(function(data){
 
       if(typeof callback === 'function') {
