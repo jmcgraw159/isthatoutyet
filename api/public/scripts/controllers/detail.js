@@ -52,9 +52,9 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
 
         // Formating released date to the correct format
         var releasedDate = $scope.game.release_date;
-        var parsedDate = releasedDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
+        // var parsedDate = releasedDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
 
-        $scope.date = parsedDate;
+        // $scope.date = parsedDate;
       }
 });
 
