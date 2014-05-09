@@ -7,6 +7,8 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
       // Retrive stored cookie info
       $scope.game = $cookieStore.get('game');
 
+      console.log($scope.game);
+
       // Condition to check if email signup should be shown
       if($scope.game.release_date === null) {
         $scope.hideClass = 'show';
