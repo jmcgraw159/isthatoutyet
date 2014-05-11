@@ -7,11 +7,11 @@ class NotificationController extends BaseController {
 	public static function sendNotification()
 	{
 		// Get current date
-		$month = date('j');
-		$day = date('d');
+		$month = date('n');
+		$day = date('j');
 		$year = date('Y');
 
-		echo $month;
+		echo $month . $day . $year;
 
 		$count = UsersGames::where('month', '=', $month, 'and', 'day', '=', $day, 'and', 'year', '=', $year)
 								->count();
