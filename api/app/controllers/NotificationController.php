@@ -11,7 +11,7 @@ class NotificationController extends BaseController {
 		$day = date('d');
 		$year = date('Y');
 
-		echo $date;
+		echo $month . $day . $year;
 
 		$count = UsersGames::where('month', '=', $month, 'and', 'day', '=', $day, 'and', 'year', '=', $year)
 								->count();
