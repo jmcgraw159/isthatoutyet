@@ -9,7 +9,9 @@ class NotificationController extends BaseController {
 		// Get current date
 		$date = date('mdY');
 
-		$count = UsersGames::where('concat(month,day,year)', '=', $date)
+		echo $date;
+
+		$count = UsersGames::where(UsersGames::raw('concat(month,day,year)'), '=', $date)
 								->count();
 
 		echo $count;
