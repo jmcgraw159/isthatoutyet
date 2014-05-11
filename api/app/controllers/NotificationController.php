@@ -7,7 +7,7 @@ class NotificationController extends BaseController {
 	public static function sendNotification()
 	{
 		// Get current date
-		$month = date('mm');
+		$month = date('j');
 		$day = date('d');
 		$year = date('Y');
 
