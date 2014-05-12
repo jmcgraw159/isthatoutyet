@@ -33,7 +33,7 @@
           <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
           <p class="{{successClass}}">I would like to be notified
           <select name="date" ng-model="email.selectedDate" id="select-date">
-            <option value="0">on the day</option>
+            <option value="" selected>on the day</option>
             <option value="1">1 day before</option>
             <option value="2">2 days before</option>
             <option value="3">3 days before</option>
