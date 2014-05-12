@@ -513,7 +513,7 @@ footer small  {
   }
 
   .dropdown-menu  {
-    width: 90%;
+    width: 95%;
   }
 
   #features  {
@@ -590,6 +590,10 @@ footer small  {
 }
 
 @media screen and (max-width: 480px) {
+  .dropdown-menu {
+    width: 90%;
+  }
+
   .email-signup form .alert div span  {
     font-size: 16px;
   }
