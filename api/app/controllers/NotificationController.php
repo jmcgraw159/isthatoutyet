@@ -24,7 +24,7 @@ class NotificationController extends BaseController {
 
 		foreach($getContent as $game) {
 
-			echo $game->title;
+			echo $game;
 
 		}
 
