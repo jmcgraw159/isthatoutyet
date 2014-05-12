@@ -21,11 +21,11 @@ class NotificationController extends BaseController {
 		$getContent = UsersGames::where('day', '+', 'selected_date', '=', $day)
 								->get();
 
-		foreach($getContent as $game) {
+		// foreach($getContent as $game) {
 
-			echo $game->title;
+		// 	echo $game->title;
 
-		}
+		// }
 
 	}
 }
