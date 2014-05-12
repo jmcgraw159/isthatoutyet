@@ -6,6 +6,8 @@ class UserController extends BaseController {
 
 	public function getUser($email, $title, $month, $day, $year, $game_id, $selected_date)
 	{
+
+		// If 'on the day' was selected
 		if($selected_date === 'undefined') {
 			$selected_date = 0;
 		}

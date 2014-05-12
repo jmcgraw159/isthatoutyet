@@ -112,10 +112,10 @@ App.controller('EmailCtrl', ['$scope', '$rootScope', '$http', function ($scope, 
 
         if(data === '0') {
           // Push alert to array to display
-          $scope.alerts.push({type: 'success', msg: "Sucess! We will send you an email to confirm your email address."});
+          $scope.alerts.push({type: 'success', msg: "Success! We will send you an email to confirm your email address."});
         }else {
           // Push alert to array to display
-          $scope.alerts.push({type: 'success', msg: "Sucess! We will notify you on the selected date."});
+          $scope.alerts.push({type: 'success', msg: "Success! We will notify you on the selected date."});
         }
 
       });
