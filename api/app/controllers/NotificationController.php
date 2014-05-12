@@ -22,9 +22,12 @@ class NotificationController extends BaseController {
 								->join('users', 'user_id', '=', 'users.id')
 								->get();
 
+		// If date is = current date
 		foreach($getContent as $game) {
 
 			echo $game;
+
+			// Send mail
 
 		}
 
