@@ -16,10 +16,8 @@ class NotificationController extends BaseController {
 		$getContent = UsersGames::where('month', '=', $month, 'and', 'day', '+', 'selected_date', '=', $day, 'and', 'year', '=', $year)
 								->get();
 
-		echo $getContent;
-
 		foreach($getContent as $test) {
-			echo $test;
+			echo $test->title;
 		}
 
 	}
