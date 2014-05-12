@@ -6,10 +6,11 @@ class UserController extends BaseController {
 
 	public function getUser($email, $title, $month, $day, $year, $game_id, $selected_date)
 	{
-		if($selected_date === undefined) {
+		if($selected_date === 'undefined') {
 			$selected_date = 0;
 		}
 
+		echo $selected_date;
 
 		$count = Users::where('email', '=', $email)
 								->count();
