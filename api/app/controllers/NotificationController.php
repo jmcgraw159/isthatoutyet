@@ -23,7 +23,7 @@ class NotificationController extends BaseController {
 								->get();
 
 		// Send mail
-		Mail::send('emails.notification', array(), function($message)
+		Mail::send('emails.confirm', array(), function($message)
 		{
 		    $message
 		    ->to('jmcgraw159@gmail.com')
