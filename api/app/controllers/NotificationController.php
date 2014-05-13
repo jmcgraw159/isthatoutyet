@@ -42,7 +42,7 @@ class NotificationController extends BaseController {
 			echo $data['selected'];
 
 			// Send mail
-			Mail::send('emails.confirm', $data, function($message) use($data)
+			Mail::send('emails.confirm', array(), function($message)
 			{
 			    $message
 			    ->to('jmcgraw159@gmail.com')
