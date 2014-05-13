@@ -27,7 +27,7 @@ class NotificationController extends BaseController {
 
 			echo $game->selected_date;
 
-			if($game->selected_date === 0) {
+			if($game->selected_date === '0') {
 				$selected = 'on the day';
 				echo $selected_date;
 			}//else if($game->selected_date === 1) {
