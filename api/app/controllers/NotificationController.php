@@ -38,7 +38,7 @@ class NotificationController extends BaseController {
 			$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected);
 
 			echo $data['email'];
-			echo $data['title'];
+			// echo $data['title'];
 			echo $data['selected'];
 
 			// Send mail
