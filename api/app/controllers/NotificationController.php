@@ -22,25 +22,25 @@ class NotificationController extends BaseController {
 								->join('users', 'user_id', '=', 'users.id')
 								->get();
 
-		// Send mail
-		Mail::send('emails.confirm', array(), function($message)
-		{
-		    $message
-		    ->to('jmcgraw159@gmail.com')
-		    ->subject('Game Notification');
-		});
-
 		// If date is = current date
 		foreach($getContent as $game) {
 
 			if($game->selected_date === '0') {
+
 				$selected = 'on the day';
+
 			}elseif($game->selected_date === '1') {
+
 				$selected = '1 day before';
+
 			}elseif($game->selected_date === '2') {
+
 				$selected === '2 days before';
+
 			}else  {
+
 				$selected === '3 days before';
+
 			}
 
 			$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected);
@@ -48,6 +48,14 @@ class NotificationController extends BaseController {
 			echo $data['email'];
 			echo $data['title'];
 			echo $data['selected'];
+
+			// Send mail
+			Mail::send('emails.notification', $data, function($message) use($data)
+			{
+			    $message
+			    ->to($data['email'], 'Jeremy')
+			    ->subject('Game Notification');
+			});
 
 		}
 
