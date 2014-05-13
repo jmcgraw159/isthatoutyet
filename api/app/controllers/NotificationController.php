@@ -38,16 +38,17 @@ class NotificationController extends BaseController {
 			$data = array('email' => $game->email);
 
 			// Send mail
-			Mail::send('emails.confirm', $data, function($message) use($data)
-			{
-			    $message
-			    ->to($data['email'])
-			    ->subject('Confirm Email');
-			});
 
 			return Response::json($game);
 
 		}
+
+		Mail::send('emails.confirm', $data, function($message) use($data)
+			{
+			    $message
+			    ->to('jmcgraw159@gmail.com')
+			    ->subject('Confirm Email');
+			});
 
 	}
 }
