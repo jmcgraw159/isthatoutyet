@@ -43,7 +43,7 @@ class NotificationController extends BaseController {
 
 			echo $data['email'];
 
-			Send mail
+			// Send mail
 			Mail::send('emails.notification', $data, function($message) use($data)
 			{
 			    $message
