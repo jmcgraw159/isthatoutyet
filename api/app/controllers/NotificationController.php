@@ -15,7 +15,7 @@ class NotificationController extends BaseController {
 		$day = date('j');
 		$year = date('Y');
 
-		echo $month . $day . $year;
+		// echo $month . $day . $year;
 
 		// Select games that match the current date
 		$getContent = UsersGames::where(DB::raw('day + selected_date'), '=', $day, 'and', 'month', '=', $month, 'and', 'year', '=', $year)
@@ -25,16 +25,20 @@ class NotificationController extends BaseController {
 		// If date is = current date
 		foreach($getContent as $game) {
 
-			echo $game->selected_date;
+			// echo $game;
 
 			if($game->selected_date === '0') {
 				$selected = 'on the day';
+				echo $selected_date;
 			}else if($game->selected_date === '1') {
 				$selected = '1 day before';
+				echo $selected_date;
 			}else if($game->selected_date === '2') {
 				$selected === '2 days before';
+				echo $selected_date;
 			}else  {
 				$selected === '3 days before';
+				echo $selected_date;
 			}
 
 
