@@ -41,7 +41,7 @@ class NotificationController extends BaseController {
 			Mail::send('emails.notification', $data, function($message)
 			{
 			    $message
-			    ->to($data['email'])
+			    ->to('jmcgraw159@gmail.com')
 			    ->subject('Game Notification');
 			});
 
