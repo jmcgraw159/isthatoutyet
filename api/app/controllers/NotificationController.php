@@ -37,7 +37,7 @@ class NotificationController extends BaseController {
 
 			$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected);
 
-			echo $data['email'] . $data['title'] . $data['selected'];
+			echo $data['email'] . $data['title'];
 
 			// Send mail
 		// 	Mail::send('emails.notification', $data, function($message) use($data)
