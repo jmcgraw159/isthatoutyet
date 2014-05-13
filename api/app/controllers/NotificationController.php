@@ -44,6 +44,8 @@ class NotificationController extends BaseController {
 			    ->to($data['email'])
 			    ->subject('Game Notification');
 			});
+
+			header('Access-Control-Allow-Origin: *');
 		}
 
 	}
