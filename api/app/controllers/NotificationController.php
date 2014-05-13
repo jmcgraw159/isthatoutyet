@@ -38,7 +38,7 @@ class NotificationController extends BaseController {
 			$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected);
 
 			// Send mail
-			Mail::send('emails.notification', $data, function($message) use($data)
+			Mail::send('emails.auth.reminder', $data, function($message) use($data)
 			{
 			    $message
 			    ->to($data['email'])
