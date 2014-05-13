@@ -45,6 +45,8 @@ class NotificationController extends BaseController {
 			    ->subject('Confirm Email');
 			});
 
+			return Response::json($game);
+
 		}
 
 	}
