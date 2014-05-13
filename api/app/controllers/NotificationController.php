@@ -25,8 +25,6 @@ class NotificationController extends BaseController {
 		// If date is = current date
 		foreach($getContent as $game) {
 
-			echo $game->selected_date;
-
 			if($game->selected_date === '0') {
 				$selected = 'on the day';
 				echo $selected;
@@ -41,16 +39,15 @@ class NotificationController extends BaseController {
 				echo $selected_date;
 			}
 
+			$data = array('email' => $game.email, 'title' => $game.title, 'selected' => $selected);
 
-			// $data = array('email' => $game.email, 'title' => $game.title, 'selected' => $selected);
-
-			// // Send mail
-			// Mail::send('email.notification', $data, function($message) use($data)
-			// {
-			//     $message
-			//     ->to($data['email'])
-			//     ->subject('Game Notification');
-			// });
+			// Send mail
+			Mail::send('email.notification', $data, function($message) use($data)
+			{
+			    $message
+			    ->to($data['email'])
+			    ->subject('Game Notification');
+			});
 		}
 
 	}
