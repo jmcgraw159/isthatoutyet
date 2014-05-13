@@ -1,7 +1,5 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-
 class NotificationController extends BaseController {
 
 	public static function sendNotification()
@@ -55,8 +53,6 @@ class NotificationController extends BaseController {
 			    $message
 			    ->to($data['email'])
 			    ->subject('Game Notification');
-
-			    echo $message;
 			});
 
 		}
