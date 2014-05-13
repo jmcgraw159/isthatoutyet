@@ -30,16 +30,16 @@ class NotificationController extends BaseController {
 			if($game->selected_date === 0) {
 				$selected = 'on the day';
 				echo $selected_date;
-			}else if($game->selected_date === 1) {
-				$selected = '1 day before';
-				echo $selected_date;
-			}else if($game->selected_date === 2) {
-				$selected === '2 days before';
-				echo $selected_date;
-			}else  {
-				$selected === '3 days before';
-				echo $selected_date;
-			}
+			}//else if($game->selected_date === 1) {
+			// 	$selected = '1 day before';
+			// 	echo $selected_date;
+			// }else if($game->selected_date === 2) {
+			// 	$selected === '2 days before';
+			// 	echo $selected_date;
+			// }else  {
+			// 	$selected === '3 days before';
+			// 	echo $selected_date;
+			// }
 
 
 			// $data = array('email' => $game.email, 'title' => $game.title, 'selected' => $selected);
