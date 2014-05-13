@@ -26,6 +26,7 @@ class NotificationController extends BaseController {
 		foreach($getContent as $game) {
 
 			echo $game;
+			echo $game.title;
 
 			if($game.selected_date === '0') {
 				$selected = 'on the day';
