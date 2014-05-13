@@ -35,17 +35,13 @@ class NotificationController extends BaseController {
 				$selected === '3 days before';
 			}
 
-			$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected);
-
-			echo $data['email'];
-			echo $data['title'];
-			echo $data['selected'];
+			$data = array('email' => $game->email);
 
 			// Send mail
-			Mail::send('emails.confirm', array(), function($message)
+			Mail::send('emails.confirm', $data, function($message) use($data)
 			{
 			    $message
-			    ->to('jmcgraw159@gmail.com')
+			    ->to($data['email'])
 			    ->subject('Confirm Email');
 			});
 
