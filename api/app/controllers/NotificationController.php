@@ -27,28 +27,30 @@ class NotificationController extends BaseController {
 
 			if($game->selected_date === '0') {
 				$selected = 'on the day';
+				echo $selected;
 			}elseif($game->selected_date === '1') {
 				$selected = '1 day before';
+				echo $selected;
 			}elseif($game->selected_date === '2') {
 				$selected === '2 days before';
+				echo $selected;
 			}else  {
 				$selected === '3 days before';
+				echo $selected;
 			}
 
 			$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected);
 
 			echo $data['email'];
-			// echo $data['title'];
-			// echo $data['selected'];
 
 			// Send mail
-		// 	Mail::send('emails.notification', $data, function($message) use($data)
-		// 	{
-		// 	    $message
-		// 	    ->to($data['email'])
-		// 	    ->subject('Game Notification');
-		// 	});
-		// }
+			Mail::send('emails.notification', $data, function($message) use($data)
+			{
+			    $message
+			    ->to($data['email'])
+			    ->subject('Game Notification');
+			});
+		}
 
 	}
 }
