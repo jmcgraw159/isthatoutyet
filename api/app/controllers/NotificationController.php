@@ -7,68 +7,57 @@ class NotificationController extends BaseController {
 	public static function sendNotification()
 	{
 
-		$data = array('email' => 'jmcgraw159@gmail.com', 'id' => '0000');
-
-		Mail::send('emails.confirm', $data, function($message) use($data)
-		{
-		    $message
-		    ->to($data['email'])
-		    ->subject('Confirm Email');
-		});
-
 		// Set timezone
-		// date_default_timezone_set('EST');
+		date_default_timezone_set('EST');
 
-		// // Get current date
-		// $month = date('n');
-		// $day = date('j');
-		// $year = date('Y');
+		// Get current date
+		$month = date('n');
+		$day = date('j');
+		$year = date('Y');
 
 		// echo $month . $day . $year;
 
 		// Select games that match the current date
-		// $getContent = UsersGames::where('month', '=', $month, 'and', DB::raw('day + selected_date'), '=', $day, 'and', 'year', '=', $year)
-		// 						->join('users', 'user_id', '=', 'users.id')
-		// 						->get();
+		$getContent = UsersGames::where(DB::raw('day + selected_date'), '=', $day, 'and', 'month', '=', $month, 'and', 'year', '=', $year)
+								->join('users', 'user_id', '=', 'users.id')
+								->get();
 
 		// If date is = current date
-		// foreach($getContent as $game) {
+		foreach($getContent as $game) {
 
-		// 	echo $game;
+			if($game->selected_date === '0') {
 
-			// if($game->selected_date === '0') {
+				$selected = 'on the day';
 
-			// 	$selected = 'on the day';
+			}elseif($game->selected_date === '1') {
 
-			// }elseif($game->selected_date === '1') {
+				$selected = '1 day before';
 
-			// 	$selected = '1 day before';
+			}elseif($game->selected_date === '2') {
 
-			// }elseif($game->selected_date === '2') {
+				$selected === '2 days before';
 
-			// 	$selected === '2 days before';
+			}else  {
 
-			// }else  {
+				$selected === '3 days before';
 
-			// 	$selected === '3 days before';
+			}
 
-			// }
+			$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
 
-			// $data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected);
-
-			// echo $data['email'];
-			// echo $data['title'];
-			// echo $data['selected'];
+			echo $data['email'];
+			echo $data['title'];
+			echo $data['selected'];
 
 			// Send mail
-			// Mail::send('emails.notification', $data, function($message) use($data)
-			// {
-			//     $message
-			//     ->to($data['email'])
-			//     ->subject('Game Notification');
-			// });
+			Mail::send('emails.notification', $data, function($message) use($data)
+			{
+			    $message
+			    ->to($data['email'])
+			    ->subject('Game Notification');
+			});
 
-		// }
+		}
 
 	}
 }
