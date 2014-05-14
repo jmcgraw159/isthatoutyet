@@ -7,12 +7,12 @@ class NotificationController extends BaseController {
 	public static function sendNotification()
 	{
 
-		// Mail::send('emails.notification', array(), function($message)
-		// {
-		//     $message
-		//     ->to('jmcgraw159@gmail.com')
-		//     ->subject('Game Notification');
-		// });
+		Mail::send('emails.notification', array(), function($message)
+		{
+		    $message
+		    ->to('jmcgraw159@gmail.com')
+		    ->subject('Game Notification');
+		});
 
 		// Set timezone
 		date_default_timezone_set('EST');
@@ -25,14 +25,14 @@ class NotificationController extends BaseController {
 		echo $month . $day . $year;
 
 		// Select games that match the current date
-		$getContent = UsersGames::where('month', '=', $month, 'and', DB::raw('day + selected_date'), '=', $day, 'and', 'year', '=', $year)
-								->join('users', 'user_id', '=', 'users.id')
-								->get();
+		// $getContent = UsersGames::where('month', '=', $month, 'and', DB::raw('day + selected_date'), '=', $day, 'and', 'year', '=', $year)
+		// 						->join('users', 'user_id', '=', 'users.id')
+		// 						->get();
 
 		// If date is = current date
-		foreach($getContent as $game) {
+		// foreach($getContent as $game) {
 
-			echo $game;
+		// 	echo $game;
 
 			// if($game->selected_date === '0') {
 
@@ -66,7 +66,7 @@ class NotificationController extends BaseController {
 			//     ->subject('Game Notification');
 			// });
 
-		}
+		// }
 
 	}
 }
