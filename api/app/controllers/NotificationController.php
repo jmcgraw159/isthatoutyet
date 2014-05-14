@@ -22,7 +22,7 @@ class NotificationController extends BaseController {
 		$day = date('j');
 		$year = date('Y');
 
-		// echo $month . $day . $year;
+		echo $month . $day . $year;
 
 		// Select games that match the current date
 		$getContent = UsersGames::where(DB::raw('day + selected_date'), '=', $day, 'and', 'month', '=', $month, 'and', 'year', '=', $year)
