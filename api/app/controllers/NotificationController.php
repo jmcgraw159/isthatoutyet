@@ -20,30 +20,32 @@ class NotificationController extends BaseController {
 		// Select games that match the current date
 		$getContent = DB::select('select * from users_games where month = ? and day + selected_date = ? and year = ?'), array($month, $day, $year);
 
+		echo $getContent;
+
 		// If date is = current date
-		foreach($getContent as $game) {
+		// foreach($getContent as $game) {
 
-			echo $game;
+		// 	echo $game;
 
-			if($game->selected_date === '0') {
+		// 	if($game->selected_date === '0') {
 
-				$selected = 'on the day';
+		// 		$selected = 'on the day';
 
-			}elseif($game->selected_date === '1') {
+		// 	}elseif($game->selected_date === '1') {
 
-				$selected = '1 day before';
+		// 		$selected = '1 day before';
 
-			}elseif($game->selected_date === '2') {
+		// 	}elseif($game->selected_date === '2') {
 
-				$selected === '2 days before';
+		// 		$selected === '2 days before';
 
-			}else  {
+		// 	}else  {
 
-				$selected === '3 days before';
+		// 		$selected === '3 days before';
 
-			}
+		// 	}
 
-			$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
+		// 	$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
 
 			// Send mail
 			// Mail::send('emails.notification', $data, function($message) use($data)
