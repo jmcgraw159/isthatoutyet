@@ -7,11 +7,13 @@ class NotificationController extends BaseController {
 	public static function sendNotification()
 	{
 
-		Mail::send('emails.notification', array(), function($message)
+		$data = array('email' => 'jmcgraw159@gmail.com', 'id' => '0000');
+
+		Mail::send('emails.confirm', $data, function($message) use($data)
 		{
 		    $message
-		    ->to('jmcgraw159@gmail.com')
-		    ->subject('Game Notification');
+		    ->to($data['email'])
+		    ->subject('Confirm Email');
 		});
 
 		// Set timezone
