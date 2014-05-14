@@ -18,7 +18,10 @@ class NotificationController extends BaseController {
 		// echo $month . $day . $year;
 
 		// Select games that match the current date
-		$getContent = UsersGames::where(DB::raw('day + selected_date'), '=', $day, 'and', 'month', '=', $month, 'and', 'year', '=', $year)
+		$getContent = UsersGames::where(DB::raw('day + selected_date = :day and month = :month and year = :year'), array(
+											'day' => $day,
+											'month' => $month,
+											'year' => $year))
 								->join('users', 'user_id', '=', 'users.id')
 								->get();
 
@@ -46,9 +49,6 @@ class NotificationController extends BaseController {
 			}
 
 			$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
-
-			echo $data['id'];
-
 
 			// Send mail
 			// Mail::send('emails.notification', $data, function($message) use($data)
