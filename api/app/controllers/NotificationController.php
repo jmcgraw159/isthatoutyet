@@ -27,8 +27,6 @@ class NotificationController extends BaseController {
 		// If date is = current date
 		foreach($getContent as $game) {
 
-			echo $game;
-
 			if($game->selected_date === '0') {
 
 				$selected = 'on the day';
@@ -49,6 +47,8 @@ class NotificationController extends BaseController {
 
 			// If the email has been confirmed
 			if($game->confirmed === '1') {
+				echo $game;
+
 				// Info to send to Mandrill API
 				$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
 
