@@ -865,7 +865,7 @@ body.outlook p {
                         <table class="twelve columns">
                           <tr>
                             <td>
-                              <a href="http://localhost:9000/#/"><h1>Is That Out Yet?</h1></a>
+                              <a href="http://isthatoutyet.com"><h1>Is That Out Yet?</h1></a>
                             </td>
                             <td class="expander"></td>
 

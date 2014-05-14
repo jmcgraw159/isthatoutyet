@@ -1,9 +1,18 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+
 class NotificationController extends BaseController {
 
 	public static function sendNotification()
 	{
+
+		Mail::send('emails.notification', array(), function($message)
+		{
+		    $message
+		    ->to('jmcgraw159@gmail.com')
+		    ->subject('Game Notification');
+		});
 
 		// Set timezone
 		date_default_timezone_set('EST');
@@ -48,12 +57,12 @@ class NotificationController extends BaseController {
 			echo $data['selected'];
 
 			// Send mail
-			Mail::send('emails.notification', $data, function($message) use($data)
-			{
-			    $message
-			    ->to($data['email'])
-			    ->subject('Game Notification');
-			});
+			// Mail::send('emails.notification', $data, function($message) use($data)
+			// {
+			//     $message
+			//     ->to($data['email'])
+			//     ->subject('Game Notification');
+			// });
 
 		}
 

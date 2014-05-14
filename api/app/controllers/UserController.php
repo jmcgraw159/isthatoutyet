@@ -12,8 +12,6 @@ class UserController extends BaseController {
 			$selected_date = 0;
 		}
 
-		echo $selected_date;
-
 		$count = Users::where('email', '=', $email)
 								->count();
 
