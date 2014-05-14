@@ -18,7 +18,8 @@ class NotificationController extends BaseController {
 		// echo $month . $day . $year;
 
 		// Select games that match the current date
-		$getContent = DB::select('select * from users_games where month = ?', array($month));
+		$getContent = DB::select('select * from users_games where month = ?', array($month))
+		->get();
 
 		echo $getContent;
 
