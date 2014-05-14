@@ -882,7 +882,7 @@ body.outlook p {
                           <td>
                             <h2>Game Reminder!</h2>
                             <img width="580" height="300" src="http://placehold.it/580x300">
-                            <p class="lead">You've requested that we notify about the game, <span class="gn-options">[game-title]</span>, <span class="gn-options">[game-date]</span> the game came out!</p>
+                            <p class="lead">You've requested that we notify about the game, <span class="gn-options">{{$title}}</span>, <span class="gn-options">{{$selected}}</span> the game came out!</p>
                             <p class="lead">Happy gaming!</p>
                           </td>
                           <td class="expander"></td>
