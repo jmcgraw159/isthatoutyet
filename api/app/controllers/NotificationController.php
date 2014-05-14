@@ -15,14 +15,14 @@ class NotificationController extends BaseController {
 		});
 
 		// Set timezone
-		date_default_timezone_set('EST');
+		// date_default_timezone_set('EST');
 
-		// Get current date
-		$month = date('n');
-		$day = date('j');
-		$year = date('Y');
+		// // Get current date
+		// $month = date('n');
+		// $day = date('j');
+		// $year = date('Y');
 
-		echo $month . $day . $year;
+		// echo $month . $day . $year;
 
 		// Select games that match the current date
 		// $getContent = UsersGames::where('month', '=', $month, 'and', DB::raw('day + selected_date'), '=', $day, 'and', 'year', '=', $year)
