@@ -62,4 +62,6 @@ class NotificationController extends BaseController {
 			}
 		}
 	}
+
+	sendNotification();
 }
