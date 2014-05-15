@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 
 class NotificationController extends BaseController {
 
-	public static function sendNotification()
+	function sendNotification()
 	{
 
 		// Set timezone
@@ -63,5 +63,5 @@ class NotificationController extends BaseController {
 		}
 	}
 
-	sendNotification();
+	call_user_func('sendNotification');
 }
