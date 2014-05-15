@@ -2,7 +2,7 @@
 
 header('Access-Control-Allow-Origin: *');
 
-class NotificationController extends BaseController {
+class NotificationController {
 
 	public static function sendNotification()
 	{
