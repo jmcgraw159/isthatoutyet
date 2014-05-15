@@ -16,4 +16,4 @@ Route::get('get-games/{title}', 'GiantBombController@getGame');
 Route::get('get-users/{email}/{title}/{month}/{day}/{year}/{game_id}/{selected_date}', 'UserController@getUser');
 Route::get('confirm-user/{email}/{userId}', 'UserController@confirmUser');
 Route::get('unconfirm-user/{email}/{userId}', 'UserController@unconfirmUser');
-Route::get('send-notification/', 'NotificationController');
+Route::get('send-notification/', 'NotificationController@sendNotification');
