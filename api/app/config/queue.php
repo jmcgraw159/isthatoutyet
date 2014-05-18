@@ -31,7 +31,7 @@ return array(
 	'connections' => array(
 
 		'sync' => array(
-			'driver' => 'beanstalkd',
+			'driver' => 'sync',
 		),
 
 		'beanstalkd' => array(
