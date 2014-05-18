@@ -12,7 +12,7 @@ App.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
-    .when('detail/:id', {
+    .when('/detail/:id', {
       templateUrl: 'views/detail.html',
       controller: 'DetailCtrl'
     })
