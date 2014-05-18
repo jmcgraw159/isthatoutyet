@@ -1,4 +1,4 @@
-<?php namespace Myapp\Queue;
+<?php
 
 class MyQueue{
 
