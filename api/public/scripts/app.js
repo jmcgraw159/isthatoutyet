@@ -6,7 +6,7 @@ var App = angular.module('isThatOutYetApp', [
   'ngCookies'
 ]);
 
-App.config(function ($routeProvider) {
+App.config(function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'views/main.html',
@@ -27,6 +27,8 @@ App.config(function ($routeProvider) {
     .otherwise({
       redirectTo: '/'
     });
+
+    $locationProvider.html5Mode(true);
 });
 
 // Controller used for the Angular-UI Typeahead function
