@@ -1,6 +1,7 @@
-<?php
+<?php namespace Myapp\Queue;
 
 class MyQueue{
+
     public function fire($job, $data){
 
     	// Set timezone
