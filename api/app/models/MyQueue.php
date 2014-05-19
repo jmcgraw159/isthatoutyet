@@ -25,13 +25,25 @@ class MyQueue{
 		foreach($getContent as $game) {
 
 			if($game->selected_date === '1') {
-				echo 1;
+
+				$selected = '1 day before';
+				echo $selected;
+
 			}elseif($game->selected_date === '2') {
-				echo 2;
+
+				$selected = '2 days before';
+				echo $selected;
+
 			}elseif($game->selected_date === '3')  {
+
+				$selected = '3 days before';
 				echo 3;
+
 			}else {
-				echo 0;
+
+				$selected = 'on the day'
+				echo $selected;
+
 			}
 
 
