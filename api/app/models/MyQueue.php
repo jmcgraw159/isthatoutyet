@@ -41,8 +41,8 @@ class MyQueue{
 
 			}else {
 
-				// $selected = 'on the day'
-				// echo $selected;
+				$selected = 'on the day'
+				echo $selected;
 			}
 
 
