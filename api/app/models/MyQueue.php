@@ -24,13 +24,16 @@ class MyQueue{
 		// If date is = current date
 		foreach($getContent as $game) {
 
-			if($game->selected_date === 2) {
-				echo 0;
+			if($game->selected_date === '1') {
+				echo 1;
 			}elseif($game->selected_date === '2') {
-				echo 'String';
-			}else  {
-				echo 'None';
+				echo 2;
+			}elseif($game->selected_date === '3')  {
+				echo 3;
+			}else {
+				echo 0;
 			}
+
 
 
 
