@@ -46,7 +46,6 @@ class MyQueue{
 
 			// If the email has been confirmed
 			if($game->confirmed === '1') {
-				echo $game;
 
 				// Info to send to Mandrill API
 				$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
