@@ -24,8 +24,6 @@ class MyQueue{
 		// If date is = current date
 		foreach($getContent as $game) {
 
-			echo $game;
-
 			if($game->selected_date === '0') {
 
 				$selected = 'on the day';
@@ -45,21 +43,23 @@ class MyQueue{
 			}
 
 			// If the email has been confirmed
-			// if($game->confirmed === '1') {
+			if($game->confirmed === '1') {
 
-			// 	// Info to send to Mandrill API
-			// 	$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
+				echo $game;
 
-			// 	// Send mail
-			// 	// Mail::send('emails.notification', $data, function($message) use($data)
-			// 	// {
-			// 	//     $message
-			// 	//     ->to($data['email'])
-			// 	//     ->subject('Game Notification');
-			// 	// });
-			// }
+				// Info to send to Mandrill API
+				$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
+
+				// Send mail
+				// Mail::send('emails.notification', $data, function($message) use($data)
+				// {
+				//     $message
+				//     ->to($data['email'])
+				//     ->subject('Game Notification');
+				// });
+			}
 		}
 
-        // $job->delete();
+        $job->delete();
     }
 }
