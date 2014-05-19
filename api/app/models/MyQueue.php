@@ -34,7 +34,7 @@ class MyQueue{
 
 			//}else
 
-			if($game->selected_date === '2') {
+			if($game->selected_date === '2' || $game->selected_date === 2) {
 
 				$selected === '2 days before';
 				echo $selected;
