@@ -26,23 +26,23 @@ class MyQueue{
 		// If date is = current date
 		foreach($getContent as $game) {
 
-			if($game->selected_date === '0') {
+			// if($game->selected_date === '0') {
 
-				$selected = 'on the day';
+			// 	$selected = 'on the day';
 
-			}elseif($game->selected_date === '1') {
+			// }elseif($game->selected_date === '1') {
 
-				$selected = '1 day before';
+			// 	$selected = '1 day before';
 
-			}elseif($game->selected_date === '2') {
+			// }elseif($game->selected_date === '2') {
 
-				$selected === '2 days before';
+			// 	$selected === '2 days before';
 
-			}else  {
+			// }else  {
 
-				$selected === '3 days before';
+			// 	$selected === '3 days before';
 
-			}
+			// }
 
 			// If the email has been confirmed
 			if($game->confirmed === '1') {
