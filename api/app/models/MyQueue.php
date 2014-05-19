@@ -49,7 +49,7 @@ class MyQueue{
 				// Info to send to Mandrill API
 				$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
 
-				Send mail
+				//Send mail
 				Mail::send('emails.notification', $data, function($message) use($data)
 				{
 				    $message
