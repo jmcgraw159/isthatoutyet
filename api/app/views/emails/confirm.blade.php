@@ -896,7 +896,7 @@ body.outlook p {
                             <h2>Almost there...</h2>
                             <img width="580" height="300" src="http://placehold.it/580x300">
                             <p class="lead">We need to verify your email address before we can start sending you notifications.</p>
-                            <a id="button" href="http://isthatoutyet.com/#/subscribe?email={{$email}}&id={{$id}}">Verify Email</a id="button">
+                            <a id="button" href="http://isthatoutyet.com/subscribe?email={{$email}}&id={{$id}}">Verify Email</a id="button">
                           </td>
                           <td class="expander"></td>
                         </tr>
