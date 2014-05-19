@@ -21,6 +21,8 @@ class MyQueue{
 								->join('users', 'user_id', '=', 'users.id')
 								->get();
 
+		echo $getContent;
+
 		// If date is = current date
 		foreach($getContent as $game) {
 
