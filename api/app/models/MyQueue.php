@@ -24,12 +24,12 @@ class MyQueue{
 		// If date is = current date
 		foreach($getContent as $game) {
 
-			if($game->selected_date === '0') {
+			if($game->selected_date === 0) {
 
 				$selected = 'on the day';
 				echo $selected
 
-			}elseif($game->selected_date === '1') {
+			}elseif($game->selected_date === 1) {
 
 				$selected = '1 day before';
 				echo $selected;
