@@ -60,6 +60,6 @@ class MyQueue{
 			// }
 		}
 
-        $job->delete();
+        // $job->delete();
     }
 }
