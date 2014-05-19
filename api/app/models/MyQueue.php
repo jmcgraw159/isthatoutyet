@@ -50,12 +50,12 @@ class MyQueue{
 				$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
 
 				// Send mail
-				Mail::send('emails.notification', $data, function($message) use($data)
-				{
-				    $message
-				    ->to($data['email'])
-				    ->subject('Game Notification');
-				});
+				// Mail::send('emails.notification', $data, function($message) use($data)
+				// {
+				//     $message
+				//     ->to($data['email'])
+				//     ->subject('Game Notification');
+				// });
 			}
 		}
 
