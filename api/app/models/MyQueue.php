@@ -21,8 +21,6 @@ class MyQueue{
 								->join('users', 'user_id', '=', 'users.id')
 								->get();
 
-		echo $getContent;
-
 		// If date is = current date
 		foreach($getContent as $game) {
 
@@ -50,7 +48,7 @@ class MyQueue{
 				echo $game;
 
 				// Info to send to Mandrill API
-				$data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
+				// $data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
 
 				// Send mail
 				// Mail::send('emails.notification', $data, function($message) use($data)
