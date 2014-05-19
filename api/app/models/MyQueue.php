@@ -39,11 +39,11 @@ class MyQueue{
 				$selected = '3 days before';
 				echo $selected;
 
-			}//elseif($game->selected_date === '0') {
+			}elseif($game->selected_date === 0) {
 
-			// 	$selected = 'on the day'
-			// 	echo $selected;
-			// }
+				$selected = 'on the day'
+				echo $selected;
+			}
 
 
 
