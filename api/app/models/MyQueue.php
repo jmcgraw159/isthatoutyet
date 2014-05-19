@@ -24,9 +24,9 @@ class MyQueue{
 		// If date is = current date
 		foreach($getContent as $game) {
 
-			if($game->selected_date == 0) {
+			if($game->selected_date === 2) {
 				echo 0;
-			}elseif($game->selected_date == '0') {
+			}elseif($game->selected_date === '2') {
 				echo 'String';
 			}else  {
 				echo 'None';
