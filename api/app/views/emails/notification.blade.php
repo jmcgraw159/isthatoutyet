@@ -905,7 +905,7 @@ body.outlook p {
                   <tr>
                     <td align="center">
                       <center>
-                        <p style="text-align:center;"><a href="http://isthatoutyet.com/unsubscribe?email={{$email}}&id={{$id}}">Unsubscribe</a></p>
+                        <p style="text-align:center;"><a href="http://isthatoutyet.com/#/unsubscribe?email={{$email}}&id={{$id}}">Unsubscribe</a></p>
                       </center>
                     </td>
                     <td class="expander"></td>

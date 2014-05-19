@@ -6,7 +6,7 @@ var App = angular.module('isThatOutYetApp', [
   'ngCookies'
 ]);
 
-App.config(function ($routeProvider, $locationProvider) {
+App.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'views/main.html',
@@ -27,8 +27,6 @@ App.config(function ($routeProvider, $locationProvider) {
     .otherwise({
       redirectTo: '/'
     });
-
-    $locationProvider.html5Mode(true);
 });
 
 // Controller used for the Angular-UI Typeahead function
@@ -57,7 +55,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
     // Store game info into a cookie
     $cookieStore.put('game', $item);
 
-    $location.path('detail/' + $routeParams.id);
+    $location.path('/detail/' + $routeParams.id);
   };
 
 }]);
