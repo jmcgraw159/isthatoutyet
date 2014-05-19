@@ -24,7 +24,16 @@ class MyQueue{
 		// If date is = current date
 		foreach($getContent as $game) {
 
-			echo $game->selected_date;
+			if($game->selected_date === 0) {
+				echo 0;
+			}elseif($game->selected_date === '0') {
+				echo 'String';
+			}else  {
+				echo 'None';
+			}
+
+
+
 
 			// if($game->selected_date === 0) {
 
@@ -45,7 +54,7 @@ class MyQueue{
 			// If the email has been confirmed
 			if($game->confirmed === '1') {
 
-				echo $game;
+				// echo $game;
 
 				// Info to send to Mandrill API
 				// $data = array('email' => $game->email, 'title' => $game->title, 'selected' => $selected, 'id' => $game->user_id);
