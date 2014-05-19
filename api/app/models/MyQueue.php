@@ -38,7 +38,7 @@ class MyQueue{
 
 			}else  {
 
-				$selected === '3 days before';
+				$selected = '3 days before';
 			}
 
 			// If the email has been confirmed
