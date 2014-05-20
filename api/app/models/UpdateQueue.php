@@ -30,6 +30,7 @@ class UpdateQueue{
 			// }
 
 			$dbMonth = strval($game->month);
+			echo $dbMonth;
 
 
 			if(!$month) {
@@ -49,8 +50,8 @@ class UpdateQueue{
 
 			if($dbMonth === $month) {
 
-				echo $content;
-				echo $month . $day . $year;
+				// echo $content;
+				// echo $month . $day . $year;
 
 			}else {
 
