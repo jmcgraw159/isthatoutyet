@@ -18,7 +18,7 @@ class UpdateQueue{
 			$response = Route::dispatch($request);
 			$content = $response->getContent();
 
-			echo $content.results.expected_release_month;
+			echo $content.results;
 
 			// if($game->month === $content.expected_release_month) {
 			// 	echo 'Test';
