@@ -18,13 +18,10 @@ class UpdateQueue{
 			$results = json_decode($content, true);
 
 			$month = $results['results']['expected_release_month'];
-			echo $month;
 			echo $game->month;
 			$day = $results['results']['expected_release_day'];
-			echo $day;
 			echo $game->day;
 			$year = $results['results']['expected_release_year'];
-			echo $year;
 			echo $game->year;
 
 			if($game->month === $month && $game->day === $day && $game->year === $year) {
