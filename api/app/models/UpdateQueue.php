@@ -14,7 +14,8 @@ class UpdateQueue{
 
 			echo $game->game_id;
 
-			$request = Request::create('get-game/45577', 'GET', array());
+			$request = Request::create('get-game/' . $game->game_id, 'GET', array());
+			echo $request;
 			// $response = Route::dispatch($request);
 			// $content = $response->getContent();
 			// $results = json_decode($content);
