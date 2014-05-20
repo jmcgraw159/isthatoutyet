@@ -32,6 +32,11 @@ class UpdateQueue{
 			// 	echo 'none';
 			// }
 
+			if(!month) {
+				echo 'test';
+			}
+
+
 			// if($game->month === $month && $game->day === $day && $game->year === $year) {
 
 			// 	echo 'True';
