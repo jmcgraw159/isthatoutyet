@@ -24,7 +24,7 @@ class UpdateQueue{
 			$year = $results['results']['expected_release_year'];
 			echo $year;
 
-			if($month === '') {
+			if($month === undefined) {
 				$month = null;
 			}
 
