@@ -4,7 +4,11 @@ class UpdateQueue{
 
     public function fire($job, $data){
 
-    	echo 'Test';
+    	// Select games
+    	$getContent = UsersGames::select('*')
+								->get();
+
+		echo $getContent;
 
         $job->delete();
     }
