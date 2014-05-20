@@ -4,6 +4,6 @@ class NotificationController extends BaseController {
 
 	public static function sendNotification()
 	{
-		Queue::push('MyQueue', array());
+		Queue::push('NotificationQueue', array());
 	}
 }

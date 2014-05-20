@@ -17,3 +17,4 @@ Route::get('get-users/{email}/{title}/{month}/{day}/{year}/{game_id}/{selected_d
 Route::get('confirm-user/{email}/{userId}', 'UserController@confirmUser');
 Route::get('unconfirm-user/{email}/{userId}', 'UserController@unconfirmUser');
 Route::get('send-notification/', 'NotificationController@sendNotification');
+Route::get('update-games/', 'UpdateController@updateGames');
