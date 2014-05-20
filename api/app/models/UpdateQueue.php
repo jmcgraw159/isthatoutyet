@@ -25,18 +25,22 @@ class UpdateQueue{
 			echo $year;
 
 			if($month === undefined) {
-				$month = null;
-			}
-
-			if($game->month === $month && $game->day === $day && $game->year === $year) {
-
-				echo 'True';
-
+				echo 'undefined';
+			}elseif($month = '') {
+				echo 'blank'
 			}else {
-
-				echo 'False';
-
+				echo 'none'
 			}
+
+			// if($game->month === $month && $game->day === $day && $game->year === $year) {
+
+			// 	echo 'True';
+
+			// }else {
+
+			// 	echo 'False';
+
+			// }
 
 		}
 
