@@ -33,9 +33,16 @@ class UpdateQueue{
 			// }
 
 			if(!$month) {
-				echo 'test';
+				echo 'month';
 			}
 
+			if(!$day) {
+				echo 'day';
+			}
+
+			if(!$year) {
+				echo 'year';
+			}
 
 			// if($game->month === $month && $game->day === $day && $game->year === $year) {
 
