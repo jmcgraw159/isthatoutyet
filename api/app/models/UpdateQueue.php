@@ -32,7 +32,7 @@ class UpdateQueue{
 			// 	echo 'none';
 			// }
 
-			if(!month) {
+			if(!$month) {
 				echo 'test';
 			}
 
