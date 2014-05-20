@@ -30,6 +30,8 @@ class UpdateQueue{
 			// }
 
 			$formatedMonth = strval($month);
+			$formatedDay = strval($day);
+			$formatedYear = strval($year);
 
 			if(!$month) {
 
@@ -46,7 +48,7 @@ class UpdateQueue{
 				$year = 'null';
 			}
 
-			if($game->month === $formatedMonth) {
+			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
 
 				echo $content;
 				echo $month . $day . $year;
