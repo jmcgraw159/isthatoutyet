@@ -10,20 +10,16 @@ class UpdateQueue{
 
 		// echo $getContent;
 
-		$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
-
-		$format = 'json';
-
 		foreach ($getContent as $game) {
 
 			echo $game->game_id;
 
-			// $call = file_get_contents('http://www.giantbomb.com/api/game/' . $game->game_id . '/?api_key=' . $key . '&format='. $format);
+			$request = Request::create('get-game/' . $game->game_id, 'GET', array());
+			$response = Route::dispatch($request);
+			$content = $response->getContent();
+			$results = json_decode($content);
 
-			// $response = json_decode($call);
-
-			// header('Access-Control-Allow-Origin: *');
-			// return Response::json($response);
+			echo $results;
 
 		}
 
