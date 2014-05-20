@@ -36,48 +36,32 @@ class UpdateQueue{
 			if(!$month) {
 
 				$formatedMonth = 'null';
+				echo 'Month is null';
 			}
 
 			if(!$day) {
 
 				$formatedDay = 'null';
+				echo 'Day is null';
 			}
 
 			if(!$year) {
 
 				$formatedYear = 'null';
-			}
-
-			if($game->month === 'null') {
-				echo 'null';
-			}else {
-				echo 'nope';
-			}
-
-			if($game->day === 'null') {
-				echo 'null';
-			}else {
-				echo 'nope';
-			}
-
-			if($game->year === 'null') {
-				echo 'null';
-			}else {
-				echo 'nope';
+				echo 'Year is null';
 			}
 
 
+			// if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
 
-			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
+			// 	echo $content;
+			// 	echo $month . $day . $year;
 
-				echo $content;
-				echo $month . $day . $year;
+			// }else {
 
-			}else {
+			// 	echo 'False';
 
-				echo 'False';
-
-			}
+			// }
 
 		}
 
