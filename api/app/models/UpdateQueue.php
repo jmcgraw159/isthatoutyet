@@ -8,7 +8,7 @@ class UpdateQueue{
     	$getContent = UsersGames::select('*')
 								->get();
 
-		echo $getContent;
+		// echo $getContent;
 
 		$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
 
@@ -23,7 +23,7 @@ class UpdateQueue{
 			$response = json_decode($call);
 
 			header('Access-Control-Allow-Origin: *');
-			echo Response::json($response);
+			echo $response;
 
 		}
 
