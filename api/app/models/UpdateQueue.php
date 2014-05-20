@@ -21,17 +21,17 @@ class UpdateQueue{
 			$formatedDay = strval($results['results']['expected_release_day']);
 			$formatedYear = strval($results['results']['expected_release_year']);
 
-			if(!$month) {
+			if(!$formatedMonth) {
 
 				$formatedMonth = 'null';
 			}
 
-			if(!$day) {
+			if(!$formatedDay) {
 
 				$formatedDay = 'null';
 			}
 
-			if(!$year) {
+			if(!$formatedYear) {
 
 				$formatedYear = 'null';
 			}
