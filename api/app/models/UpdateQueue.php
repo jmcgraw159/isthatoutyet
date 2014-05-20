@@ -18,6 +18,7 @@ class UpdateQueue{
 			$results = json_decode($content, true);
 
 			$formatedMonth = strval($results['results']['expected_release_month']);
+			echo $formatedYear;
 			$formatedDay = strval($results['results']['expected_release_day']);
 			$formatedYear = strval($results['results']['expected_release_year']);
 
