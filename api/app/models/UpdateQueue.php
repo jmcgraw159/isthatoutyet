@@ -17,36 +17,36 @@ class UpdateQueue{
 			$content = $response->getContent();
 			$results = json_decode($content, true);
 
-			$formatedMonth = strval($results['results']['expected_release_month']);
-			echo $formatedYear;
-			$formatedDay = strval($results['results']['expected_release_day']);
-			$formatedYear = strval($results['results']['expected_release_year']);
+			$month = ;
+			$day = $results['results']['expected_release_day'];
+			$year = $results['results']['expected_release_year'];
 
-			if(!$formatedMonth) {
+			$formatedMonth = strval($month);
+			$formatedDay = strval($day);
+			$formatedYear = strval($year);
+
+			if(!$month) {
 
 				$formatedMonth = 'null';
 			}
 
-			if(!$formatedDay) {
+			if(!$day) {
 
 				$formatedDay = 'null';
 			}
 
-			if(!$formatedYear) {
+			if(!$year) {
 
 				$formatedYear = 'null';
 			}
 
-			echo $formatedYear;
-
-
 			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
 
-				echo 'True: ' . $game->title;
+				echo 'Info is same';
 
 			}else {
 
-				echo 'False: ' . $game->title;
+				echo 'Info is different: ' . $game->title;
 
 			}
 
