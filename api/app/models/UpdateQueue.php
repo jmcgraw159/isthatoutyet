@@ -48,7 +48,19 @@ class UpdateQueue{
 				$formatedYear = 'null';
 			}
 
-			if($year === 'null') {
+			if($game->month === 'null') {
+				echo 'null';
+			}else {
+				echo 'nope';
+			}
+
+			if($game->day; === 'null') {
+				echo 'null';
+			}else {
+				echo 'nope';
+			}
+
+			if($game->year === 'null') {
 				echo 'null';
 			}else {
 				echo 'nope';
