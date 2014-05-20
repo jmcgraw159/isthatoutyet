@@ -36,19 +36,16 @@ class UpdateQueue{
 			if(!$month) {
 
 				$formatedMonth = 'null';
-				echo 'Month is null';
 			}
 
 			if(!$day) {
 
 				$formatedDay = 'null';
-				echo 'Day is null';
 			}
 
 			if(!$year) {
 
 				$formatedYear = 'null';
-				echo 'Year is null';
 			}
 
 			echo $formatedDay;
