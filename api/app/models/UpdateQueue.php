@@ -33,23 +33,23 @@ class UpdateQueue{
 			$formatedDay = strval($day);
 			$formatedYear = strval($year);
 
-			if(!$month) {
+			// if(!$month) {
 
-				$formatedMonth = 'null';
-				echo 'Month is null';
-			}
+			// 	$formatedMonth = 'null';
+			// 	echo 'Month is null';
+			// }
 
-			if(!$day) {
+			// if(!$day) {
 
-				$formatedDay = 'null';
-				echo 'Day is null';
-			}
+			// 	$formatedDay = 'null';
+			// 	echo 'Day is null';
+			// }
 
-			if(!$year) {
+			// if(!$year) {
 
-				$formatedYear = 'null';
-				echo 'Year is null';
-			}
+			// 	$formatedYear = 'null';
+			// 	echo 'Year is null';
+			// }
 
 
 			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
