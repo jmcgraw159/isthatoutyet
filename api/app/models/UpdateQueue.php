@@ -24,13 +24,13 @@ class UpdateQueue{
 			$year = $results['results']['expected_release_year'];
 			echo $year;
 
-			if($month === undefined) {
-				echo 'undefined';
-			}elseif($month === '') {
-				echo 'blank';
-			}else {
-				echo 'none';
-			}
+			// if($month === undefined) {
+			// 	echo 'undefined';
+			// }elseif($month === '') {
+			// 	echo 'blank';
+			// }else {
+			// 	echo 'none';
+			// }
 
 			// if($game->month === $month && $game->day === $day && $game->year === $year) {
 
