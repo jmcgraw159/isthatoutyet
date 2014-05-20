@@ -17,7 +17,7 @@ class UpdateQueue{
 			$content = $response->getContent();
 			$results = json_decode($content, true);
 
-			$month = ;
+			$month = $results['results']['expected_release_month'];
 			$day = $results['results']['expected_release_day'];
 			$year = $results['results']['expected_release_year'];
 
@@ -40,13 +40,16 @@ class UpdateQueue{
 				$formatedYear = 'null';
 			}
 
+			echo $formatedYear;
+
+
 			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
 
-				echo 'Info is same';
+				echo 'True: ' . $game->title;
 
 			}else {
 
-				echo 'Info is different: ' . $game->title;
+				echo 'False: ' . $game->title;
 
 			}
 
