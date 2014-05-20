@@ -19,7 +19,7 @@ class UpdateQueue{
 			$content = $response->getContent();
 			$results = json_decode($content, true);
 
-			echo $results[0];
+			echo $results[results][0];
 
 			// if($game->month === $content.expected_release_month) {
 			// 	echo 'Test';
