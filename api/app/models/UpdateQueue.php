@@ -10,6 +10,22 @@ class UpdateQueue{
 
 		echo $getContent;
 
+		$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
+
+		$format = 'json';
+
+		foreach ($getContent as $game) {
+
+			echo $game->game_id;
+
+			$call = file_get_contents('http://www.giantbomb.com/api/game/?api_key=' . $key . '&format='. $format .'&id = ' . $game->game_id);
+
+			$response = json_decode($call);
+
+			echo $response;
+
+		}
+
         $job->delete();
     }
 }
