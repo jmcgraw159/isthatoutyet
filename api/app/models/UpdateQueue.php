@@ -18,7 +18,7 @@ class UpdateQueue{
 
 			echo $game->game_id;
 
-			$call = file_get_contents('http://www.giantbomb.com/api/game/?api_key=' . $key . '&format='. $format .'&id = ' . $game->game_id);
+			$call = file_get_contents('http://www.giantbomb.com/api/game/' . $game->game_id . '/?api_key=' . $key . '&format='. $format);
 
 			$response = json_decode($call);
 
