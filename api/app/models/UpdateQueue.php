@@ -1,6 +1,6 @@
 <?php
 
-class MyQueue{
+class UpdateQueue{
 
     public function fire($job, $data){
 

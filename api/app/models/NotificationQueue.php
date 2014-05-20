@@ -1,6 +1,6 @@
 <?php
 
-class MyQueue{
+class NotificationQueue{
 
     public function fire($job, $data){
 
