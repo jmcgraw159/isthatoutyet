@@ -20,9 +20,9 @@ class UpdateQueue{
 
 			echo $content.expected_release_month;
 
-			if($game->month === $content.expected_release_month) {
-				echo 'Test';
-			}
+			// if($game->month === $content.expected_release_month) {
+			// 	echo 'Test';
+			// }
 
 
 		}
