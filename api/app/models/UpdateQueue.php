@@ -31,6 +31,7 @@ class UpdateQueue{
 
 			$formatedMonth = strval($month);
 			$formatedDay = strval($day);
+			echo $formatedDay;
 			$formatedYear = strval($year);
 
 			// if(!$month) {
