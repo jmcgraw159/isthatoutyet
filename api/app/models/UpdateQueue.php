@@ -46,6 +46,7 @@ class UpdateQueue{
 			if(!$year) {
 
 				$formatedYear = 'null';
+				echo "Year null";
 			}
 
 			echo $formatedYear;
