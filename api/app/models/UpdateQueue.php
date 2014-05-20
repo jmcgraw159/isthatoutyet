@@ -52,16 +52,16 @@ class UpdateQueue{
 			}
 
 
-			// if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
+			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
 
-			// 	echo $content;
-			// 	echo $month . $day . $year;
+				echo $content;
+				echo $month . $day . $year;
 
-			// }else {
+			}else {
 
-			// 	echo 'False';
+				echo 'False';
 
-			// }
+			}
 
 		}
 
