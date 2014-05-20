@@ -12,8 +12,6 @@ class UpdateQueue{
 
 		foreach ($getContent as $game) {
 
-			echo $game->game_id;
-
 			$request = Request::create('get-game/' . $game->game_id, 'GET', array());
 			$response = Route::dispatch($request);
 			$content = $response->getContent();
@@ -26,11 +24,15 @@ class UpdateQueue{
 			$year = $results['results']['expected_release_year'];
 			echo $year;
 
-			// if($game->month === $month && $game->day === $day && $game->year === $year) {
-			// 	echo 'True';
-			// }else {
-			// 	echo 'False';
-			// }
+			if($game->month === $month && $game->day === $day && $game->year === $year) {
+
+				echo 'True';
+
+			}else {
+
+				echo 'False';
+
+			}
 
 		}
 
