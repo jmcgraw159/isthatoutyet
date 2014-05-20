@@ -54,12 +54,11 @@ class UpdateQueue{
 
 			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
 
-				echo $content;
-				echo $month . $day . $year;
+				echo 'True: ' . $game->title;
 
 			}else {
 
-				echo 'False';
+				echo 'False: ' . $game->title;
 
 			}
 
