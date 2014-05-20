@@ -22,7 +22,8 @@ class UpdateQueue{
 
 			$response = json_decode($call);
 
-			echo $response;
+			header('Access-Control-Allow-Origin: *');
+			echo Response::json($response);
 
 		}
 
