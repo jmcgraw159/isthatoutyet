@@ -48,7 +48,7 @@ class UpdateQueue{
 				$formatedYear = 'null';
 			}
 
-			echo $formatedMonth;
+			echo $formatedYear;
 
 
 			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
