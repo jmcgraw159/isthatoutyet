@@ -15,11 +15,11 @@ class UpdateQueue{
 			echo $game->game_id;
 
 			$request = Request::create('get-game/45577', 'GET', array());
-			$response = Route::dispatch($request);
-			$content = $response->getContent();
-			$results = json_decode($content);
+			// $response = Route::dispatch($request);
+			// $content = $response->getContent();
+			// $results = json_decode($content);
 
-			echo $results;
+			// echo $results;
 
 		}
 
