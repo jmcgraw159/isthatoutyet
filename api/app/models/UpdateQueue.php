@@ -24,6 +24,10 @@ class UpdateQueue{
 			$year = $results['results']['expected_release_year'];
 			echo $year;
 
+			if($month === '') {
+				$month = null;
+			}
+
 			if($game->month === $month && $game->day === $day && $game->year === $year) {
 
 				echo 'True';
