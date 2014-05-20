@@ -44,9 +44,10 @@ class UpdateQueue{
 				$year = 'null';
 			}
 
-			if($game->month === $month) {
+			if($game->month !== $month) {
 
 				echo $content;
+				echo $month . $day . $year;
 
 			}else {
 
