@@ -54,7 +54,7 @@ class UpdateQueue{
 				echo 'nope';
 			}
 
-			if($game->day; === 'null') {
+			if($game->day === 'null') {
 				echo 'null';
 			}else {
 				echo 'nope';
