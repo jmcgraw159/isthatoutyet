@@ -17,21 +17,9 @@ class UpdateQueue{
 			$content = $response->getContent();
 			$results = json_decode($content, true);
 
-			$month = $results['results']['expected_release_month'];
-			$day = $results['results']['expected_release_day'];
-			$year = $results['results']['expected_release_year'];
-
-			// if($month === undefined) {
-			// 	echo 'undefined';
-			// }elseif($month === '') {
-			// 	echo 'blank';
-			// }else {
-			// 	echo 'none';
-			// }
-
-			$formatedMonth = strval($month);
-			$formatedDay = strval($day);
-			$formatedYear = strval($year);
+			$formatedMonth = strval($results['results']['expected_release_month']);
+			$formatedDay = strval($results['results']['expected_release_day']);
+			$formatedYear = strval($results['results']['expected_release_year']);
 
 			if(!$month) {
 
@@ -46,7 +34,6 @@ class UpdateQueue{
 			if(!$year) {
 
 				$formatedYear = 'null';
-				echo "Year null";
 			}
 
 			echo $formatedYear;
