@@ -50,9 +50,13 @@ class UpdateQueue{
 
 				$updateGame = UsersGames::where('title', '=', $game->title)
 										->update(array(
+										'user_id' => $game->user_id,
+										'title' => $game->title,
 										'month' => $formatedMonth,
 										'day' => $formatedDay,
-										'year' => $formatedYear));
+										'year' => $formatedYear,
+										'game_id' => $game->game_id,
+										'selected_date' => $game->selected_date));
 
 			}
 
