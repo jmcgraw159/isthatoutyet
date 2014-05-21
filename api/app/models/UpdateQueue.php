@@ -25,6 +25,8 @@ class UpdateQueue{
 			$formatedDay = strval($day);
 			$formatedYear = strval($year);
 
+			// Check to see if value exists
+			// If it doesn't, set it to null
 			if(!$month) {
 
 				$formatedMonth = 'null';
@@ -42,11 +44,11 @@ class UpdateQueue{
 
 			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
 
-				// echo 'Same: ' . $game->title;
+				// Do nothing
 
 			}else {
 
-				echo 'Need to update: ' . $game->title;
+				// Update game info
 
 				$updateGame = DB::table('users_games')
 										->where('title', $game->title)
