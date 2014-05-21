@@ -48,6 +48,12 @@ class UpdateQueue{
 
 				echo 'Need to update: ' . $game->title;
 
+				$updateGame = UsersGames::where('title', '=', $game->title)
+										->update(array(
+										'month' => $formatedMonth,
+										'day' => $formatedDay,
+										'year' => $formatedYear));
+
 			}
 
 		}
