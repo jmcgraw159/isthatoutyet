@@ -40,9 +40,13 @@ class UpdateQueue{
 				$formatedYear = 'null';
 			}
 
-			if($game->month != $formatedMonth && $game->day != $formatedDay && $game->year != $formatedYear) {
+			if($game->month === $formatedMonth && $game->day === $formatedDay && $game->year === $formatedYear) {
 
-				echo 'Not Same: ' . $game->title;
+				// echo 'Same: ' . $game->title;
+
+			}else {
+
+				echo 'Need to update: ' . $game->title;
 
 			}
 
