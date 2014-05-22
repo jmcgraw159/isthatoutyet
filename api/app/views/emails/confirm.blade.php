@@ -889,7 +889,7 @@ body.outlook p {
                         <tr>
                           <td>
                             <h2>Almost there...</h2>
-                            <img src="~/api/public/images/icon-06.png" />
+                            <img src="~/public/images/icon-06.png" />
                             <p class="lead">We need to verify your email address before we can start sending you notifications.</p>
                             <a id="button" href="http://isthatoutyet.com/#/subscribe?email={{$email}}&id={{$id}}">Verify Email</a id="button">
                           </td>
