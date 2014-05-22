@@ -25,6 +25,8 @@ class UserController extends BaseController {
 
 			$userId = $getUser[0]->id;
 
+			$url = urldecode($game_cover);
+
 			$insertGames = UsersGames::insert(array(
 				'user_id' => $userId,
 				'title' => $title,
@@ -33,7 +35,7 @@ class UserController extends BaseController {
 				'year' => $year,
 				'game_id' => $game_id,
 				'selected_date' => $selected_date,
-				'game_cover' => $game_cover));
+				'game_cover' => $url));
 
 			$data = array('email' => $email, 'id' => $userId);
 
@@ -62,7 +64,7 @@ class UserController extends BaseController {
 				'year' => $year,
 				'game_id' => $game_id,
 				'selected_date' => $selected_date,
-				'game_cover' => $game_cover));
+				'game_cover' => $url));
 
 			header('Access-Control-Allow-Origin: *');
 			return Response::json($count);
