@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 
 class UserController extends BaseController {
 
-	public function getUser($email, $title, $month, $day, $year, $game_id, $selected_date, $game_cover)
+	public function getUser($email, $title, $month, $day, $year, $game_id, $selected_date)
 	{
 
 		// If 'on the day' was selected
@@ -25,8 +25,6 @@ class UserController extends BaseController {
 
 			$userId = $getUser[0]->id;
 
-			$url = urlencode($game_cover);
-
 			$insertGames = UsersGames::insert(array(
 				'user_id' => $userId,
 				'title' => $title,
@@ -34,8 +32,7 @@ class UserController extends BaseController {
 				'day' => $day,
 				'year' => $year,
 				'game_id' => $game_id,
-				'selected_date' => $selected_date,
-				'game_cover' => $url));
+				'selected_date' => $selected_date));
 
 			$data = array('email' => $email, 'id' => $userId);
 
@@ -56,8 +53,6 @@ class UserController extends BaseController {
 
 			$userId = $getUser[0]->id;
 
-			$url = urlencode($game_cover);
-
 			$insertGames = UsersGames::insert(array(
 				'user_id' => $userId,
 				'title' => $title,
@@ -65,8 +60,7 @@ class UserController extends BaseController {
 				'day' => $day,
 				'year' => $year,
 				'game_id' => $game_id,
-				'selected_date' => $selected_date,
-				'game_cover' => $url));
+				'selected_date' => $selected_date));
 
 			header('Access-Control-Allow-Origin: *');
 			return Response::json($count);
