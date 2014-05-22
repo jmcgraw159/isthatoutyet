@@ -26,19 +26,19 @@ class NotificationQueue{
 
 			if($game->selected_date === '0') {
 
-				$selected = 'on the day';
+				$selected = 'Is out today!';
 
 			}elseif($game->selected_date === '1') {
 
-				$selected = '1 day before';
+				$selected = 'Will be out tomorrow!';
 
 			}elseif($game->selected_date === '2'){
 
-				$selected = '2 days before';
+				$selected = 'Will be out in 2 days!';
 
 			}else  {
 
-				$selected = '3 days before';
+				$selected = 'Will be out in 3 days!';
 			}
 
 			// If the email has been confirmed
