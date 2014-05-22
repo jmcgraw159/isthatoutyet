@@ -860,7 +860,7 @@ body.outlook p {
                         <table class="twelve columns">
                           <tr>
                             <td>
-                              <a href="http://localhost:9000/#/"><h1>Is That Out Yet?</h1></a>
+                              <a href="http://isthatoutyet.com"><h1>Is That Out Yet?</h1></a>
                             </td>
                             <td class="expander"></td>
 
@@ -889,7 +889,7 @@ body.outlook p {
                         <tr>
                           <td>
                             <h2>Almost there...</h2>
-                            <img src="~/public/images/icon-06.png" />
+                            <img src="../../../public/images/icon-06.png" />
                             <p class="lead">We need to verify your email address before we can start sending you notifications.</p>
                             <a id="button" href="http://isthatoutyet.com/#/subscribe?email={{$email}}&id={{$id}}">Verify Email</a id="button">
                           </td>
