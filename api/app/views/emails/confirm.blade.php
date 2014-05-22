@@ -805,9 +805,10 @@ body.outlook p {
       margin-bottom: 10px;
     }
 
-    svg  {
-      display: block;
+    img  {
+      display: block !important;
       margin: 10px auto;
+      float: none;
     }
 
     p.lead {
