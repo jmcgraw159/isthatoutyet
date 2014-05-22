@@ -56,6 +56,8 @@ class UserController extends BaseController {
 
 			$userId = $getUser[0]->id;
 
+			$url = urldecode($game_cover);
+
 			$insertGames = UsersGames::insert(array(
 				'user_id' => $userId,
 				'title' => $title,
