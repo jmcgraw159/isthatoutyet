@@ -17,6 +17,7 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
       // Set rootScope variables so data can be used in another controller
       $rootScope.name = $scope.game.name;
       $rootScope.gameID = $scope.game.id;
+      $rootScope.gameCover = $scope.game.image.small_url;
 
       // Condition to check what date format should be shown
       if($scope.game.release_day === null && $scope.game.release_month !== null && $scope.game.release_year !== null){
@@ -68,7 +69,7 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
 App.controller('EmailCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
 
   function addUser(email, callback) {
-    $http.get('http://isthatoutyet.com/get-users/' + email + '/' + $rootScope.name + '/' + $rootScope.month + '/' + $rootScope.day + '/' + $rootScope.year + '/' + $rootScope.gameID + '/' + $scope.email.selectedDate)
+    $http.get('http://isthatoutyet.com/get-users/' + email + '/' + $rootScope.name + '/' + $rootScope.month + '/' + $rootScope.day + '/' + $rootScope.year + '/' + $rootScope.gameID + '/' + $scope.email.selectedDate + '/' + $rootScope.gameCover;)
     .success(function(data){
 
       if(typeof callback === 'function') {
