@@ -22,7 +22,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
         if(item.image) {
           // console.log(item.image.small_url);
         }else  {
-          console.log(item.image.small_url);
+          console.log(item.image);
         }
       });
 
