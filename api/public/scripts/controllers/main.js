@@ -23,7 +23,6 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
           // console.log(item.image.small_url);
         }else  {
           console.log(item.image);
-          $scope.imageTest = 'test';
         }
       });
 
