@@ -55,6 +55,17 @@ class UserController extends BaseController {
 			$userId = $getUser[0]->id;
 			$confirmed = $getUser[0]->confirmed;
 
+			if($getUser[0]->confirmed === '3') {
+				$data = array('email' => $email, 'id' => $userId);
+
+				Mail::send('emails.confirm', $data, function($message) use($data)
+				{
+				    $message
+				    ->to($data['email'])
+				    ->subject('Confirm Email');
+				});
+			}
+
 			$insertGames = UsersGames::insert(array(
 				'user_id' => $userId,
 				'title' => $title,
