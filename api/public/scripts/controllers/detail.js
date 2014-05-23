@@ -114,7 +114,7 @@ App.controller('EmailCtrl', ['$scope', '$rootScope', '$http', function ($scope, 
 
         if(data === '0') {
           // Push alert to array to display
-          $scope.alerts.push({type: 'success', msg: "Success! We will send you an email to confirm your email address."});
+          $scope.alerts.push({type: 'success', msg: "Success! You will need to confirm your email address before we can send you a notification!"});
         }else {
           // Push alert to array to display
           $scope.alerts.push({type: 'success', msg: "Success! We will notify you on the selected date."});
