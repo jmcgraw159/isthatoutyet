@@ -812,8 +812,10 @@ body.outlook p {
     }
 
     p.lead {
-      font-size: 14px;
+      font-size: 16px;
       padding: 0 5px;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     #button {
@@ -889,8 +891,8 @@ body.outlook p {
                       <table class="twelve columns">
                         <tr>
                           <td>
-                            <h2>Almost there...</h2>
                             <img src="http://jeremymcgraw.com/img/icon-06.png" />
+                            <h2>Almost there...</h2>
                             <p class="lead">We need to verify your email address before we can start sending you notifications.</p>
                             <a id="button" href="http://isthatoutyet.com/#/subscribe?email={{$email}}&id={{$id}}">Verify Email</a id="button">
                           </td>
