@@ -108,7 +108,7 @@ class UserController extends BaseController {
 
 			$updateUser = $getUser->first();
 
-			$updateUser->confirmed = '0';
+			$updateUser->confirmed = '3';
 			$updateUser->save();
 
 			return Response::json($getUser);
