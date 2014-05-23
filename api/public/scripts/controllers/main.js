@@ -20,9 +20,9 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
       // Check to see if there if the image is glitching
       angular.forEach(data.results, function(item){
         if(item.image) {
-          console.log(item.image.small_url);
+          // console.log(item.image.small_url);
         }else  {
-          console.log('No Image');
+          console.log(item.image.small_url);
         }
       });
 
