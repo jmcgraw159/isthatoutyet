@@ -883,8 +883,8 @@ body.outlook p {
                       <table class="twelve columns">
                         <tr>
                           <td>
-                            <h2>{{$title}}</h2>
                             <img src="http://jeremymcgraw.com/img/icon-07.png" />
+                            <h2>{{$title}}</h2>
                             <h3>{{$selected}}</h3>
                             <p class="lead">You've requested us to notify you about the game above!</p>
                             <p class="lead">Happy gaming!</br>
