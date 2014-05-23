@@ -23,6 +23,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
           // console.log(item.image.small_url);
         }else  {
           console.log('No Image');
+          item.image.small_url = 'images/image_error.jpg';
         }
       });
 
