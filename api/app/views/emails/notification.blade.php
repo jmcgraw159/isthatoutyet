@@ -818,8 +818,9 @@ body.outlook p {
     }
 
     p.lead {
-      font-size: 14px;
+      font-size: 16px;
       padding: 0 5px;
+      text-align: center;
     }
 
     .gn-options {
@@ -887,8 +888,7 @@ body.outlook p {
                             <h2>{{$title}}</h2>
                             <h3>{{$selected}}</h3>
                             <p class="lead">You've requested us to notify you about the game above!</p>
-                            <p class="lead">Happy gaming!</br>
-                              - Is That Out Yet?</p>
+                            <p class="lead">Happy gaming!</p>
                           </td>
                           <td class="expander"></td>
                         </tr>

@@ -24,6 +24,7 @@ class UserController extends BaseController {
 								->get();
 
 			$userId = $getUser[0]->id;
+			$confirmed = $getUser[0]->confirmed;
 
 			$insertGames = UsersGames::insert(array(
 				'user_id' => $userId,
@@ -44,7 +45,7 @@ class UserController extends BaseController {
 			});
 
 			header('Access-Control-Allow-Origin: *');
-			return Response::json($count);
+			return Response::json($confirmed);
 
 		}else {
 
@@ -52,6 +53,7 @@ class UserController extends BaseController {
 								->get();
 
 			$userId = $getUser[0]->id;
+			$confirmed = $getUser[0]->confirmed;
 
 			$insertGames = UsersGames::insert(array(
 				'user_id' => $userId,
@@ -63,7 +65,7 @@ class UserController extends BaseController {
 				'selected_date' => $selected_date));
 
 			header('Access-Control-Allow-Origin: *');
-			return Response::json($count);
+			return Response::json($confirmed);
 		}
 	}
 
