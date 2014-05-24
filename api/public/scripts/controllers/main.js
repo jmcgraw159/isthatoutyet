@@ -43,29 +43,3 @@ App.directive('fallbackSrc', function () {
    }
    return fallbackSrc;
  });
-
-App.directive('owlCarousel', function() {
-  return {
-    restrict: 'E',
-    link: function($scope, $element, $attr) {
-      $scope.$on('repeat_done', function() {
-        $element.owlCarousel( {
-            items: 2
-          }
-        );
-      });
-    }
-  };
-});
-
-
-App.directive('onRepeatDone', function() {
-  return {
-    restrict: 'A',
-    link: function($scope, $el, $attr) {
-      if ($scope.$last) {
-        $scope.$emit("repeat_done", $el);
-      }
-    }
-  };
-});
