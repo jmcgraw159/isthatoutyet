@@ -3,8 +3,7 @@
 var App = angular.module('isThatOutYetApp', [
   'ngRoute',
   'ui.bootstrap',
-  'ngCookies',
-  'angular-flexslider'
+  'ngCookies'
 ]);
 
 App.config(function ($routeProvider) {
