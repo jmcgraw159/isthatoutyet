@@ -49,7 +49,10 @@ App.directive('owlCarousel', function() {
     restrict: 'E',
     link: function($scope, $element, $attr) {
       $scope.$on('repeat_done', function() {
-        $element.owlCarousel();
+        $element.owlCarousel( {
+            items: 2
+          }
+        );
       });
     }
   };
