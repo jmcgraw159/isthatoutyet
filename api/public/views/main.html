@@ -17,7 +17,7 @@
             <ul owl-carousel>
               <div ng-repeat="item in upcoming.results">
                 <li>
-                  <img class="game-cover" fallback-src="images/image_error.jpg" ng-show="item.image.small_url" ng-src="{{item.image.small_url}}" tooltip-placement="bottom" tooltip="{{item.name}}">
+                  <img class="game-cover" fallback-src="images/image_error.jpg" ng-show="item.image.small_url" ng-src="{{item.image.small_url}}" tooltip-placement="bottom" tooltip="{{item.name}}" on-repeat-done>
                   <img class="game-cover" ng-show="!item.image.small_url" src="images/image_error.jpg" tooltip-placement="bottom" tooltip="{{item.name}}">
                 </li>
               </div>
