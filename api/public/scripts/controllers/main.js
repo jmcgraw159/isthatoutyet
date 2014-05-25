@@ -29,30 +29,30 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
         }
       });
 
+      console.log($scope.slides);
+
+      $scope.$watch('slides', function(values) {
+
+        var i, a = [], b;
+
+        for (i = 0; i < 5; i += 2) {
+          b = { image1: $scope.slides[i] };
+
+          if ($scope.slides[i + 1]) {
+            b.image2 = $scope.slides[i + 1];
+          }
+
+          a.push(b);
+        }
+
+        $scope.groupedSlides = a;
+
+      }, true);
+
     })
     .error(function(data) {
       console.log(data);
     });
-
-    console.log($scope.slides);
-
-    $scope.$watch('slides', function(values) {
-
-      var i, a = [], b;
-
-      for (i = 0; i < 5; i += 2) {
-        b = { image1: $scope.slides[i] };
-
-        if ($scope.slides[i + 1]) {
-          b.image2 = $scope.slides[i + 1];
-        }
-
-        a.push(b);
-      }
-
-      $scope.groupedSlides = a;
-
-    }, true);
 
 });
 
