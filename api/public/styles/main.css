@@ -481,6 +481,10 @@ footer small  {
     margin-left: 90px;
   }
 
+  #upcoming .carousel-control .icon-next:before {
+    margin-left: 10px;
+  }
+
   #features img  {
     display: block;
     margin: 0 auto;
