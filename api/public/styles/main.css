@@ -120,7 +120,6 @@ body  {
   width: 920px;
   height: 200px;
   margin: 150px auto 0;
-/*  overflow: hidden;*/
   border-radius: 5px 5px 0 0;
   position: relative;
 }
@@ -130,33 +129,6 @@ body  {
   font-size: 24px;
   padding-top: 5px;
 }
-
-/*#arrow-left, #arrow-right  {
-  position: absolute;
-  top: 80px;
-  cursor: pointer;
-}
-
-#arrow-left  {
-  left: 30px;
-}
-
-#arrow-right  {
-  right: 30px;
-}
-
-#upcoming ul  {
-  list-style: none;
-}
-
-#upcoming ul li  {
-  float: left;
-  margin-left: 10px;
-}
-
-#upcoming ul li:nth-child(1)  {
-  margin-left: 40px;
-}*/
 
 #upcoming div.ng-scope {
   display: block;
@@ -181,11 +153,6 @@ body  {
 .carousel-control.left, .carousel-control.right {
   background-image: none;
 }
-
-
-/*#upcoming img  {
-  margin: auto 10px 30px;
-}*/
 
 #features  {
   margin: 30px auto;
@@ -252,19 +219,19 @@ body  {
   font-weight: normal;
   speak: none;
   color: #e17f49;
-  float: left;
-  padding-right: 20px;
+  /*float: left;*/
+  /*padding-right: 20px;*/
   display: inline-block;
   text-decoration: inherit;
-  width: 1em;
-  font-size: 16px;
-  margin-right: .2em;
-  text-align: center;
+  /*width: 1em;*/
+  font-size: 100px;
+  /*margin-right: .2em;*/
+  /*text-align: center;*/
   font-variant: normal;
   text-transform: none;
-  line-height: 1em;
-  margin-left: .2em;
-  margin-top: 5px;
+  /*line-height: 1em;*/
+  /*margin-left: .2em;*/
+  margin-top: -50px;
 }
 
 .icon-info-circled:before {
