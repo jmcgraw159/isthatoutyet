@@ -130,7 +130,7 @@ body  {
   font-size: 24px;
 }
 
-#arrow-left, #arrow-right  {
+/*#arrow-left, #arrow-right  {
   position: absolute;
   top: 80px;
   cursor: pointer;
@@ -149,11 +149,11 @@ body  {
 }
 
 #upcoming ul li  {
-  float: left !important;
+  float: left;
   margin-left: 10px;
 }
 
-/*#upcoming ul li:nth-child(1)  {
+#upcoming ul li:nth-child(1)  {
   margin-left: 40px;
 }*/
 
@@ -162,9 +162,9 @@ body  {
   height: 100px;
 }
 
-#upcoming img  {
-  margin: auto;
-}
+/*#upcoming img  {
+  margin: auto 10px 30px;
+}*/
 
 #features  {
   margin: 30px auto;
