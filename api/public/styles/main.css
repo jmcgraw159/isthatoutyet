@@ -153,6 +153,9 @@ body  {
   background-color: #e17f49;
 }
 
+.carousel-indicators li  {
+   border-color: #e17f49;
+}
 
 .game-cover  {
   width: 100px;
