@@ -157,6 +157,12 @@ body  {
   margin-left: 40px;
 }*/
 
+#upcoming div.ng-scope {
+  display: block;
+  width: 100px;
+}
+
+
 .game-cover  {
   width: 100px;
   height: 100px;
