@@ -16,7 +16,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
   $http.get('http://isthatoutyet.com/get-recent/' + encodedDate)
     .success(function(data){
       $scope.upcoming = data;
-      $scope.slides = daya.results.image;
+      $scope.slides = data.results.image;
 
       console.log($scope.sllides);
 
