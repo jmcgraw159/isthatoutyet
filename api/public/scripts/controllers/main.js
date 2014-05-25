@@ -29,8 +29,6 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
         }
       });
 
-      console.log($scope.slides);
-
       $scope.$watch('slides', function(values) {
 
         var i, a = [], b;
@@ -46,6 +44,8 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
         }
 
         $scope.groupedSlides = a;
+
+        console.log($scope.groupedSlides);
 
       }, true);
 
