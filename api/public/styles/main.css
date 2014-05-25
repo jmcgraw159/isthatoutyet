@@ -161,11 +161,11 @@ body  {
   display: block;
   width: 100px;
   float: left;
-  margin-left: 20px;
+  margin-left: 100px;
 }
 
-#upcoming ol.carousel.indicators {
-  clear: both;
+.carousel-indicators {
+  bottom: -40px !important;
 }
 
 .game-cover  {
