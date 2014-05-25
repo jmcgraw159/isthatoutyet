@@ -22,7 +22,10 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
       angular.forEach(data.results, function(item){
         if(item.image) {
           // console.log(item.image.small_url);
-          $scope.slides.push(item.image.small_url);
+          $scope.slides.push( {
+            image: item.image.small_url,
+            name, item.name
+          });
         }else  {
           console.log('No Image');
         }
