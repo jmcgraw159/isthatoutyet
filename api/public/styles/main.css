@@ -134,11 +134,11 @@ body  {
   display: block;
   width: 100px;
   float: left;
-  margin: auto 20px;
+  margin: auto 15px;
 }
 
 #upcoming div.ng-scope:first-child {
-  margin-left: 125px;
+  margin-left: 130px;
 }
 
 .carousel-indicators {
