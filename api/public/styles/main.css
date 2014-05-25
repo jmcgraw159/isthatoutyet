@@ -161,13 +161,17 @@ body  {
   display: block;
   width: 100px;
   float: left;
+  margin-left: 20px;
 }
 
+#upcoming ol.carousel.indicators {
+  clear: both;
+}
 
 .game-cover  {
   width: 100px;
   height: 100px;
-  margin: auto;
+  margin-right: 10px;
 }
 
 /*#upcoming img  {
