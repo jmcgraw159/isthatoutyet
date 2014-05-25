@@ -160,6 +160,7 @@ body  {
 #upcoming div.ng-scope {
   display: block;
   width: 100px;
+  float: left;
 }
 
 
