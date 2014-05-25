@@ -149,7 +149,7 @@ body  {
   background-image: none;
 }
 
-.carousel-indicators.active {
+.carousel-indicators .active {
   background-color: #e17f49;
 }
 
