@@ -473,15 +473,12 @@ footer small  {
     top: 85px;
   }
 
-/*  #upcoming div.ng-scope {
-    display: block;
-    width: 100px;
-    float: left;
-    margin: auto 15px;
-  }*/
+  #upcoming div.ng-scope {
+    margin: auto 10px;
+  }
 
   #upcoming div.ng-scope:first-child {
-    margin-left: 100px;
+    margin-left: 80px;
   }
 
   #features img  {
