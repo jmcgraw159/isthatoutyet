@@ -126,8 +126,9 @@ body  {
 }
 
 #upcoming h2  {
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 24px;
+  padding-top: 5px;
 }
 
 /*#arrow-left, #arrow-right  {
@@ -169,7 +170,7 @@ body  {
 }
 
 .carousel-indicators {
-  bottom: -45px !important;
+  bottom: -40px !important;
 }
 
 .game-cover  {
