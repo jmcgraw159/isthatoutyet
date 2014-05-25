@@ -17,6 +17,24 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
     .success(function(data){
       $scope.upcoming = data;
 
+        $scope.$watch('upcoming', function(values) {
+
+          var i, a = [], b;
+
+          for (i = 0; i < $scope.slides.length; i += 2) {
+            b = { image1: $scope.slides[i] };
+
+            if ($scope.slides[i + 1]) {
+              b.image2 = $scope.slides[i + 1];
+            }
+
+            a.push(b);
+          }
+
+          $scope.groupedSlides = a;
+
+        }, true);
+
       // Check to see if there if the image is glitching
       angular.forEach(data.results, function(item){
         if(item.image) {

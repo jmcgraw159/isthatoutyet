@@ -12,18 +12,22 @@
       <div class="col-md-12">
         <div id="upcoming">
           <h2>Recent Releases</h2>
-          <img id="arrow-left" src="images/arrow-left.png">
+          <!-- <img id="arrow-left" src="images/arrow-left.png"> -->
           <div id="upcoming-titles">
             <ul carousel>
-              <slide ng-repeat="item in upcoming.results" active="slide.active">
+              <slide ng-repeat="slideCollection in groupedSlides" active="slide.active">
                 <li>
-                  <img class="game-cover" fallback-src="images/image_error.jpg" ng-show="item.image.small_url" ng-src="{{item.image.small_url}}" tooltip-placement="bottom" tooltip="{{item.name}}">
+                  <img class="game-cover" fallback-src="images/image_error.jpg" ng-show="item.image.small_url" ng-src="{{slideCollection.image1.image}}" tooltip-placement="bottom" tooltip="{{item.name}}">
+                  <img class="game-cover" ng-show="!item.image.small_url" src="images/image_error.jpg" tooltip-placement="bottom" tooltip="{{item.name}}">
+                </li>
+                <li>
+                  <img class="game-cover" fallback-src="images/image_error.jpg" ng-show="item.image.small_url" ng-src="{{slideCollection.image2.image}}" tooltip-placement="bottom" tooltip="{{item.name}}">
                   <img class="game-cover" ng-show="!item.image.small_url" src="images/image_error.jpg" tooltip-placement="bottom" tooltip="{{item.name}}">
                 </li>
               </slide>
             </ul>
           </div>
-          <img id="arrow-right" src="images/arrow-right.png">
+          <!-- <img id="arrow-right" src="images/arrow-right.png"> -->
         </div>
       </div>
     </div>
