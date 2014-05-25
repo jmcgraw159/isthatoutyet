@@ -28,6 +28,10 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
           });
         }else  {
           console.log('No Image');
+          $scope.slides.push({
+            image: '../../images/image_error.jpg',
+            name: item.name
+          });
         }
       });
 
