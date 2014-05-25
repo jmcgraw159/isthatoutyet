@@ -16,16 +16,19 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
   $http.get('http://isthatoutyet.com/get-recent/' + encodedDate)
     .success(function(data){
       $scope.upcoming = data;
+      $scope.slides = daya.results.image;
 
-        $scope.$watch('upcoming', function(values) {
+      console.log($scope.sllides);
+
+        $scope.$watch('slides', function(values) {
 
           var i, a = [], b;
 
-          for (i = 0; i < $scope.upcoming.length; i += 2) {
-            b = { image1: $scope.upcoming[i] };
+          for (i = 0; i < $scope.slides.length; i += 2) {
+            b = { image1: $scope.slides[i] };
 
-            if ($scope.upcoming[i + 1]) {
-              b.image2 = $scope.upcoming[i + 1];
+            if ($scope.slides[i + 1]) {
+              b.image2 = $scope.slides[i + 1];
             }
 
             a.push(b);
