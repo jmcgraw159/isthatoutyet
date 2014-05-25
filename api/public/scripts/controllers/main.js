@@ -24,8 +24,19 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
           // console.log(item.image.small_url);
           $scope.slides.push(item.image.small_url);
           console.log($scope.slides);
+        }else  {
+          console.log('No Image');
+        }
+      });
 
-              $scope.$watch('slides', function(values) {
+    })
+    .error(function(data) {
+      console.log(data);
+    });
+
+    console.log($scope.slides);
+
+    $scope.$watch('slides', function(values) {
 
       var i, a = [], b;
 
@@ -42,18 +53,6 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
       $scope.groupedSlides = a;
 
     }, true);
-
-        }else  {
-          console.log('No Image');
-        }
-      });
-
-    })
-    .error(function(data) {
-      console.log(data);
-    });
-
-    console.log($scope.slides);
 
 });
 
