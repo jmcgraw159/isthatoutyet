@@ -15,7 +15,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
   // API call to get the images for the latest releases
   $http.get('http://isthatoutyet.com/get-recent/' + encodedDate)
     .success(function(data){
-      $scope.upcoming = data;
+      // $scope.upcoming = data;
       $scope.slides = [];
 
       // Check to see if there if the image is glitching
@@ -35,6 +35,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
         }
       });
 
+      // Used for formating the layout of the carousel
       $scope.$watch('slides', function(values) {
 
         var i, a = [], b;
