@@ -270,6 +270,9 @@ body  {
   margin: -58px auto 0;
 }
 
+#upcoming .carousel-control .icon-next:before {
+  margin-left: 5px;
+}
 
 .platforms  {
   list-style: none;
