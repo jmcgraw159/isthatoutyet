@@ -148,14 +148,18 @@ body  {
   list-style: none;
 }
 
+ul  {
+  list-style: none;
+}
+
 #upcoming ul li  {
   float: left;
   margin-left: 10px;
 }
 
-#upcoming ul li:nth-child(1)  {
+/*#upcoming ul li:nth-child(1)  {
   margin-left: 40px;
-}
+}*/
 
 .game-cover  {
   width: 100px;
