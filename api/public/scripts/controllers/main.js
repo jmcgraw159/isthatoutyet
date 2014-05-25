@@ -16,32 +16,13 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
   $http.get('http://isthatoutyet.com/get-recent/' + encodedDate)
     .success(function(data){
       $scope.upcoming = data;
-      $scope.slides = data.results.image;
-
-      console.log($scope.sllides);
-
-        $scope.$watch('slides', function(values) {
-
-          var i, a = [], b;
-
-          for (i = 0; i < $scope.slides.length; i += 2) {
-            b = { image1: $scope.slides[i] };
-
-            if ($scope.slides[i + 1]) {
-              b.image2 = $scope.slides[i + 1];
-            }
-
-            a.push(b);
-          }
-
-          $scope.groupedSlides = a;
-
-        }, true);
+      $scope.slides = [];
 
       // Check to see if there if the image is glitching
       angular.forEach(data.results, function(item){
         if(item.image) {
           // console.log(item.image.small_url);
+          $scope.slides.push(item.image.small_url);
         }else  {
           console.log('No Image');
         }
@@ -51,6 +32,27 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
     .error(function(data) {
       console.log(data);
     });
+
+    console.log($scope.sllides);
+
+    $scope.$watch('slides', function(values) {
+
+      var i, a = [], b;
+
+      for (i = 0; i < $scope.slides.length; i += 2) {
+        b = { image1: $scope.slides[i] };
+
+        if ($scope.slides[i + 1]) {
+          b.image2 = $scope.slides[i + 1];
+        }
+
+        a.push(b);
+      }
+
+      $scope.groupedSlides = a;
+
+    }, true);
+
 });
 
 // If image fails to load, use fallback image
