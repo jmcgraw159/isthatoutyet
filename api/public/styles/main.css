@@ -265,10 +265,9 @@ body  {
 
 .carousel-control .icon-prev:before, .carousel-control .icon-next:before  {
   font-size: 100px;
-  margin-top: -58px;
   width: auto;
   font-family: inherit;
-  margin: auto;
+  margin: -58px auto 0;
 }
 
 
