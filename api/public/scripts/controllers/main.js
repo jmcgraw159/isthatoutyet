@@ -42,6 +42,10 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
             b.image2 = $scope.slides[i + 1];
           }
 
+          if ($scope.slides[i + 2]) {
+            b.image3 = $scope.slides[i + 2];
+          }
+
           a.push(b);
         }
 
