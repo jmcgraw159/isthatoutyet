@@ -26,7 +26,7 @@ class GiantBombController extends BaseController {
 
 		$format = 'json';
 
-		$call = file_get_contents('http://www.giantbomb.com/api/search/?api_key=' . $key . '&format='. $format .'&resources=game&limit=10&query=' . $title);
+		$call = file_get_contents('http://www.giantbomb.com/api/search/?api_key=' . $key . '&format='. $format .'&resources=game&limit=10&field_list=image,name,deck,platforms,expected_release_month,expected_release_day,expected_release_year,original_release_date&query=' . $title);
 
 		$response = json_decode($call);
 
