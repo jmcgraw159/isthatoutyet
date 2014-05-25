@@ -40,7 +40,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
 
       var i, a = [], b;
 
-      for (i = 0; i < $scope.slides.length; i += 2) {
+      for (i = 0; i < 5; i += 2) {
         b = { image1: $scope.slides[i] };
 
         if ($scope.slides[i + 1]) {
