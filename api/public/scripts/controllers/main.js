@@ -59,8 +59,6 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
 
         $scope.groupedSlides = a;
 
-        console.log($scope.groupedSlides);
-
       }, true);
 
     })
