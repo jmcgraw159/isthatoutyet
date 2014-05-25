@@ -148,12 +148,8 @@ body  {
   list-style: none;
 }
 
-ul  {
-  list-style: none;
-}
-
 #upcoming ul li  {
-  float: left;
+  float: left !important;
   margin-left: 10px;
 }
 
