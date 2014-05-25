@@ -15,7 +15,6 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
   // API call to get the images for the latest releases
   $http.get('http://isthatoutyet.com/get-recent/' + encodedDate)
     .success(function(data){
-      // $scope.upcoming = data;
       $scope.slides = [];
 
       // Check to see if there if the image is glitching
