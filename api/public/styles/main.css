@@ -263,8 +263,9 @@ body  {
   bottom: 0;
 }
 
-.icon-prev, .icon-next  {
+.carousel-control .icon-prev:before, .carousel-control .icon-next:before  {
   font-size: 100px;
+  margin-top: -58px;
 }
 
 
