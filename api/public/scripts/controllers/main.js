@@ -21,11 +21,11 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
 
           var i, a = [], b;
 
-          for (i = 0; i < $scope.slides.length; i += 2) {
-            b = { image1: $scope.slides[i] };
+          for (i = 0; i < $scope.upcoming.length; i += 2) {
+            b = { image1: $scope.upcoming[i] };
 
-            if ($scope.slides[i + 1]) {
-              b.image2 = $scope.slides[i + 1];
+            if ($scope.upcoming[i + 1]) {
+              b.image2 = $scope.upcoming[i + 1];
             }
 
             a.push(b);
