@@ -23,6 +23,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
         if(item.image) {
           console.log(item.image.small_url);
           $scope.slides.push(item.image.small_url);
+          console.log($scope.slides);
         }else  {
           console.log('No Image');
         }
