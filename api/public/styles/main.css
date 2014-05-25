@@ -263,6 +263,11 @@ body  {
   bottom: 0;
 }
 
+.icon-prev, .icon-next  {
+  font-size: 100px;
+}
+
+
 .platforms  {
   list-style: none;
   text-align: center;
