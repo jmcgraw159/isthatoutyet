@@ -138,7 +138,7 @@ body  {
 }
 
 #upcoming div.ng-scope:first-child {
-  margin-left: 122px;
+  margin-left: 125px;
 }
 
 .carousel-indicators {
@@ -231,7 +231,7 @@ body  {
   text-transform: none;
   /*line-height: 1em;*/
   /*margin-left: .2em;*/
-  margin-top: -50px;
+  margin-top: -55px;
 }
 
 .icon-info-circled:before {
