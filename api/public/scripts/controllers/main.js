@@ -33,7 +33,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
       console.log(data);
     });
 
-    console.log($scope.sllides);
+    console.log($scope.slides);
 
     $scope.$watch('slides', function(values) {
 
