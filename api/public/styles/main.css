@@ -145,13 +145,18 @@ body  {
   bottom: -40px !important;
 }
 
+.carousel-control.left, .carousel-control.right {
+  background-image: none;
+}
+
+.carousel-indicators.active {
+  background-color: #e17f49;
+}
+
+
 .game-cover  {
   width: 100px;
   height: 100px;
-}
-
-.carousel-control.left, .carousel-control.right {
-  background-image: none;
 }
 
 #features  {
@@ -231,7 +236,7 @@ body  {
   text-transform: none;
   /*line-height: 1em;*/
   /*margin-left: .2em;*/
-  margin-top: -55px;
+  margin-top: -58px;
 }
 
 .icon-info-circled:before {
