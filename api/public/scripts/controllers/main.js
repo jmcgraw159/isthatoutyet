@@ -31,13 +31,11 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
         }
       });
 
-      console.log($scope.slides);
-
       $scope.$watch('slides', function(values) {
 
         var i, a = [], b;
 
-        for (i = 0; i < $scope.slides.length; i += 2) {
+        for (i = 0; i < $scope.slides.length; i += 5) {
           b = { image1: $scope.slides[i] };
 
           if ($scope.slides[i + 1]) {

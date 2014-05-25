@@ -10,7 +10,7 @@ class GiantBombController extends BaseController {
 
 		$format = 'json';
 
-		$call = file_get_contents('http://www.giantbomb.com/api/games/?api_key=' . $key . '&format=' . $format .'&limit=10&sort=original_release_date%3Adesc&filter=original_release_date:1700-01-01|' . $date);
+		$call = file_get_contents('http://www.giantbomb.com/api/games/?api_key=' . $key . '&format=' . $format .'&limit=20&sort=original_release_date%3Adesc&filter=original_release_date:1700-01-01|' . $date);
 
 		$response = json_decode($call);
 
