@@ -237,7 +237,7 @@ body  {
   text-align: center;
   font-variant: normal;
   text-transform: none;
-  ine-height: 1em;
+  line-height: 1em;
   margin-left: .2em;
 }
 
@@ -258,7 +258,7 @@ body  {
   color: #f0f0f0;
   font-size: 20px;
   position: absolute;
-  top: 6px;
+  top: 1px;
   left: 10px;
   bottom: 0;
 }
