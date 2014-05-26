@@ -84,7 +84,6 @@ body  {
 .searchResult  {
   font-size: 18px !important;
   text-shadow:  none !important;
-  cursor: pointer;
 }
 
 .dropdown-menu li:nth-child(even) {
@@ -97,6 +96,7 @@ body  {
 
 .dropdown-menu > li > a {
   line-height: 50px;
+  cursor: pointer;
 }
 
 .dropdown-menu img  {
