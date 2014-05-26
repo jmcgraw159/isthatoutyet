@@ -64,6 +64,10 @@ class UserController extends BaseController {
 				    ->to($data['email'])
 				    ->subject('Confirm Email');
 				});
+
+				$updateUser = $getUser->first();
+				$updateUser->confirmed = '4';
+				$updateUser->save();
 			}
 
 			$insertGames = UsersGames::insert(array(
