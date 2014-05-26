@@ -66,7 +66,7 @@ class UserController extends BaseController {
 				});
 
 				$updateUser = $getUser->first();
-				$updateUser->confirmed = '4';
+				$updateUser->confirmed = 4;
 				$updateUser->save();
 				$confirmed = '4';
 			}

@@ -112,10 +112,7 @@ App.controller('EmailCtrl', ['$scope', '$rootScope', '$http', function ($scope, 
 
         console.log(data);
 
-        if(data === '0') {
-          // Push alert to array to display
-          $scope.alerts.push({type: 'success', msg: "Success! We will send you an email to confirm your email address."});
-        }else if(data == '4'){
+        if(data === '0' || data === '4' || data == '4' || data === 4) {
           // Push alert to array to display
           $scope.alerts.push({type: 'success', msg: "Success! We will send you an email to confirm your email address."});
         }else {
