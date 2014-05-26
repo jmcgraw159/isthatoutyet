@@ -65,7 +65,7 @@ class UserController extends BaseController {
 				    ->subject('Confirm Email');
 				});
 
-				$updateUser = $getUser->first();
+				$updateUser = $getUser[0];
 				$confirmed = '4';
 				$updateUser->save();
 			}
