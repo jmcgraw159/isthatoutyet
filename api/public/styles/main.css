@@ -84,9 +84,6 @@ body  {
 .searchResult  {
   font-size: 18px !important;
   text-shadow:  none !important;
-}
-
-.searchResult span  {
   cursor: pointer;
 }
 
