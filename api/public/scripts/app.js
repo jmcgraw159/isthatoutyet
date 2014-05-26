@@ -38,6 +38,9 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
     return $http.get('http://isthatoutyet.com/get-games/' + val)
     .then(function(res) {
 
+      $scope.isLoading;
+      console.log($scope.isLoading);
+
       var game = [];
 
         angular.forEach(res.data.results, function(item){
