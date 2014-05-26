@@ -5,9 +5,8 @@
         <h1 class="visible-xs"><span>Is That Out Yet?</span></h1>
         <h1><span class="hideItem">Is</span><input type="text" name="search" ng-model="customSelected" typeahead="game as game.name for game in getGame($viewValue) | filter:$viewValue" typeahead-template-url="views/customTemplate.html" typeahead-loading="isLoading" typeahead-wait-ms="500" typeahead-on-select="onSelect($item)"><span class="hideItem">Out Yet?</span></h1>
         <div id="arrow-up" class="hidden-xs"></div>
-        <div id="tooltip" class="hidden-xs" ng-hide="!isLoading">Curious to see if a game is out? Search here!</div>
-<!--         <div id="tooltip" class="hidden-xs" ng-show="!isLoading">Searching...</div>
- -->      </div>
+        <div id="tooltip" class="hidden-xs">Curious to see if a game is out? Search here!</div>
+      </div>
     </div>
     <div class="row hidden-xs">
       <div class="col-md-12">
