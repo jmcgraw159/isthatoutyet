@@ -42,7 +42,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       console.log(res);
 
-      if(res.data.count === 1) {
+      if(res.data.count >== 1) {
         console.log('Database');
 
         angular.forEach(res.data, function(item){
