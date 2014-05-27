@@ -37,8 +37,10 @@ class GiantBombController extends BaseController {
 			return Response::json($response);
 		}else  {
 
-			$getGame = Games::where('title', '=', $title)
+			$getGame = Games::where('title', 'like', $title.'%')
 								->get();
+
+			echo $getGame;
 
 			$selectGame = $getGame->first();
 
@@ -46,7 +48,7 @@ class GiantBombController extends BaseController {
 			$gameId = $selectGame->game_id;
 			$gameImage = $selectGame->image;
 
-			return array('count' => $count, 'title' => $gameTitle, 'id' => $gameId, 'image' => $gameImage);
+			// return array('count' => $count, 'title' => $gameTitle, 'id' => $gameId, 'image' => $gameImage);
 		}
 
 	}
