@@ -22,7 +22,7 @@ class GiantBombController extends BaseController {
 	public function getGame($title)
 	{
 		//$count = Games::where('title', '=', $title)
-								->count();
+								//->count();
 
 		//if($count === 0) {
 			$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
