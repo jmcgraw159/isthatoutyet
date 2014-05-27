@@ -40,9 +40,9 @@ class GiantBombController extends BaseController {
 			$getGame = Games::where('title', '=', $title)
 								->get();
 
-			foreach ($getGame as $item) {
-				echo $item;
-			}
+			// foreach ($getGame as $item) {
+			// 	echo $item;
+			// }
 
 			// return array($count, $gameTitle, $gameId, $gameImage);
 		}
