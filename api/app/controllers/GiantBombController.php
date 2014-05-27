@@ -36,7 +36,10 @@ class GiantBombController extends BaseController {
 			header('Access-Control-Allow-Origin: *');
 			return Response::json($response);
 		}else  {
-			return $count;
+
+			$getGame = Games::where('title', '=', $title)
+								->get();
+			return Response::json($getGame);
 		}
 
 	}
