@@ -46,7 +46,7 @@ class GiantBombController extends BaseController {
 				array_push($games, $item);
 			}
 
-			echo $games;
+			echo $games[0];
 
 			// return array($count, $gameTitle, $gameId, $gameImage);
 		}
