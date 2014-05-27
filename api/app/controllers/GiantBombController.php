@@ -37,9 +37,8 @@ class GiantBombController extends BaseController {
 			return Response::json($response);
 		}else  {
 
-			$getGame = DB::select('select * from games where title like ?%', array($title));
-
-			echo $getGame;
+			$getGame = Games::where('title', '=', $title)
+								->get();
 
 			$selectGame = $getGame->first();
 
@@ -47,7 +46,7 @@ class GiantBombController extends BaseController {
 			$gameId = $selectGame->game_id;
 			$gameImage = $selectGame->image;
 
-			// return array('count' => $count, 'title' => $gameTitle, 'id' => $gameId, 'image' => $gameImage);
+			return array('count' => $count, 'title' => $gameTitle, 'id' => $gameId, 'image' => $gameImage);
 		}
 
 	}
