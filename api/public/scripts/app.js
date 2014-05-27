@@ -40,6 +40,14 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       console.log(res);
 
+      if(res.count === 1) {
+        console.log('Database');
+      }else {
+        console.log('API');
+      }
+
+
+
       var game = [];
 
         angular.forEach(res.data.results, function(item){
