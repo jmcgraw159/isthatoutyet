@@ -40,19 +40,19 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       console.log(res.data.count);
 
-      if(res.data.count === 1) {
-        console.log('Database');
-      }else {
-        console.log('API');
-      }
-
-
-
       var game = [];
 
+      if(res.data.count === 1) {
+        console.log('Database');
+        angular.forEach(res.data.results, function(item){
+          game.push({name: item.name, id: item.game_id, image: item.image});
+        });
+      }else {
+        console.log('API');
         angular.forEach(res.data.results, function(item){
           game.push({name: item.name, id: item.id, image: item.image});
         });
+      }
 
         return game;
     });
