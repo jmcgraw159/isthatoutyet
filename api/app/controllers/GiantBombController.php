@@ -46,7 +46,7 @@ class GiantBombController extends BaseController {
 			$gameId = $selectGame->game_id;
 			$gameImage = $selectGame->image;
 
-			return array('count' => $count, 'title' => $gameTitle, 'id' => $gameId, 'image' => $gameImage);
+			return array($count, $gameTitle, $gameId, $gameImage);
 		}
 
 	}

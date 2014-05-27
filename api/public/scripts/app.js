@@ -40,6 +40,8 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       var game = [];
 
+      console.log(res);
+
       if(res.data.count === 1) {
         console.log('Database');
 
