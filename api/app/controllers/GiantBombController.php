@@ -24,6 +24,8 @@ class GiantBombController extends BaseController {
 		$count = Games::where('title', 'like', $title)
 								->count();
 
+		$games = array();
+
 		if($count === 0) {
 			$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
 
@@ -41,8 +43,10 @@ class GiantBombController extends BaseController {
 								->get();
 
 			foreach ($getGame as $item) {
-				echo $item;
+				array_push($games, $item);
 			}
+
+			echo $games;
 
 			// return array($count, $gameTitle, $gameId, $gameImage);
 		}
