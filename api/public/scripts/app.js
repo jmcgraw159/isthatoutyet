@@ -38,31 +38,15 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
     return $http.get('http://isthatoutyet.com/get-games/' + val)
     .then(function(res) {
 
+      console.log(res);
+
       var game = [];
 
-      // console.log(res);
-
-      // if(res.data.count >= 1) {
-      //   console.log('Database');
-
-      //   angular.forEach(res.data, function(item){
-
-      //     console.log(item);
-
-      //     // game.push({name: item.title, id: item.id, image: item.image});
-      //   });
-
-      //   return game;
-
-      //}else {
-        //console.log('API');
-
         angular.forEach(res.data.results, function(item){
-          game.push({name: item.name, id: item.id, image: item.image});
+          game.push({name: item.name, id: item.id, image: item.image, release_day: item.expected_release_day, release_month: item.expected_release_month, release_year: item.expected_release_year, release_date: item.original_release_date, desc: item.deck, platforms: item.platforms});
         });
 
         return game;
-      //}
     });
   };
 
