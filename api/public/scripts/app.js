@@ -40,7 +40,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       console.log(res.data.count);
 
-      if(res.data.count === '1') {
+      if(res.data.count === 1) {
         console.log('Database');
       }else {
         console.log('API');
