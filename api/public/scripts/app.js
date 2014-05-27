@@ -44,7 +44,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       if(res.data.count === 1) {
         console.log('Database');
-        angular.forEach(res, function(item){
+        angular.forEach(res.data, function(item){
           console.log(item);
           // game.push({name: item.title, id: item.game_id, image: item.image});
         });
