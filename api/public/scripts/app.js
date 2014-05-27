@@ -38,14 +38,12 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
     return $http.get('http://isthatoutyet.com/get-games/' + val)
     .then(function(res) {
 
-      console.log(res.data.count);
-
       var game = [];
 
       if(res.data.count === 1) {
         console.log('Database');
         angular.forEach(res.data, function(item){
-          console.log(item);
+          console.log(item.title);
           // game.push({name: item.title, id: item.game_id, image: item.image});
         });
       }else {
