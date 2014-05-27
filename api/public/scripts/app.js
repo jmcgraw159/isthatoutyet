@@ -44,7 +44,9 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
         console.log('Database');
         angular.forEach(res, function(item){
           console.log(item.title);
-          game.push({name: item.title, id: item.game_id, image: item.image});
+          console.log(item.id);
+          console.log(item.image);
+          // game.push({name: item.title, id: item.game_id, image: item.image});
         });
       }else {
         console.log('API');
