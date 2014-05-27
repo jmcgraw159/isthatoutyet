@@ -38,9 +38,9 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
     return $http.get('http://isthatoutyet.com/get-games/' + val)
     .then(function(res) {
 
-      console.log(res);
+      console.log(res.data.count);
 
-      if(res.count === '1') {
+      if(res.data.count === '1') {
         console.log('Database');
       }else {
         console.log('API');
