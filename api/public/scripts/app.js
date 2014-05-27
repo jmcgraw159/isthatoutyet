@@ -43,7 +43,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
       var game = [];
 
         angular.forEach(res.data.results, function(item){
-          game.push({name: item.name, id: item.id, image: item.image, release_day: item.expected_release_day, release_month: item.expected_release_month, release_year: item.expected_release_year, release_date: item.original_release_date, desc: item.deck, platforms: item.platforms});
+          game.push({name: item.name, id: item.id, image: item.image});
         });
 
         return game;
