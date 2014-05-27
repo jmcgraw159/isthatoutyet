@@ -46,7 +46,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
           console.log(item.title);
           console.log(item.id);
           console.log(item.image);
-          // game.push({name: item.title, id: item.game_id, image: item.image});
+          game.push({name: item.title, id: item.id, image: item.image});
         });
       }else {
         console.log('API');
