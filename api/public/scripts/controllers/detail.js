@@ -10,7 +10,7 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
         console.log(data);
 
         $scope.game = data.results;
-        $scope.thumnail = $scope.game.small_url;
+        $scope.thumbnail = $scope.game.small_url;
 
         // Condition to check if email signup should be shown
         if($scope.game.release_date === null) {
