@@ -35,7 +35,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
       }),
       function(error) {
         console.log(error);
-      });
+      };
 
       // Used for formating the layout of the carousel
       $scope.$watch('slides', function(values) {
