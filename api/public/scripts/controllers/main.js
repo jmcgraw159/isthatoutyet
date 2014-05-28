@@ -32,9 +32,9 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
             name: item.name
           });
         }
-      })
-      .error(function(data) {
-        console.log(data);
+      }),
+      function(error) {
+        console.log(error);
       });
 
       // Used for formating the layout of the carousel
