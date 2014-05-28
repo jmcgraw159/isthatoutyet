@@ -16,7 +16,7 @@
             <carousel>
               <slide ng-repeat="slideCollection in groupedSlides" active="slide.active">
                 <div>
-                  <a ng-href="/detail/{{slideCollection.image1.id}}"><img class="game-cover" fallback-src="images/image_error.jpg" ng-src="{{slideCollection.image1.image}}" tooltip-placement="top" title="{{slideCollection.image1.name}}"></a>
+                  <a ng-href="#/detail/{{slideCollection.image1.id}}"><img class="game-cover" fallback-src="images/image_error.jpg" ng-src="{{slideCollection.image1.image}}" tooltip-placement="top" title="{{slideCollection.image1.name}}"></a>
                 </div>
                 <div>
                   <img class="game-cover" fallback-src="images/image_error.jpg" ng-src="{{slideCollection.image2.image}}" tooltip-placement="bottom" title="{{slideCollection.image2.name}}">
