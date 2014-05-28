@@ -29,7 +29,7 @@ App.config(function ($routeProvider) {
 });
 
 // Controller used for the Angular-UI Typeahead function
-App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope', '$location', '$cookieStore', function ($scope, $http, $routeParams, $rootScope, $location, $cookieStore) {
+App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope', '$location', function ($scope, $http, $routeParams, $rootScope, $location) {
 
   $scope.selected = undefined;
 
