@@ -33,19 +33,15 @@ class GiantBombController extends BaseController {
 
 			$response = json_decode($call, true);
 
-			echo $response;
-
 			foreach ($response['results'] as $item) {
-				echo $item['name'];
+				$insertGame = Games::insert(array(
+					'game_id' => $item['id'],
+					'title' => $item['title'],
+					'image' => $item['image']['small_url']));
 			}
 
-			// $insertGame = Games::insert(array(
-			// 	'game_id' => $game_id,
-			// 	'title' => $game_title,
-			// 	'image' => $game_image));
-
-			// header('Access-Control-Allow-Origin: *');
-			// return Response::json($response);
+			header('Access-Control-Allow-Origin: *');
+			return Response::json($response);
 		}else  {
 
 			$getGame = Games::where('title', 'LIKE', '%' . $title . '%')
