@@ -34,7 +34,7 @@ class GiantBombController extends BaseController {
 			$response = json_decode($call);
 
 			foreach ($response as $item) {
-				echo $item->results;
+				echo $item
 			}
 
 			// $insertGame = Games::insert(array(
