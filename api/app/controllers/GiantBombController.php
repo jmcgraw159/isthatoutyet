@@ -51,7 +51,7 @@ class GiantBombController extends BaseController {
 
 		$format = 'json';
 
-		$call = file_get_contents('http://www.giantbomb.com/api/game/' . $id . '?api_key=' . $key . '&format='. $format . '&field_list=expected_release_day,expected_release_month,expected_release_year');
+		$call = file_get_contents('http://www.giantbomb.com/api/game/' . $id . '?api_key=' . $key . '&format='. $format . '&field_list=image,name,deck,platforms,id,expected_release_month,expected_release_day,expected_release_year,original_release_date');
 
 		$response = json_decode($call);
 
