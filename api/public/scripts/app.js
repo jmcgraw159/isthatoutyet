@@ -55,7 +55,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
           console.log(item.image.small_url);
 
-          if(!item.image.small_url) {
+          if(item.image) {
             $scope.imageFix = '../../images/image_error.jpg';
           }else  {
             $scope.imageFix = item.image.small_url;
