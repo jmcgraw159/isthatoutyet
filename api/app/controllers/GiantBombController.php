@@ -35,7 +35,13 @@ class GiantBombController extends BaseController {
 
 			foreach ($response['results'] as $item) {
 
-				echo $item['image']['small_url'];
+				if($item['image']['small_url'] === null) {
+					echo 'null';
+				}else {
+					echo $item['image']['small_url'];
+				}
+
+
 
 				// if($item['image']['small_url']) {
 				// 	$insertGame = Games::insert(array(
@@ -45,8 +51,8 @@ class GiantBombController extends BaseController {
 				// }
 			}
 
-			header('Access-Control-Allow-Origin: *');
-			return Response::json($response);
+			// header('Access-Control-Allow-Origin: *');
+			// return Response::json($response);
 		}else  {
 
 			$getGame = Games::where('title', 'LIKE', '%' . $title . '%')
