@@ -21,10 +21,10 @@ class GiantBombController extends BaseController {
 
 	public function getGame($title)
 	{
-		//$count = Games::where('title', '=', $title)
-								//->count();
+		$count = Games::where('title', '=', $title)
+								->count();
 
-		//if($count === 0) {
+		if($count === 0) {
 			$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
 
 			$format = 'json';
@@ -35,19 +35,21 @@ class GiantBombController extends BaseController {
 
 			header('Access-Control-Allow-Origin: *');
 			return Response::json($response);
-		//}else  {
+		}else  {
 
-		// 	$getGame = Games::where('title', '=', $title)
-		// 						->get();
+			$getGame = Games::where('title', '=', $title)
+								->get();
 
-		// 	$selectGame = $getGame->first();
+			return $getGame::all()->toArray();
 
-		// 	$gameTitle = $selectGame->title;
-		// 	$gameId = $selectGame->game_id;
-		// 	$gameImage = $selectGame->image;
+			// $selectGame = $getGame->first();
 
-		// 	return array('count' => $count, 'title' => $gameTitle, 'id' => $gameId, 'image' => $gameImage);
-		// }
+			// $gameTitle = $selectGame->title;
+			// $gameId = $selectGame->game_id;
+			// $gameImage = $selectGame->image;
+
+			// return array('count' => $count, 'title' => $gameTitle, 'id' => $gameId, 'image' => $gameImage);
+		}
 
 	}
 
