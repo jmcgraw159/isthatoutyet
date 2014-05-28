@@ -68,9 +68,6 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
 
       }, true);
 
-    })
-    .error(function(data) {
-      console.log(data);
     });
 
 });
