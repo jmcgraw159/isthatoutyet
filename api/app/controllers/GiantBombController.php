@@ -37,7 +37,7 @@ class GiantBombController extends BaseController {
 			return Response::json($response);
 		}else  {
 
-			$getGame = Games::select('title', 'LIKE', '%'.$title.'%')
+			$getGame = Games::where('title', 'LIKE', '%' . $title . '%')
 								->get();
 
 			return $getGame;
