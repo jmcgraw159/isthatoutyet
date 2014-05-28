@@ -53,6 +53,8 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
         angular.forEach(res.data.results, function(item){
 
+          console.log(item.image.small_url);
+
           if(!item.image.small_url) {
             $scope.imageFix = '../../images/image_error.jpg';
           }else  {
