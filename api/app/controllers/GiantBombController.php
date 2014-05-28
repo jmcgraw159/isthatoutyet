@@ -37,8 +37,7 @@ class GiantBombController extends BaseController {
 
 				$insertGame = Games::insert(array(
 					'game_id' => $item['id'],
-					'title' => $item['name'],
-					'image' => $item['image']['small_url']));
+					'title' => $item['name']));
 			}
 
 			header('Access-Control-Allow-Origin: *');
