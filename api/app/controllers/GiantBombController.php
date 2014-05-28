@@ -21,7 +21,7 @@ class GiantBombController extends BaseController {
 
 	public function getGame($title)
 	{
-		$count = Games::where('title', '=', $title)
+		$count = Games::where('title', 'LIKE', '%' . $title . '%')
 								->count();
 
 		echo $count;
