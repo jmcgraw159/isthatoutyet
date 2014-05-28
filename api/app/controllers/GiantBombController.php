@@ -19,7 +19,7 @@ class GiantBombController extends BaseController {
 
 	}
 
-	public function getGames($title)
+	public function getGame($title)
 	{
 		$count = Games::where('title', 'LIKE', '%' . $title . '%')
 								->count();
@@ -44,7 +44,7 @@ class GiantBombController extends BaseController {
 		}
 	}
 
-	public function getGame($id)
+	public function updateGame($id)
 	{
 
 		$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
