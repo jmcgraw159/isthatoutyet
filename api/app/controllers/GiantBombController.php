@@ -41,16 +41,7 @@ class GiantBombController extends BaseController {
 								->get();
 
 			return $getGame;
-
-			// $selectGame = $getGame->first();
-
-			// $gameTitle = $selectGame->title;
-			// $gameId = $selectGame->game_id;
-			// $gameImage = $selectGame->image;
-
-			// return array('count' => $count, 'title' => $gameTitle, 'id' => $gameId, 'image' => $gameImage);
 		}
-
 	}
 
 	public function updateGame($id)
