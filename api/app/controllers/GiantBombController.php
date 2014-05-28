@@ -35,7 +35,7 @@ class GiantBombController extends BaseController {
 
 			foreach ($response['results'] as $item) {
 
-				echo $item['image']['small_url']
+				echo $item['image']['small_url'];
 
 				// if($item['image']['small_url']) {
 				// 	$insertGame = Games::insert(array(
