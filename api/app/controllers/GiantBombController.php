@@ -40,8 +40,8 @@ class GiantBombController extends BaseController {
 					'image' => $item['image']['small_url']));
 			}
 
-			header('Access-Control-Allow-Origin: *');
-			return Response::json($response);
+			// header('Access-Control-Allow-Origin: *');
+			// return Response::json($response);
 		}else  {
 
 			$getGame = Games::where('title', 'LIKE', '%' . $title . '%')
