@@ -33,7 +33,7 @@ class GiantBombController extends BaseController {
 
 			$response = json_decode($call);
 
-			foreach ($response->results as $item) {
+			foreach ($response as $item) {
 				echo $item;
 			}
 
@@ -42,8 +42,8 @@ class GiantBombController extends BaseController {
 			// 	'title' => $game_title,
 			// 	'image' => $game_image));
 
-			header('Access-Control-Allow-Origin: *');
-			return Response::json($response);
+			// header('Access-Control-Allow-Origin: *');
+			// return Response::json($response);
 		}else  {
 
 			$getGame = Games::where('title', 'LIKE', '%' . $title . '%')
