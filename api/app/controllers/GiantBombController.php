@@ -40,7 +40,7 @@ class GiantBombController extends BaseController {
 			$getGame = DB::select(DB::raw('select * from games where title like :game'), array(
 				'game' => $title));
 
-			return $getGame;
+			return $getGame->toArray();
 
 			// $selectGame = $getGame->first();
 
