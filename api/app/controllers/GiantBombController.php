@@ -40,10 +40,10 @@ class GiantBombController extends BaseController {
 				}else {
 
 					echo 'Test';
-					// $insertGame = Games::insert(array(
-					// 'game_id' => $item['id'],
-					// 'title' => $item['name']),
-					// 'image' => $item['image']['small_url']);
+					$insertGame = Games::insert(array(
+					'game_id' => $item['id'],
+					'title' => $item['name']),
+					'image' => $item['image']['small_url']);
 				}
 			}
 
