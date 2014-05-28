@@ -33,7 +33,7 @@ class GiantBombController extends BaseController {
 
 			$response = json_decode($call);
 
-			echo $response;
+			echo $call;
 
 			// foreach ($call['results'] as $item) {
 			// 	echo $item;
