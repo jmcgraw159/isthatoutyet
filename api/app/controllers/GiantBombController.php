@@ -46,8 +46,8 @@ class GiantBombController extends BaseController {
 				}
 			}
 
-			// header('Access-Control-Allow-Origin: *');
-			// return Response::json($response);
+			header('Access-Control-Allow-Origin: *');
+			return Response::json($response);
 		}else  {
 
 			$getGame = Games::where('title', 'LIKE', '%' . $title . '%')
