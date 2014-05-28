@@ -163,12 +163,6 @@ body  {
   height: 100px;
 }
 
-.tooltip  {
-  top: 90px !important;
-  z-index: 99999999 !important;
-}
-
-
 #features  {
   margin: 30px auto;
 }
