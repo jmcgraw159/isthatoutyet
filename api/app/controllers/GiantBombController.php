@@ -24,20 +24,18 @@ class GiantBombController extends BaseController {
 		$count = Games::where('title', 'LIKE', '%' . $title . '%')
 								->count();
 
-		echo $count;
+		if($count === 0) {
+			$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
 
-		// if($count === 0) {
-		// 	$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
+			$format = 'json';
 
-		// 	$format = 'json';
+			$call = file_get_contents('http://www.giantbomb.com/api/search/?api_key=' . $key . '&format='. $format .'&resources=game&limit=10&field_list=image,name,deck,platforms,id,expected_release_month,expected_release_day,expected_release_year,original_release_date&query=' . $title);
 
-		// 	$call = file_get_contents('http://www.giantbomb.com/api/search/?api_key=' . $key . '&format='. $format .'&resources=game&limit=10&field_list=image,name,deck,platforms,id,expected_release_month,expected_release_day,expected_release_year,original_release_date&query=' . $title);
+			$response = json_decode($call);
 
-		// 	$response = json_decode($call);
-
-		// 	header('Access-Control-Allow-Origin: *');
-		// 	return Response::json($response);
-		// }else  {
+			header('Access-Control-Allow-Origin: *');
+			return Response::json($response);
+		}else  {
 
 			$getGame = Games::where('title', 'LIKE', '%' . $title . '%')
 								->get();
@@ -51,7 +49,7 @@ class GiantBombController extends BaseController {
 			// $gameImage = $selectGame->image;
 
 			// return array('count' => $count, 'title' => $gameTitle, 'id' => $gameId, 'image' => $gameImage);
-		// }
+		}
 
 	}
 
