@@ -10,6 +10,7 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
         console.log(data);
 
         $scope.game = data.results;
+        $scope.thumnail = $scope.game.small_url;
 
         // Condition to check if email signup should be shown
         if($scope.game.release_date === null) {
@@ -23,46 +24,46 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
         $rootScope.gameID = $scope.game.id;
 
         // Condition to check what date format should be shown
-        if($scope.game.release_day === null && $scope.game.release_month !== null && $scope.game.release_year !== null){
+        if($scope.game.expected_release_day === null && $scope.game.expected_release_month !== null && $scope.game.expected_release_year !== null){
 
-          $scope.date = $scope.game.release_month + '/' + $scope.game.release_year;
-
-          $rootScope.date = $scope.date;
-          $rootScope.month = $scope.game.release_month;
-          $rootScope.day = $scope.game.release_day;
-          $rootScope.year = $scope.game.release_year;
-
-        }else if($scope.game.release_day === null && $scope.game.release_month === null && $scope.game.release_year !== null) {
-
-          $scope.date = $scope.game.release_year;
+          $scope.date = $scope.game.expected_release_month + '/' + $scope.game.expected_release_year;
 
           $rootScope.date = $scope.date;
-          $rootScope.month = $scope.game.release_month;
-          $rootScope.day = $scope.game.release_day;
-          $rootScope.year = $scope.game.release_year;
+          $rootScope.month = $scope.game.expected_release_month;
+          $rootScope.day = $scope.game.expected_release_day;
+          $rootScope.year = $scope.game.expected_release_year;
 
-        }else if($scope.game.release_day !== null && $scope.game.release_month !== null && $scope.game.release_year !== null) {
+        }else if($scope.game.expected_release_day === null && $scope.game.expected_release_month === null && $scope.game.expected_release_year !== null) {
 
-          $scope.date = $scope.game.release_month + '/' + $scope.game.release_day + '/' + $scope.game.release_year;
+          $scope.date = $scope.game.expected_release_year;
 
           $rootScope.date = $scope.date;
-          $rootScope.month = $scope.game.release_month;
-          $rootScope.day = $scope.game.release_day;
-          $rootScope.year = $scope.game.release_year;
+          $rootScope.month = $scope.game.expected_release_month;
+          $rootScope.day = $scope.game.expected_release_day;
+          $rootScope.year = $scope.game.expected_release_year;
 
-        }else if($scope.game.release_day === null && $scope.game.release_month === null && $scope.game.release_year === null && $scope.game.release_date === null) {
+        }else if($scope.game.expected_release_day !== null && $scope.game.expected_release_month !== null && $scope.game.expected_release_year !== null) {
+
+          $scope.date = $scope.game.expected_release_month + '/' + $scope.game.expected_release_day + '/' + $scope.game.expected_release_year;
+
+          $rootScope.date = $scope.date;
+          $rootScope.month = $scope.game.expected_release_month;
+          $rootScope.day = $scope.game.expected_release_day;
+          $rootScope.year = $scope.game.expected_release_year;
+
+        }else if($scope.game.expected_release_day === null && $scope.game.expected_release_month === null && $scope.game.expected_release_year === null && $scope.game.original_release_date === null) {
 
           $scope.date = 'TBA';
 
           $rootScope.date = $scope.date;
-          $rootScope.month = $scope.game.release_month;
-          $rootScope.day = $scope.game.release_day;
-          $rootScope.year = $scope.game.release_year;
+          $rootScope.month = $scope.game.expected_release_month;
+          $rootScope.day = $scope.game.expected_release_day;
+          $rootScope.year = $scope.game.expected_release_year;
 
         }else {
 
           // Formating released date to the correct format
-          var releasedDate = $scope.game.release_date;
+          var releasedDate = $scope.game.original_release_date;
           var parsedDate = releasedDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
 
           $scope.date = parsedDate;
