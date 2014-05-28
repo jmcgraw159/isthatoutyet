@@ -40,6 +40,11 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       console.log(res.data);
 
+      if(!res.data.results) {
+        console.log('From database');
+      }
+
+
       var game = [];
 
         angular.forEach(res.data.results, function(item){
