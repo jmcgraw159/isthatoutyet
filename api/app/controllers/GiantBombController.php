@@ -37,8 +37,7 @@ class GiantBombController extends BaseController {
 			return Response::json($response);
 		}else  {
 
-			$getGame = DB::select(DB::raw('select * from games where title like "%:game%"'), array(
-				'game' => $title));
+			$getGame = Games::select('title', 'LIKE', '%'.$title.'%')
 
 			return $getGame;
 
