@@ -4,6 +4,13 @@ var App = angular.module('isThatOutYetApp');
 
 App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, $cookieStore) {
 
+      $http.get('http://isthatoutyet.com/get-game/' + $routeParams.id)
+      .success(function(data){
+
+        console.log(data);
+
+        });
+
       // Retrive stored cookie info
       $scope.game = $cookieStore.get('game');
 
