@@ -35,7 +35,7 @@ class GiantBombController extends BaseController {
 
 			foreach ($response['results'] as $item) {
 
-				if($item['image']['small_url'] === null) {
+				if($item['image']['small_url'] === null || $item['image']['small_url'] === undefined) {
 					echo 'null';
 				}else {
 					echo $item['image']['small_url'];
