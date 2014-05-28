@@ -21,8 +21,10 @@ class GiantBombController extends BaseController {
 
 	public function getGame($title)
 	{
-		// $count = Games::where('title', '=', $title)
-		// 						->count();
+		$count = Games::where('title', '=', $title)
+								->count();
+
+		echo $count;
 
 		// if($count === 0) {
 		// 	$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
@@ -37,14 +39,8 @@ class GiantBombController extends BaseController {
 		// 	return Response::json($response);
 		// }else  {
 
-			// $getGame = Games::where('title', 'LIKE', '%' . $title . '%')
-			// 					->get();
-
-			$query = "select * from games where title like ?";
-
-			$param = '%'.$title.'%';
-
-			$getGame = DB::select($query, array($param));
+			$getGame = Games::where('title', 'LIKE', '%' . $title . '%')
+								->get();
 
 			return $getGame;
 
