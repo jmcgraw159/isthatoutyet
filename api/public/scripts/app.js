@@ -35,7 +35,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
   $scope.getGame = function(val) {
     return $http.get('http://isthatoutyet.com/get-games/' + val)
-    .then(function(res) {
+    .success(function(res) {
 
       var game = [];
 
@@ -64,7 +64,10 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       }
         return game;
-    });
+    })
+    .error(function(data) {
+      console.log(data);
+    })
   };
 
   // When item is selected, redirect to detail page with game id and game info
