@@ -32,7 +32,7 @@ App.controller('MainCtrl', function ($scope, $http, $filter) {
             name: item.name
           });
         }
-      }),
+      })
       .reject(function(error) {
         console.log(error);
       });
