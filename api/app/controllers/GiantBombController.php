@@ -39,11 +39,10 @@ class GiantBombController extends BaseController {
 					// Do nothing
 				}else {
 
-					echo 'Test';
 					$insertGame = Games::insert(array(
 					'game_id' => $item['id'],
-					'title' => $item['name']),
-					'image' => $item['image']['small_url']);
+					'title' => $item['name'],
+					'image' => $item['image']['small_url']));
 				}
 			}
 
