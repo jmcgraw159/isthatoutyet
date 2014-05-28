@@ -165,7 +165,7 @@ body  {
 
 .tooltip  {
   top: 90px !important;
-  z-index: 9999;
+  z-index: 99999999 !important;
 }
 
 
