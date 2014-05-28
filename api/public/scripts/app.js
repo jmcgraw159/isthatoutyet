@@ -2,8 +2,7 @@
 
 var App = angular.module('isThatOutYetApp', [
   'ngRoute',
-  'ui.bootstrap',
-  'ngCookies'
+  'ui.bootstrap'
 ]);
 
 App.config(function ($routeProvider) {
@@ -64,9 +63,6 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
   // When item is selected, redirect to detail page with game id and game info
   $scope.onSelect = function ($item) {
     $routeParams.id = $item.id;
-
-    // Store game info into a cookie
-    $cookieStore.put('game', $item);
 
     $location.path('/detail/' + $routeParams.id);
   };

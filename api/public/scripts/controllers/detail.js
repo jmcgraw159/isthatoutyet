@@ -2,15 +2,12 @@
 
 var App = angular.module('isThatOutYetApp');
 
-App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, $cookieStore) {
+App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope) {
 
       $http.get('http://isthatoutyet.com/get-game/' + $routeParams.id)
       .success(function(data){
 
-        console.log(data);
-
         $scope.game = data.results;
-        // $scope.thumbnail = $scope.game.small_url;
         $rootScope.name = $scope.game.name;
         $rootScope.gameID = $scope.game.id;
 
@@ -72,11 +69,6 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
         }
 
         });
-
-      // Retrive stored cookie info
-      // $scope.game = $cookieStore.get('game');
-
-
 });
 
 App.controller('EmailCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
