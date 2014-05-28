@@ -13,7 +13,7 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope, 
         $scope.thumbnail = $scope.game.small_url;
 
         // Condition to check if email signup should be shown
-        if($scope.game.release_date === null) {
+        if($scope.game.original_release_date === null) {
           $scope.hideClass = 'show';
         }else {
           $scope.hideClass = 'hide';
