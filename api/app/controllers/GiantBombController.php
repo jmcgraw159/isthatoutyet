@@ -35,7 +35,7 @@ class GiantBombController extends BaseController {
 
 			echo $response;
 
-			foreach ($response as $item) {
+			foreach ($response['results'] as $item) {
 				echo $item;
 			}
 
