@@ -38,6 +38,7 @@ class GiantBombController extends BaseController {
 		}else  {
 
 			$getGame = Games::select('title', 'LIKE', '%'.$title.'%')
+								->get();
 
 			return $getGame;
 
