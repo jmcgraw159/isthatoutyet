@@ -163,6 +163,11 @@ body  {
   height: 100px;
 }
 
+.tooltip  {
+  top: 70px;
+}
+
+
 #features  {
   margin: 30px auto;
 }
