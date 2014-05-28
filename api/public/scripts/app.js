@@ -40,16 +40,25 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       console.log(res.data);
 
-      if(!res.data.results) {
-        console.log('From database');
-      }
-
-
       var game = [];
+
+      if(!res.data.results) {
+
+        console.log('Database');
+
+        angular.forEach(res.data, function(item){
+          game.push({name: item.title, id: item.game_id, image: item.image});
+        });
+
+      }else {
+
+        console.log('API')
 
         angular.forEach(res.data.results, function(item){
           game.push({name: item.name, id: item.id, image: item.image, release_day: item.expected_release_day, release_month: item.expected_release_month, release_year: item.expected_release_year, release_date: item.original_release_date, desc: item.deck, platforms: item.platforms});
         });
+
+      }
 
         return game;
     });
