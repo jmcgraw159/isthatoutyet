@@ -38,8 +38,6 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
     return $http.get('http://isthatoutyet.com/get-games/' + val)
     .then(function(res) {
 
-      console.log(res.data);
-
       var game = [];
 
       if(!res.data.results) {
@@ -60,6 +58,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       }
 
+        console.log(game);
         return game;
     });
   };
