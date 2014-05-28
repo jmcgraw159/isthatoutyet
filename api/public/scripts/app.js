@@ -57,8 +57,6 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
         });
 
       }
-
-        console.log(game);
         return game;
     });
   };
