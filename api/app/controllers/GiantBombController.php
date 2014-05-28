@@ -40,7 +40,7 @@ class GiantBombController extends BaseController {
 			$getGame = Games::where('title', '=', $title)
 								->get();
 
-			return $getGame::all()->toArray();
+			return $getGame->toArray();
 
 			// $selectGame = $getGame->first();
 
