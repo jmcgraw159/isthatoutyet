@@ -59,7 +59,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
             $scope.imageFix = item.image.small_url;
           }
 
-          game.push({name: item.name, id: item.id, image: imageFix, release_day: item.expected_release_day, release_month: item.expected_release_month, release_year: item.expected_release_year, release_date: item.original_release_date, desc: item.deck, platforms: item.platforms});
+          game.push({name: item.name, id: item.id, image: $scope.imageFix, release_day: item.expected_release_day, release_month: item.expected_release_month, release_year: item.expected_release_year, release_date: item.original_release_date, desc: item.deck, platforms: item.platforms});
         });
 
       }
