@@ -44,7 +44,7 @@ class GiantBombController extends BaseController {
 		}
 	}
 
-	public function updateGame($id)
+	public function getGame($id)
 	{
 
 		$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';

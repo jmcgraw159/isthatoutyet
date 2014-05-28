@@ -34,7 +34,7 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
   $scope.selected = undefined;
 
-  $scope.getGame = function(val) {
+  $scope.getGames = function(val) {
     return $http.get('http://isthatoutyet.com/get-games/' + val)
     .then(function(res) {
 
