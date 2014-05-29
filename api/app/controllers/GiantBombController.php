@@ -4,6 +4,7 @@ header('Access-Control-Allow-Origin: *');
 
 class GiantBombController extends BaseController {
 
+	// API Call to get the recent games for the slider
 	public function getRecent($date)
 	{
 		$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
@@ -19,11 +20,13 @@ class GiantBombController extends BaseController {
 
 	}
 
+	// API/database call to get the games for the search results
 	public function getGames($title)
 	{
 		$count = Games::where('title', 'LIKE', '%' . $title . '%')
 								->count();
 
+		// If game doesn't exist in database, use API
 		if($count === 0) {
 			$key = 'cdb456f4a15c4052a419f97b568218a2b50634c9';
 
@@ -48,8 +51,9 @@ class GiantBombController extends BaseController {
 
 			header('Access-Control-Allow-Origin: *');
 			return Response::json($response);
-		}else  {
 
+		}else  {
+			// If game does exist in database
 			$getGame = Games::where('title', 'LIKE', '%' . $title . '%')
 								->get();
 
@@ -57,6 +61,7 @@ class GiantBombController extends BaseController {
 		}
 	}
 
+	// API call to get a specific game for the detail page as well as to update the game in the database
 	public function getGame($id)
 	{
 

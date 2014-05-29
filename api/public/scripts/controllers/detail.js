@@ -4,10 +4,13 @@ var App = angular.module('isThatOutYetApp');
 
 App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope) {
 
+      // Make call to Laravel to get game detail info
       $http.get('http://isthatoutyet.com/get-game/' + $routeParams.id)
       .success(function(data){
 
         $scope.game = data.results;
+
+        // Set information to use in another controller
         $rootScope.name = $scope.game.name;
         $rootScope.gameID = $scope.game.id;
 
@@ -23,6 +26,9 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope) 
         $rootScope.gameID = $scope.game.id;
 
         // Condition to check what date format should be shown
+        // Day = null
+        // Month != null
+        // Year != null
         if($scope.game.expected_release_day === null && $scope.game.expected_release_month !== null && $scope.game.expected_release_year !== null){
 
           $scope.date = $scope.game.expected_release_month + '/' + $scope.game.expected_release_year;
@@ -32,6 +38,9 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope) 
           $rootScope.day = $scope.game.expected_release_day;
           $rootScope.year = $scope.game.expected_release_year;
 
+        // Day = null
+        // Month = null
+        // Year != null
         }else if($scope.game.expected_release_day === null && $scope.game.expected_release_month === null && $scope.game.expected_release_year !== null) {
 
           $scope.date = $scope.game.expected_release_year;
@@ -41,6 +50,9 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope) 
           $rootScope.day = $scope.game.expected_release_day;
           $rootScope.year = $scope.game.expected_release_year;
 
+        // Day != null
+        // Month != null
+        // Year != null
         }else if($scope.game.expected_release_day !== null && $scope.game.expected_release_month !== null && $scope.game.expected_release_year !== null) {
 
           $scope.date = $scope.game.expected_release_month + '/' + $scope.game.expected_release_day + '/' + $scope.game.expected_release_year;
@@ -50,6 +62,10 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope) 
           $rootScope.day = $scope.game.expected_release_day;
           $rootScope.year = $scope.game.expected_release_year;
 
+        // Day = null
+        // Month = null
+        // Year = null
+        // Release date = null
         }else if($scope.game.expected_release_day === null && $scope.game.expected_release_month === null && $scope.game.expected_release_year === null && $scope.game.original_release_date === null) {
 
           $scope.date = 'TBA';
@@ -59,6 +75,7 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope) 
           $rootScope.day = $scope.game.expected_release_day;
           $rootScope.year = $scope.game.expected_release_year;
 
+        // Release date != null
         }else {
 
           // Formating released date to the correct format
@@ -73,6 +90,7 @@ App.controller('DetailCtrl', function ($scope, $http, $routeParams, $rootScope) 
 
 App.controller('EmailCtrl', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
 
+  // Call to Laravel to check for email and add game information to database
   function addUser(email, callback) {
     $http.get('http://isthatoutyet.com/get-users/' + email + '/' + $rootScope.name + '/' + $rootScope.month + '/' + $rootScope.day + '/' + $rootScope.year + '/' + $rootScope.gameID + '/' + $scope.email.selectedDate)
     .success(function(data){

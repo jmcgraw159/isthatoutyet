@@ -5,6 +5,7 @@ var App = angular.module('isThatOutYetApp', [
   'ui.bootstrap'
 ]);
 
+// App routing
 App.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
@@ -33,12 +34,14 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
   $scope.selected = undefined;
 
+  // Get game from Laravel and return to display search results
   $scope.getGame = function(val) {
     return $http.get('http://isthatoutyet.com/get-games/' + val)
     .then(function(res) {
 
       var game = [];
 
+      // If this exists, info returned is from database
       if(!res.data.results) {
 
         console.log('Database');
@@ -49,17 +52,21 @@ App.controller('TypeaheadCtrl', ['$scope', '$http', '$routeParams', '$rootScope'
 
       }else {
 
+        // Else info came from API call
         console.log('API');
 
         angular.forEach(res.data.results, function(item){
 
+          // If image exists, display image
           if(item.image) {
              $scope.imageFix = item.image.small_url;
           }else  {
+            // Else display the image error
             $scope.imageFix = '../../images/image_error.jpg';
           }
 
           game.push({name: item.name, id: item.id, image: $scope.imageFix, release_day: item.expected_release_day, release_month: item.expected_release_month, release_year: item.expected_release_year, release_date: item.original_release_date, desc: item.deck, platforms: item.platforms});
+
         });
 
       }

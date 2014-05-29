@@ -12,8 +12,6 @@ class NotificationQueue{
 		$day = date('j');
 		$year = date('Y');
 
-		// echo $month . $day . $year;
-
 		// Select games that match the current date
 		$getContent = UsersGames::where('month', '=', $month)
 								->where(DB::raw('day - selected_date'), '=', $day)
@@ -24,6 +22,7 @@ class NotificationQueue{
 		// If date is = current date
 		foreach($getContent as $game) {
 
+			// Condition to update content based on day selected
 			if($game->selected_date === '0') {
 
 				$selected = 'Is out today!';

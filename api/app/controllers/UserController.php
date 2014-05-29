@@ -4,6 +4,7 @@ header('Access-Control-Allow-Origin: *');
 
 class UserController extends BaseController {
 
+	// Used to check to see if email exists
 	public function getUser($email, $title, $month, $day, $year, $game_id, $selected_date)
 	{
 
@@ -15,6 +16,7 @@ class UserController extends BaseController {
 		$count = Users::where('email', '=', $email)
 								->count();
 
+		// If email exists in database
 		if($count === 0) {
 
 			$insertUser = Users::insert(array(
@@ -49,12 +51,14 @@ class UserController extends BaseController {
 
 		}else {
 
+			// If the user doesn't exist in database
 			$getUser = Users::where('email', '=', $email)
 								->get();
 
 			$userId = $getUser[0]->id;
 			$confirmed = $getUser[0]->confirmed;
 
+			// If user enters their email again after unsubscribing
 			if($getUser[0]->confirmed === '3') {
 				$data = array('email' => $email, 'id' => $userId);
 
@@ -85,6 +89,7 @@ class UserController extends BaseController {
 		}
 	}
 
+	// Confirm the email in the database
 	public function confirmUser($email, $id) {
 
 		$count = Users::where('email', '=', $email)
@@ -110,6 +115,7 @@ class UserController extends BaseController {
 
 	}
 
+	// Unconfirm the email in the database
 	public function unconfirmUser($email, $id) {
 
 		$count = Users::where('email', '=', $email)

@@ -4,14 +4,13 @@ class UpdateQueue{
 
     public function fire($job, $data){
 
-    	// Select games
+    	// Get the games the users have selected
     	$getContent = UsersGames::select('*')
 								->get();
 
-		// echo $getContent;
-
 		foreach ($getContent as $game) {
 
+			// Call function from another controller
 			$request = Request::create('get-game/' . $game->game_id, 'GET', array());
 			$response = Route::dispatch($request);
 			$content = $response->getContent();
@@ -49,7 +48,6 @@ class UpdateQueue{
 			}else {
 
 				// Update game info
-
 				$updateGame = DB::table('users_games')
 										->where('title', $game->title)
 										->update(array(
