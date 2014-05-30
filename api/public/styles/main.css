@@ -211,7 +211,9 @@ body  {
   font-family: 'fontello';
   src: url('../fonts/fontello.eot?62162923');
   src: url('../fonts/fontello.eot?62162923#iefix') format('embedded-opentype'),
-       url('../fonts/fontello.svg?62162923#fontello') format('svg');
+         url('../fonts/fontello.woff?62162923') format('woff'),
+         url('../fonts/fontello.ttf?62162923') format('truetype'),
+         url('../fonts/fontello.svg?62162923#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
