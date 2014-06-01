@@ -437,12 +437,12 @@ footer small  {
 
 @media screen and (max-width: 992px) {
   #landing #arrow-up  {
-    top: 184px;
+    top: 177px;
     left: 18%;
   }
 
   #landing #tooltip  {
-    top: 190px;
+    top: 185px;
     left: 13%;
   }
 
@@ -465,11 +465,11 @@ footer small  {
   }
 
   #landing #arrow-up  {
-    top: 77px;
+    top: 70px;
   }
 
   #landing #tooltip  {
-    top: 85px;
+    top: 78px;
   }
 
   #upcoming div.ng-scope {
