@@ -1,5 +1,5 @@
-# Is That Out Yet? – Full Sail WDD Final Project
-[http://isthatoutyet.com](http://isthatoutyet.com "Is That Out Yet?")
+# Is That Out Yet? – WDD Final Project
+Project home: [http://isthatoutyet.com](http://isthatoutyet.com "Is That Out Yet?")
 ---
 
 ### Description:
